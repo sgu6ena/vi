@@ -1,0 +1,13 @@
+.header {
+  @apply absolute top-0 left-0 px-8  right-0 py-2  flex gap-16 items-center;
+  nav {
+    @apply flex w-full justify-between;
+    ul {
+      @apply flex text-white  gap-4;
+
+    }
+    .tel{
+      @apply flex gap-2 text-white;
+    }
+  }
+}
