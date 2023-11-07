@@ -1,10 +1,10 @@
 .banner {
-  @apply bg-red  pt-20 px-20 h-full w-full gap-10 flex h-full flex-col  justify-between;
+  @apply bg-red  pt-20 md:px-20 px-5 h-full w-full gap-10 flex h-full flex-col  justify-between;
   min-height: 100vh;
 
 
   h1 {
-    @apply text-9xl mt-10 text-gold lobster;
+    @apply md:text-9xl sm:text-7xl md:text-left text-center text-6xl mt-10 text-gold lobster;
     line-height: 0.78;
   }
 
@@ -28,7 +28,7 @@
   }
 
   .prizes{
-    @apply flex pb-10;
+    @apply flex grow-0 flex-wrap gap-2 md:flex-nowrap shrink-0 pb-10;
    div{
       @apply text-white py-2 px-4 w-full flex flex-col justify-center;
       border-radius: 0 70px;
@@ -42,25 +42,26 @@
     }
   }
   .main {
-    @apply flex h-full;
+    @apply flex flex-wrap md:flex-nowrap h-full;
     .left{
-      @apply h-full w-[60%] flex flex-col gap-10;
+      @apply h-full lg:w-[60%] w-full  flex flex-col gap-10;
     }
     .right {
-      @apply relative w-[40%];
+      @apply relative lg:w-[40%] w-full ;
       .img1 {
-        @apply absolute right-20 bottom-10 w-[70%] ;
+        @apply md:absolute right-[5%] bottom-10 md:w-[80%] w-[100%] ;
         filter: drop-shadow(0 0 10rem white);
         //animation: shake 27s infinite;
       }
 
       .img2 {
-        @apply absolute right-0 bottom-0 w-[60%];
+        @apply absolute  bottom-0 w-[60%];
+        right: -60px;
         animation: shake2 44s infinite;
       }
 
       .img3 {
-        @apply absolute right-72 bottom-0 w-[60%];
+        @apply absolute right-[55%] bottom-0 w-[60%];
         animation: shake 53s infinite;
       }
     }
