@@ -15,9 +15,10 @@ const words: {day: string[], hour: string[], minute: string[], second: string[]}
     second: ["секунда", "секунды", "секунд"],
 };
 
-const formatTimeUnit = (value:number, unit:'day'|'hour'|'minute'|'second') => {
+const formatTimeUnit = (value: number, unit: string) => {
     const index = one.indexOf(value % 100);
     const form = index !== 1 && many.indexOf(value % 100) !== -1 ? 1 : index !== -1 ? 0 : 2;
+    // @ts-ignore
     return words[unit][form];
 };
 
