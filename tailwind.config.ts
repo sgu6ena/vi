@@ -98,7 +98,9 @@ const config: Config = {
             textDecorationColor: 'rgba(255, 255, 255, 0.9)',
           },
         },
-
+        '.figure-border': {
+          borderRadius: '0 75px',
+        },
         '.air-block': {
           borderRadius: theme('borderRadius.layout'),
           boxShadow: theme('boxShadow.lg'),

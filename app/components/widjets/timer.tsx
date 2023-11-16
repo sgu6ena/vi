@@ -37,7 +37,7 @@ export const Timer = ({ deadline = new Date().toString() }) => {
     const seconds = Math.floor((time % MINUTE) / SECOND);
 
     return (
-        <div className="flex gap-2">
+        <div className="flex gap-4">
             {[
                 { label: "day", value: days },
                 { label: "hour", value: hours },
@@ -45,10 +45,9 @@ export const Timer = ({ deadline = new Date().toString() }) => {
                 { label: "second", value: seconds },
             ].map(({ label, value }) => (
                 <div key={label} className="col-4">
-                    <div className="border p-4 w-40">
+                    <div className=" text-center figure-border bg-green p-4  lg:w-36 w-16">
                         {`${Math.floor(value)}`.padStart(2, "0")}
-                        <p>{formatTimeUnit(value, label)}</p>
-                    </div>
+                    </div>   <div className={'lg:pl-8 lg:text-3xl text-sm text-center lg:font-bold '}>{formatTimeUnit(value, label)}</div>
                 </div>
             ))}
         </div>

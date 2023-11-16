@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './banner.module.scss'
+import {Timer} from "@/app/components/widjets/timer";
 
 const Banner = () => {
   return (
@@ -7,7 +8,9 @@ const Banner = () => {
 
       <div className={styles.main}>
         <div className={styles.left}>
-
+          <div className={'text-white lg:text-3xl text-lg sm:block hidden'}>
+            <div className={'pb-4 '}>До ежедневного розыгрыша осталось</div>
+            <Timer deadline={'12/04/2023'}/></div>
           <h1>Новогодний<br/> переполох</h1>
           <a href={'/game'} className={styles.start}>
             <div>
@@ -22,27 +25,27 @@ const Banner = () => {
               </svg>
             </div>
           </a>
-          <div className={styles.prize}>Главный приз 50 000 рублей</div>
+          <div className={styles.prize}>Главный приз 50&nbsp;000 рублей</div>
           <p>Ежедневный розыгрыш</p>
           <div className={styles.prizes}>
             <div>
-              <b>5 000</b>
+              <b>5&nbsp;000</b>
               <span>рублей</span>
             </div>
             <div>
-              <b>20 смартфонов</b>
-              <span>Vivo 15 PRO MAX</span>
+              <b>Смартфон</b>
+              <span>Vivo Y16</span>
             </div>
             <div>
-              <b>подарки <br/> от парнеров</b>
+              <b>Подарки <br/> от парнеров</b>
             </div>
           </div>
 
         </div>
         <div className={styles.right}>
-          <img src="/images/1.png" alt="" className={styles.img1}/>
-          <img src="/images/2.png" alt=""  className={styles.img2}/>
-          <img src="/images/3.png" alt=""  className={styles.img3}/>
+          <img src="/images/img_1.png" alt="" className={styles.img}/>
+          {/*<img src="/images/2.png" alt=""  className={styles.img2}/>*/}
+          {/*<img src="/images/3.png" alt=""  className={styles.img3}/>*/}
         </div>
       </div>
 
