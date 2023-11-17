@@ -21,7 +21,10 @@ export default function RootLayout({
       <link rel="preconnect" href="https://fonts.gstatic.com"/>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;900&family=Lobster&display=swap"
             rel="stylesheet"/>
-
+      <link rel="icon"
+            type="image/png"
+            href="favicon.png"
+          />
     </head>
     <body className={'relative'}>
     <Header/>

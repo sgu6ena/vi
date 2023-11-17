@@ -1,0 +1,19 @@
+.wrapper {
+  @apply my-6;
+  .item{
+    @apply p-2;
+    a{
+      @apply bg-white overflow-hidden flex justify-center border-[#FF1E00] border-2 figure-border px-8 py-4 transition-all;
+      img{
+        @apply transition-all;
+      }
+       &:hover{
+         border-radius: 70px 0;
+         img{
+           @apply scale-[120%]
+         }
+      }
+    }
+
+  }
+}

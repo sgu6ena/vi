@@ -1,5 +1,5 @@
 .partners{
-  @apply bg-gray-900 w-full;
+  @apply bg-gray-900 relative overflow-hidden w-full;
   h2{
     @apply lobster lg:text-7xl md:text-5xl text-3xl my-10 text-center text-gold;
   }
