@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './partners.module.scss'
 import {sponsors} from "@/app/components/landing/partners/partners.data";
 import PartnersSlider from "@/app/components/landing/partners/slider/partnersSlider";
+import Snowfall from "react-snowfall";
 
 
 
@@ -33,6 +34,7 @@ const Partners = () => {
 
     return (
       <section id={'partners'} className={styles.partners}>
+          <Snowfall color={'#ffffff50'}   snowflakeCount={500} radius={[0.5, 5.0]} wind={[-1, 3.0]}/>
         <h2 >
           Партнеры
         </h2>

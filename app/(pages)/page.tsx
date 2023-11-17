@@ -11,6 +11,7 @@ export default function Home() {
         <>
           <Snowfall color={'#ffffff50'}   snowflakeCount={500} radius={[0.5, 5.0]} wind={[-1, 3.0]}/>
           <Banner/>
+
             <Partners/>
             <Winner/>
             <Faqs/>
