@@ -40,10 +40,10 @@ const Partners = () => {
               <PartnersSlider items={sponsors1} autoplay={autoplay1}/>
               <PartnersSlider items={sponsors2} autoplay={autoplay2}/>
               <PartnersSlider items={sponsors3} autoplay={autoplay3}/>
-          <img src={'/images/img_4.png'} alt="" className={'absolute top-10 left-[-60px] z-40 w-40 '}/>
-          <img src={'/images/img_5.png'} alt="" className={'absolute top-10 right-[-60px] z-40 w-40 '}/>
-          <img src={'/images/img.png'} alt="" className={'absolute bottom-0 right-[-60px] z-40 w-80 '}/>
-          <img src={'/images/img_3.png'} alt="" className={'absolute bottom-0 left-[-20px] z-40 w-60 '}/>
+          <img src={'/images/img_4.png'} alt="" className={'absolute top-10 left-[-100px] z-40 w-80 '}/>
+          <img src={'/images/img_5.png'} alt="" className={'absolute top-10 right-[-100px] z-40 w-80 '}/>
+          <img src={'/images/img_6.png'} alt="" className={'absolute bottom-0 right-[-60px] z-40 w-96 '}/>
+          <img src={'/images/img_7.png'} alt="" className={'absolute bottom-0 left-[-20px] z-40 w-96 '}/>
       </section>
 
     );
