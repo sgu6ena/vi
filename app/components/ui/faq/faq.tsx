@@ -1,7 +1,13 @@
-import React, {useState} from 'react';
+import React, {ReactNode, useState} from 'react';
 import styles from './faq.module.scss'
 import classNames from "classnames";
-const Faq = ({question,answer}:{question:string,answer:string}) => {
+
+export interface IFaq {
+    question: string,
+    answer: ReactNode
+}
+
+const Faq = ({question, answer}: IFaq) => {
     const [open, setOpen] = useState(false)
     return (
             <div className={styles.faq} onClick={() => setOpen(!open)} >

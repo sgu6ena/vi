@@ -4,19 +4,19 @@
     @apply lobster lg:text-7xl md:text-5xl text-3xl my-10 text-center text-gold;
   }
   .img1{
-    @apply absolute top-10 left-[-100px] z-40 w-80;
+    @apply absolute top-10 left-[-100px] md:z-40 w-80;
     animation: 12s shake infinite;
   }
   .img2{
-    @apply absolute top-10 right-[-100px] z-40 w-80;
+    @apply absolute top-10 right-[-100px] md:z-40 w-80;
     animation: 14s shake infinite;
   }
   .img3{
-    @apply absolute rotate-3 bottom-0 right-[-80px] z-40 w-96;
+    @apply absolute rotate-3 bottom-0 right-[-80px] md:z-40 w-96;
     animation: 20s shake2 infinite;
   }
   .img4{
-    @apply absolute bottom-0 left-[-100px] z-40 w-96;
+    @apply absolute  bottom-0 left-[-100px] md:z-40 w-96;
     animation: 25s shake2 infinite;
   }
 }
@@ -27,6 +27,7 @@
 @keyframes shake {
   0% {
     transform: translate(0px, 0px) rotate(0deg);
+    transform-origin:top;
   }
   10% {
     transform: translate(-1px, -2px) rotate(-5deg);
@@ -38,7 +39,7 @@
     transform: translate(3px, 2px) rotate(0deg);
   }
   40% {
-    transform: translate(1px, -1px) rotate(5deg);
+    transform: translate(1px, -1px) rotate(8deg);
   }
   50% {
     transform: translate(-1px, 2px) rotate(-3deg);
@@ -47,7 +48,7 @@
     transform: translate(-3px, 1px) rotate(0deg);
   }
   70% {
-    transform: translate(3px, 1px) rotate(-5deg);
+    transform: translate(3px, 1px) rotate(-8deg);
   }
   80% {
     transform: translate(-1px, -1px) rotate(3deg);
@@ -65,28 +66,28 @@
     transform: translate(0px, 0px) scale(1) rotate(0deg);
   }
   10% {
-    transform: scale(1.2) rotate(-3deg);
+    transform: scale(1.2) rotate(-30deg);
   }
   20% {
-    transform: translate(3px, 1px) scale(0.9) rotate(3deg);
+    transform: translate(3px, 1px) scale(0.9) rotate(30deg);
   }
   30% {
     transform: scale(1.1) rotate(0deg);
   }
   40% {
-    transform: scale(1.0) rotate(3deg);
+    transform: scale(1.0) rotate(30deg);
   }
   50% {
-    transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-30deg);
   }
   60% {
     transform: scale(1.1) rotate(0deg);
   }
   70% {
-    transform: translate(3px, 5px) scale(0.9) rotate(-3deg);
+    transform: translate(3px, 5px) scale(0.9) rotate(-30deg);
   }
   80% {
-    transform: scale(1) rotate(3deg);
+    transform: scale(1) rotate(30deg);
   }
   90% {
     transform: scale(1.1) rotate(0deg);
