@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './banner.module.scss'
 import {Timer} from "@/app/components/widjets/timer";
+import Modal from "@/app/components/modals/modal";
+import Register from "@/app/components/modals/register";
 
 const Banner = () => {
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   return (
     <section id={'main'} className={styles.banner}>
-
+      <Modal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}><Register/></Modal>
       <div className={styles.main}>
         <div className={styles.left}>
           <div className={'text-white lg:text-3xl text-lg sm:block hidden'}>
             <div className={'pb-4 '}>До ежедневного розыгрыша осталось</div>
             <Timer deadline={'12/04/2023'}/></div>
           <h1>Новогодний<br/> переполох</h1>
-          <a href={'/game'} className={styles.start}>
+          <a onClick={()=>setIsOpen(true)} className={styles.start}>
             <div>
               Выиграть деньги
             </div>

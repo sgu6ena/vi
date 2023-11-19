@@ -108,7 +108,9 @@ const config: Config = {
         '.btn':{
           background:primary,
           padding:8
-        }
+        },
+        '.z-60':{
+          zIndex:60,        }
 
       })
           addUtilities({
