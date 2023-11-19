@@ -1,5 +1,5 @@
 .header {
-  @apply absolute top-0 left-0 sm:px-8 px-4   right-0 py-2  flex sm:gap-16 gap-4 items-center justify-between;
+  @apply fixed top-0 left-0 sm:px-8 px-4 z-50  right-0 py-2  flex sm:gap-16 gap-4 items-center justify-between;
   nav {
     @apply lg:flex w-full justify-between invisible hidden  lg:visible;
     ul {

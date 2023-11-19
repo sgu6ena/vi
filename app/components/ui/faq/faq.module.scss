@@ -1,6 +1,6 @@
   .faq {
     @apply  block  px-7 py-5  w-full  ;
-    border-radius: 0 50px;
+    border-radius: 0 30px;
     border: 2px solid #A42222;
 
     .question {
@@ -43,17 +43,17 @@
 
     .answer {
       @apply h-0;
-      transition: all 0.3s ease-out;
+      transition: all 0.3s linear;
     }
 
     .active {
-      @apply  text-xl text-gray-500 mt-4 h-auto block overflow-visible opacity-100;
-      transition: all 0.3s ease-out;
+      @apply  text-xl text-gray-500 mt-4 h-full block overflow-visible opacity-100;
+      transition: all 0.5s linear;
     }
 
     .inactive {
-      @apply  text-xl overflow-hidden opacity-20 ;
-      transition: all 0.3s ease-out;
+      @apply  text-xl overflow-hidden h-0 opacity-20 ;
+      transition: all 0.3s linear;
     }
   }
 
