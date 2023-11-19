@@ -9,7 +9,7 @@
       @apply w-full  bg-green px-20 py-10;
 
       .tabs{
-        @apply flex gap-8;
+        @apply flex flex-wrap gap-8;
         button{
           @apply text-xl text-white  transition-all;
           &.active{
@@ -18,7 +18,7 @@
         }
       }
       .dates{
-        @apply flex  justify-between pr-8  my-4 gap-4;
+        @apply flex flex-wrap  justify-between pr-8  my-4 gap-4;
         button{
           @apply  text-white transition-all;
           &.active{

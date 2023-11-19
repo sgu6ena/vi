@@ -35,6 +35,10 @@ const Partners = () => {
     return (
       <section id={'partners'} className={styles.partners}>
           <Snowfall color={'#ffffff50'}   snowflakeCount={500} radius={[0.5, 5.0]} wind={[-1, 3.0]}/>
+        <img src={'/images/img_4.png'} alt="" className={styles.img1}/>
+        <img src={'/images/img_5.png'} alt="" className={styles.img2}/>
+        <img src={'/images/img_6.png'} alt="" className={styles.img3}/>
+        <img src={'/images/img_7.png'} alt="" className={styles.img4}/>
         <h2 >
           Партнеры
         </h2>
@@ -42,10 +46,7 @@ const Partners = () => {
               <PartnersSlider items={sponsors1} autoplay={autoplay1}/>
               <PartnersSlider items={sponsors2} autoplay={autoplay2}/>
               <PartnersSlider items={sponsors3} autoplay={autoplay3}/>
-          <img src={'/images/img_4.png'} alt="" className={styles.img1}/>
-          <img src={'/images/img_5.png'} alt="" className={styles.img2}/>
-          <img src={'/images/img_6.png'} alt="" className={styles.img3}/>
-          <img src={'/images/img_7.png'} alt="" className={styles.img4}/>
+
       </section>
 
     );
