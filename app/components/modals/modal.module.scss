@@ -3,12 +3,36 @@
   bg-opacity-80 z-60;
   overflow-y: hidden;
   .modal {
-    @apply md:figure-border  top-0 right-0 left-0 bottom-0  text-white bg-green md:w-96  md:p-8 p-4 text-sm  flex-center-between flex-col gap-6;
+    @apply md:figure-border  top-0 right-0 left-0 bottom-0  text-white bg-green md:w-[480px]  md:p-8 p-4 text-sm  flex-center-between flex-col gap-6;
+    label {
+      @apply w-full text-lg;
+      input {
+        @apply w-full my-2 transition-all text-white rounded-xl bg-transparent border text-lg px-4 py-2;
+        border-color: #bdbdbd;
+        box-shadow: 0 0 0 0.05rem rgba(158, 158, 158, 0.25);
+        border-radius: 0px 25px;
+        &:focus {
+          @apply border-white outline-0;
+          box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+        }
+        &:disabled {
+          @apply cursor-not-allowed text-gray-500;
+        }
+      }
+    }
+
+    sup {
+      @apply block text-sm text-center mt-4 text-gray-500;
+    }
+
   }
 }
 
 .btnGold {
-  @apply bg-gold px-4 py-2 mb-0  text-black text-center w-full;
+  @apply bg-gold px-4  border-green font-bold text-lg border-2 py-2  mb-0  text-black text-center cursor-pointer transition-all w-full;
   border-radius: 0px 25px;
 
+  &:hover {
+    @apply text-red border-gold
+  }
 }

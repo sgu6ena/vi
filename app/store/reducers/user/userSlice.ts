@@ -2,12 +2,12 @@ import {create} from "domain";
 import {createSlice} from "@reduxjs/toolkit";
 
 interface UserState{
-    phone:number,
+    phone:number|null
     isSendSms:boolean
 }
 
 const initialState:UserState = {
-    phone:0,
+    phone:null,
     isSendSms:false
 }
 
@@ -17,6 +17,9 @@ export const userSlice = createSlice({
     reducers:{
         sendSms:(state)=> {
             state.isSendSms = true
+        },
+        setNumber:(state, action)=> {
+            state.phone = action.payload
         }
     },
     extraReducers:{}
