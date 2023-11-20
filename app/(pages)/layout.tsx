@@ -2,6 +2,7 @@
 import type {Metadata} from 'next'
 import './globals.css'
 import Header from "@/app/components/ui/header/header";
+import ReduxProvider from "@/app/store/provider";
 
 export const metadata: Metadata = {
   title: 'Новогодний переполох',
@@ -27,10 +28,11 @@ export default function RootLayout({
           />
     </head>
     <body className={'relative'}>
+    <ReduxProvider>
     <Header/>
     <main className="flex min-h-screen flex-col  items-center justify-between">{children}
     </main>
-
+    </ReduxProvider>
     </body>
 
     </html>
