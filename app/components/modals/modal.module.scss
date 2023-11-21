@@ -7,7 +7,7 @@
     label {
       @apply w-full text-lg;
       input {
-        @apply w-full my-2 transition-all text-white rounded-xl bg-transparent border text-lg px-4 py-2;
+        @apply w-full mt-2 transition-all text-white rounded-xl bg-transparent border text-lg px-4 py-2;
         border-color: #bdbdbd;
         box-shadow: 0 0 0 0.05rem rgba(158, 158, 158, 0.25);
         border-radius: 0px 25px;
@@ -18,6 +18,13 @@
         &:disabled {
           @apply cursor-not-allowed text-gray-500;
         }
+        //&:invalid{
+        //  @apply border-red;
+        //}
+      }
+      //для отображения ошибок
+      span{
+        @apply pl-4 text-sm text-[#FF2626];
       }
     }
 

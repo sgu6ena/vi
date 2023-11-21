@@ -1,0 +1,42 @@
+.question{
+  @apply text-white p-2 md:p-4 lg:p-6 w-full;
+  h2{
+    @apply text-gold lobster my-4 md:text-7xl text-5xl text-center
+  }
+  .q{
+    @apply z-10 relative  bg-green p-8 my-6 text-center text-lg  figure-border;
+  }
+  .answers{
+    @apply grid grid-cols-2 gap-8 ;
+    .a{
+      @apply z-40 border-2 border-gold p-4 text-xl font-medium text-center transition-all figure-border;
+      &:hover{
+        @apply bg-gold  shadow-lg shadow-red text-red
+      }
+    }
+  }
+  .buttons{
+    @apply my-4;
+    button{
+      @apply transition-all z-10 relative  w-full my-4 border-2 border-transparent h-20 p-4 figure-border text-2xl;
+      &:hover{
+        @apply bg-gold  shadow-lg shadow-red text-red
+      }
+      strong{
+        @apply  text-lg block text-center;
+      }
+      span{
+        @apply text-sm block text-center;
+      }
+    }
+    .enter{
+      @apply text-3xl font-bold text-black bg-gold;
+      //&:hover{
+      //  @apply
+      //}
+    }
+    .time{ @apply bg-[#1487A2]; }
+    .fifty{ @apply bg-green;}
+  }
+
+}
