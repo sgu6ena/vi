@@ -1,3 +1,3 @@
 export const LINKS = {
-    GAME:'/game'
+    GAME:'/game/quest'
 }

@@ -12,3 +12,15 @@ export const startGame = createAsyncThunk<{ game_id:number }, void>(
 
         }
     })
+
+
+export const requestQuestion = createAsyncThunk< any , { game_id:number }>(
+    'requestQuestion',
+    async (data, thinkApi) => {
+        try {
+            const response = await gameService.requestQuestion(data)
+            return response
+        } catch (error) {
+
+        }
+    })

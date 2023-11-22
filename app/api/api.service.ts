@@ -25,4 +25,16 @@ export const gameService = {
         })
         return response.data.data
     },
+
+    async requestQuestion(data:{game_id:number}): Promise<any> {
+        const response = await instance.post<any, any>(GAME.QUESTION,data)
+        const question = response.data.data
+        return {question}
+    },
+
+
+    async buyTime(): Promise<any>  {
+        const response = await instance.get(GAME.TIME, {})
+        return response.data.data
+    },
 }

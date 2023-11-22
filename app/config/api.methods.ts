@@ -4,7 +4,10 @@ export const AUTH = {
 }
 
 export const GAME={
+    NEED_AUTH:'/needAuth',
     START_BY_TYPE:'/question',
-    STATUS:'/question'
-
+    STATUS:'/question',
+    QUESTION:'/quest',
+    ANSWER:'/answer',
+    TIME:'/buyTime',
 }
