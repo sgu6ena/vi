@@ -33,6 +33,9 @@ const Register = () => {
         if(isTrueCode)
             push(LINKS.GAME)
     },[isTrueCode])
+
+
+
     const PhoneForm = () => {
         const {formState: {errors}, handleSubmit, register} = useForm<iSendSms>()
 

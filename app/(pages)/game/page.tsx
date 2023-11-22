@@ -2,7 +2,7 @@
 import Question from "@/app/components/ui/question/question";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
-import {IQuestion} from "@/app/store/game/game.interface";
+import {IQuestion} from "@/app/store/game/interface";
 
 const q:IQuestion = {
     "id": 1,
