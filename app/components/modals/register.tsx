@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './modal.module.scss'
 import {useActions, useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {FieldValues, SubmitHandler, useForm} from 'react-hook-form'
@@ -8,46 +8,36 @@ import {TEXT_MODALS} from "@/app/config/texts";
 import {useRouter} from "next/navigation";
 import {LINKS} from "@/app/config/links";
 import {registerAPI} from "@/app/store/services/registerAPI";
-
-interface iSendSms  {
-    phone: string
-}
-interface iSendCode {
-    phone: string
-    code: string
-}
-
+import {useUser} from "@/app/hooks/user";
+import Loading from "@/app/loading";
+import {iSendCode, iSendSms} from "@/app/store/user/interface";
 
 
 const Register = () => {
-    const isSmsSend = useAppSelector(state => state.userReducer.isSendSms)
-    const PhoneNumber = useAppSelector(state => state.userReducer.phone)
+
+
+    const {phoneNumber, isSmsSend, isLoading, isTrueCode} = useUser()
     const {push} = useRouter()
-    const {sendSms, setNumber} = useActions()
-
-    const [postMobile, {data}] = registerAPI.usePostMobileMutation();
+    const {postPhone, postCode, } = useActions()
 
 
-    const sendSMS: SubmitHandler<iSendSms> = (data) => {
-
-        postMobile({phone: Number(data.phone)})
-
-        sendSms()
-        setNumber(data.phone)
-
-
+    const sendPhone: SubmitHandler<iSendSms> = (data) => {
+        postPhone(data)
     }
+
     const sendCode: SubmitHandler<iSendCode> = (data) => {
-        console.log(data)
-        //TODO отправлять код, если код верный - перенаправлять на страницу с игрой
-        push(LINKS.GAME)
+        postCode({phone:phoneNumber, sms:data.sms})
     }
 
 
+    useEffect(()=>{
+        if(isTrueCode)
+            push(LINKS.GAME)
+    },[isTrueCode])
     const PhoneForm = () => {
         const {formState: {errors}, handleSubmit, register} = useForm<iSendSms>()
 
-        return (<form className={styles.modal} onSubmit={handleSubmit(sendSMS)}>
+        return (<form className={styles.modal} onSubmit={handleSubmit(sendPhone)}>
             <div className={'text-center text-sm'}> {TEXT_MODALS.TEXT_WARNING_PHONE} </div>
             <label> Номер телефона
                 <input
@@ -70,22 +60,22 @@ const Register = () => {
     }
 
 
-    const CodeForm = () => {
+    const SmsForm = () => {
         const {handleSubmit, register} = useForm<iSendCode>()
 
         return (<form className={styles.modal} onSubmit={handleSubmit(sendCode)}>
             <div className={'text-center text-sm'}> {TEXT_MODALS.TEXT_WARNING_CODE} </div>
 
             <label>Номер телефона
-                <input {...register("phone")} defaultValue={PhoneNumber?.toString()} disabled
+                <input {...register("phone")} defaultValue={phoneNumber} value={phoneNumber} disabled
                        placeholder={'77X XXXXX'}/>
             </label>
             <label> Код из SMS
                 <input
-                    {...register('code', {
+                    {...register('sms', {
                         required: 'Поле обязательно к заполнению',
                         pattern: {
-                            value: /^\d{4}$/, // Регулярное выражение для 4-значного кода
+                            value: /^\d{4}$/,
                             message: TEXT_MODALS.ERROR_FOR_CODE,
                         },
                     })}
@@ -101,7 +91,7 @@ const Register = () => {
     }
 
 
-    return isSmsSend ? <CodeForm/> : <PhoneForm/>;
+    return isLoading ? <Loading/> : isSmsSend ? <SmsForm/> : <PhoneForm/>;
 };
 
 export default Register;

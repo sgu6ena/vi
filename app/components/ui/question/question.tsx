@@ -1,18 +1,9 @@
 import React, {FC} from 'react';
 import styles from './question.module.scss'
-export type IAnswer={
-  text: string
+import {IQuestion} from "@/app/store/reducers/game/game.interface";
 
-}
-
-export type IQuestion={
-    title:string
-  question: string
-    answers: IAnswer[]
-
-}
-
-const Question: FC<{ data: IQuestion,  onNext:()=>void }> = ({
+interface IQ{ data: IQuestion,  onNext:()=>void }
+const Question: FC<IQ> = ({
                                                data: {
                                                    question, answers, title
                                                }, onNext
@@ -24,7 +15,11 @@ const Question: FC<{ data: IQuestion,  onNext:()=>void }> = ({
               {question}
           </div>
           <div className={styles.answers}>
-              {answers.map(a => <label className={styles.a} key={a.text}>{a.text}</label>)}
+              {answers.map((a, index) => (
+                  <label className={styles.a} key={`${a.text}_${index}`}>
+                      {a.text}
+                  </label>
+              ))}
           </div>
           <div className={styles.buttons}>
               <button className={styles.enter} onClick={onNext}>Ответить</button>
