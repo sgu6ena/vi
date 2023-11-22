@@ -2,12 +2,11 @@
 
 import React, {useEffect} from 'react';
 import styles from './modal.module.scss'
-import {useActions, useAppDispatch, useAppSelector} from "@/app/store/hooks";
-import {FieldValues, SubmitHandler, useForm} from 'react-hook-form'
+import {useActions, } from "@/app/store/hooks";
+import {SubmitHandler, useForm} from 'react-hook-form'
 import {TEXT_MODALS} from "@/app/config/texts";
 import {useRouter} from "next/navigation";
 import {LINKS} from "@/app/config/links";
-import {registerAPI} from "@/app/store/services/registerAPI";
 import {useUser} from "@/app/hooks/user";
 import Loading from "@/app/loading";
 import {iSendCode, iSendSms} from "@/app/store/user/interface";
