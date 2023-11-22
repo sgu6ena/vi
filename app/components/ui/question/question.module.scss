@@ -11,14 +11,27 @@
     .a{
       @apply z-40 border-2 border-gold p-4 text-xl font-medium text-center transition-all figure-border;
       &:hover{
-        @apply bg-gold  shadow-lg shadow-red text-red
+        @apply bg-gold  shadow shadow-white text-red
+      }
+
+      &.active{
+        @apply bg-[#1487A2] border-[#1487A2];
+        &:hover{
+          @apply text-white;
+        }
+      }
+      &.true{
+        @apply bg-green
+      }
+      &.false{
+        @apply bg-red
       }
     }
   }
   .buttons{
     @apply my-4;
     button{
-      @apply transition-all z-10 relative  w-full my-4 border-2 border-transparent h-20 p-4 figure-border text-2xl;
+      @apply transition-all z-40 relative  w-full my-4 border-2 border-transparent h-20 p-4 figure-border text-2xl;
       &:hover{
         @apply bg-gold  shadow-lg shadow-red text-red
       }

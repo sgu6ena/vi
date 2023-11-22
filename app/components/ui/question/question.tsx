@@ -1,25 +1,45 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import styles from './question.module.scss'
-import {IQuestion} from "@/app/store/reducers/game/game.interface";
+import {IQuestion} from "@/app/store/game/game.interface";
+import classNames from "classnames";
 
-interface IQ{ data: IQuestion,  onNext:()=>void }
+interface IQ {
+    question: IQuestion,
+    onNext: () => void
+}
 const Question: FC<IQ> = ({
-                                               data: {
-                                                   question, answers, title
-                                               }, onNext
+                              question, onNext
                                            }) => {
+
+    const [answerId, setAnswerId] = useState<1|2|3|4|null>(null)
+
+
+
   return (
       <div className={styles.question}>
-          <h2>{title}</h2>
+          <h2>Вопрос {question.id}</h2>
           <div className={styles.q}>
-              {question}
+              {question.body}
           </div>
           <div className={styles.answers}>
-              {answers.map((a, index) => (
-                  <label className={styles.a} key={`${a.text}_${index}`}>
-                      {a.text}
-                  </label>
-              ))}
+
+              <label className={classNames( styles.a,answerId===1?styles.active:"")} onClick={()=>setAnswerId(1)}>
+
+                  {question.answer1}
+              </label>
+              <label className={classNames( styles.a,answerId===2?styles.active:"")} onClick={()=>setAnswerId(2)}>
+
+                  {question.answer2}
+              </label>
+              <label className={classNames( styles.a,answerId===3?styles.active:"")} onClick={()=>setAnswerId(3)}>
+
+                  {question.answer3}
+              </label>
+              <label className={classNames( styles.a,answerId===4?styles.active:"")} onClick={()=>setAnswerId(4)}>
+
+                  {question.answer4}
+              </label>
+
           </div>
           <div className={styles.buttons}>
               <button className={styles.enter} onClick={onNext}>Ответить</button>
