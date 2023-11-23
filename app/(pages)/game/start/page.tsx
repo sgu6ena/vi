@@ -9,10 +9,15 @@ import {LINKS} from "@/app/config/links";
 
 
 const Page = () => {
-    const {startGame} = useActions()
+    const {startGame, statusGame, needAuth} = useActions()
     const {isLoading, game_id} = useGame()
     const {push} = useRouter()
     const isGameStarted = Boolean(game_id) && !isLoading
+
+
+    useEffect(() => {
+        needAuth()
+    }, []);
 
     useEffect(() => {
         if(isGameStarted){

@@ -26,6 +26,16 @@ export const gameService = {
         return response.data.data
     },
 
+    async statusGame(): Promise<{ status: number, type: number }> {
+        const response = await instance.post<any, any>(GAME.STATUS)
+        return response.data.data
+    },
+    async needAuth(): Promise<{ game_id: number }> {
+        const response = await instance.get<any, any>(GAME.NEED_AUTH)
+        return response.data.data
+    },
+
+
     async requestQuestion(data:{game_id:number}): Promise<any> {
         const response = await instance.post<any, any>(GAME.QUESTION,data)
         const question = response.data.data
@@ -33,8 +43,23 @@ export const gameService = {
     },
 
 
+    async answer(data: IAnswer): Promise<any> {
+        const response = await instance.post<any, any>(GAME.ANSWER, data)
+        const result = response.data.data
+        return {result}
+    },
+
+
+
     async buyTime(): Promise<any>  {
         const response = await instance.get(GAME.TIME, {})
         return response.data.data
     },
+}
+
+
+export interface IAnswer {
+    game_id: number,
+    answer: number,
+    quest_id: number
 }

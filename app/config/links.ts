@@ -1,3 +1,4 @@
 export const LINKS = {
-    GAME:'/game/quest'
+    GAME:'/game/quest',
+    START:'/game/start'
 }

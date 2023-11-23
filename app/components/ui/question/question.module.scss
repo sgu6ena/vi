@@ -3,6 +3,9 @@
   h2{
     @apply text-gold lobster my-4 md:text-7xl text-5xl text-center
   }
+  .time{
+    @apply text-white text-center font-bold text-xl
+  }
   .q{
     @apply z-10 relative  bg-green p-8 my-6 text-center text-lg  figure-border;
   }
@@ -26,6 +29,7 @@
       &.false{
         @apply bg-red
       }
+
     }
   }
   .buttons{
@@ -44,10 +48,11 @@
     }
     .enter{
       @apply text-3xl font-bold text-black bg-gold;
-      //&:hover{
-      //  @apply
-      //}
     }
+    .disabled{
+      @apply bg-gray-500 ;
+    }
+
     .time{ @apply bg-[#1487A2]; }
     .fifty{ @apply bg-green;}
   }

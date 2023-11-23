@@ -31,7 +31,7 @@ const Register = () => {
 
     useEffect(()=>{
         if(isTrueCode)
-            push(LINKS.GAME)
+            push(LINKS.START)
     },[isTrueCode])
 
 

@@ -16,7 +16,7 @@ export type IQuestion={
 
 }
 export interface GameState{
-
+    timer:number|null
     isLoading:boolean
     isError:boolean
     quest_id:number
@@ -29,6 +29,7 @@ export interface GameState{
 export const initialState: GameState = {
     isLoading:false,
     isError:false,
+    timer:null,
     quest_id: 0,
     game_id: 0,
     answer_id: 0,
