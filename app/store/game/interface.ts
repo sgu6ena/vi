@@ -16,22 +16,38 @@ export type IQuestion={
 
 }
 export interface GameState{
-    timer:number|null
+
     isLoading:boolean
     isError:boolean
-    quest_id:number
-    game_id:number
-    answer_id:number
-    question: IQuestion | null
+    isWin: boolean
+    isLose: boolean
 
+    end_game: boolean
+    elka: boolean
+    bonus: boolean
+
+    quest_id:number
+    game_id:number |null
+    answer_id:number
+
+    message: string
+
+    timer: number | null
+    question: IQuestion | null
 }
 
 export const initialState: GameState = {
+    end_game: false,
+    elka: false,
+    bonus: false,
     isLoading:false,
     isError:false,
+    message: '',
+    isWin: false,
+    isLose: false,
     timer:null,
     quest_id: 0,
-    game_id: 0,
+    game_id: null,
     answer_id: 0,
     question: null
 }

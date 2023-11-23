@@ -46,7 +46,7 @@ export const gameService = {
     async answer(data: IAnswer): Promise<any> {
         const response = await instance.post<any, any>(GAME.ANSWER, data)
         const result = response.data.data
-        return {result}
+        return result
     },
 
 
@@ -62,4 +62,11 @@ export interface IAnswer {
     game_id: number,
     answer: number,
     quest_id: number
+}
+
+export interface IResult {
+    end_game: boolean;
+    elka: boolean;
+    bonus: boolean;
+
 }

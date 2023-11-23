@@ -48,15 +48,14 @@ export const gameSlice = createSlice({
             })
             .addCase(postAnswer.fulfilled, (state, {payload}) => {
                 state.isLoading = false
-                if (state.quest_id === 3) {
-                    state.quest_id = 3
-                } else {
-                    state.quest_id = state.quest_id + 1
-                }
-                // state.question = payload.question
-                // state.timer = payload.question.time
+                state.question = null
+                state.quest_id = state.quest_id + 1
+                state.end_game = payload.end_game
+                state.elka = payload.elka
+                state.bonus = payload.bonus
             })
             .addCase(postAnswer.rejected, (state) => {
+                state.isLose = true
                 state.isLoading = false
                 state.isError = true
             })
@@ -67,8 +66,6 @@ export const gameSlice = createSlice({
             })
             .addCase(statusGame.fulfilled, (state, {payload}) => {
                 state.isLoading = false
-                // state.question = payload.question
-                // state.timer = payload.question.time
             })
             .addCase(statusGame.rejected, (state) => {
                 state.isLoading = false
@@ -77,7 +74,7 @@ export const gameSlice = createSlice({
 
 
             .addCase(needAuth.pending, (state) => {
-                state.isLoading = true
+                // state.isLoading = true
             })
             .addCase(needAuth.fulfilled, (state, {payload}) => {
                 state.isLoading = false

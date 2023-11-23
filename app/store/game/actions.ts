@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {iSendCode} from "@/app/store/user/interface";
-import {gameService, IAnswer, registerService} from "@/app/api/api.service";
+
+import {gameService, IAnswer, IResult} from "@/app/api/api.service";
 import {IQuestion} from "@/app/store/game/interface";
 
 
@@ -48,7 +48,7 @@ export const requestQuestion = createAsyncThunk<{ question: IQuestion }, { game_
         }
     })
 
-export const postAnswer = createAsyncThunk<any, IAnswer>(
+export const postAnswer = createAsyncThunk<IResult  , IAnswer>(
     'postAnswer',
     async (data, thinkApi) => {
         try {

@@ -1,60 +1,44 @@
-"use client"
-import Question from "@/app/components/ui/question/question";
-import {useState} from "react";
+'use client';
+import React, {useEffect, useState} from 'react';
+import {useActions} from "@/app/store/hooks";
+import {useGame} from "@/app/hooks/useGame";
+import Loading from "@/app/loading";
 import {useRouter} from "next/navigation";
-import {IQuestion} from "@/app/store/game/interface";
+import {LINKS} from "@/app/config/links";
 
-const q:IQuestion = {
-    "id": 1,
-    "title": "У Санта Клауса она искусственная, а у Деда Мороза настоящая:",
-    "body": "У Санта Клауса она искусственная, а у Деда Мороза настоящая:",
-    "answer1": "Борода",
-    "answer2": "Улыбка",
-    "answer3": "Прописка",
-    "answer4": "",
-    "time": 82,
-    "type": null
-}
-const j: IQuestion = {
-    "id": 2,
-    "title": "У Санта Клауса она искусственная, а у Деда Мороза настоящая:",
-    "body": "У Санта Клауса она искусственная, а у Деда Мороза настоящая:",
-    "answer1": "Борода",
-    "answer2": "Улыбка",
-    "answer3": "Прописка",
-    "answer4": "",
-    "time": 62,
-    "type": null
-}
-const m: IQuestion = {
-    "id": 3,
-    "title": "У Санта Клауса она искусственная, а у Деда Мороза настоящая:",
-    "body": "У Санта Клауса она искусственная, а у Деда Мороза настоящая:",
-    "answer1": "Борода",
-    "answer2": "Улыбка",
-    "answer3": "Прописка",
-    "answer4": "",
-    "time": 48,
-    "type": null
-}
 
-const game: IQuestion[] = [q, j, m]
+
 const Page = () => {
-    const [indexZ, setIndexZ] = useState(0)
+    const {startGame, needAuth} = useActions()
+    const {isLoading, game_id} = useGame()
     const {push} = useRouter()
-    const next = () => {
-        if (indexZ < 2)
-            setIndexZ(indexZ + 1)
-        else
-            push('game/win')
+    const isGameStarted = Boolean(game_id) && !isLoading
+    const [check, setCheck] = useState(false)
 
+    useEffect(() => {
+        if (game_id===null && !isLoading && !check) {
+            setCheck(true)
+            console.log("Calling needAuth",check);
+            needAuth()
+        }
+    }, []);
+
+    useEffect(() => {
+        if (isGameStarted) {
+            push(LINKS.GAME)
+        }
+    }, [isGameStarted])
+
+    return (<>    {
+        isLoading ? <Loading/> : isGameStarted ? <Loading/> :
+            <div className={'h-full  '}>
+                <button className={'text-center w-full  m-auto figure-border p-4 bg-gold'}
+                        onClick={startGame}>начать игру
+                </button>
+            </div>
     }
-    return (
-        <>
-    <Question question={game[indexZ]} onNext={next}/>
-       </>
+    </>)
 
-    );
 };
 
 export default Page;
