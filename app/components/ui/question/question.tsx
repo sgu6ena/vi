@@ -21,7 +21,7 @@ const Question: FC<IQ> = ({
     const [time, setTime] = useState<number>(question.time)
 
     const answer = () => {
-        if (answerId && game_id)
+        if (answerId && game_id!==null)
             postAnswer({answer: answerId, quest_id: question.id, game_id})
     }
 

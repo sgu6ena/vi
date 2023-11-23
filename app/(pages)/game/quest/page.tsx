@@ -12,7 +12,7 @@ const Page = () => {
     const {push} = useRouter()
 //TODO:проверить почему два запроса
     useEffect(() => {
-        if(quest_id<3&&quest_id>0) {
+        if(quest_id<3&&quest_id>=0) {
             //@ts-ignore
             requestQuestion({game_id})
         }
