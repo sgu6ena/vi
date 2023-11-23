@@ -1,7 +1,7 @@
 import {useAppSelector} from "@/app/store/hooks";
 
 export const useGame=()=>{
-    const GAME =  useAppSelector(state => state.gameReducer);
+    const GAME = useAppSelector(state => ({...state.gameReducer}));
     const isLoading = GAME.isLoading;
     const game_id = GAME.game_id;
     const quest_id =  GAME.quest_id;

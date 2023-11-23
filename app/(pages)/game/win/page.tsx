@@ -1,11 +1,17 @@
+'use client';
 import React from 'react';
+import {useGame} from "@/app/hooks/useGame";
+import Elka from "@/app/(pages)/game/win/elka";
+import Win from "@/app/(pages)/game/win/win";
 
 const Page = () => {
+    const {winStatus} = useGame()
+    const isElka = winStatus.elka
     return (
-        <div className={'lobster text-gold text-center text-5xl'}>
-            Вы выиграли!
-        </div>
+        <>
+            {isElka ? <Elka/> : <Win bonus={winStatus.bonus}/>}
+        </>
     );
 };
 
-export default Page; 
+export default Page;

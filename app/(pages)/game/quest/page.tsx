@@ -10,10 +10,8 @@ const Page = () => {
     const {requestQuestion, postAnswer} = useActions()
     const {isLoading, currentQuestion, game_id, quest_id, winStatus:{end_game}} = useGame()
     const {push} = useRouter()
-//TODO:проверить почему два запроса
     useEffect(() => {
-        if(quest_id<3&&quest_id>=0) {
-            //@ts-ignore
+        if (quest_id < 3 && quest_id >= 0 && game_id) {
             requestQuestion({game_id})
         }
     }, [quest_id])
