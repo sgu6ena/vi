@@ -7,6 +7,8 @@ export const useGame=()=>{
     const quest_id =  GAME.quest_id;
     const currentQuestion = GAME.question
 
+
+
     const winStatus = {
         end_game:GAME.end_game,
         elka:GAME.elka,

@@ -4,7 +4,10 @@
     @apply text-gold lobster my-4 md:text-7xl text-5xl text-center
   }
   .time{
-    @apply text-white text-center font-bold text-xl
+    @apply text-white text-center font-bold text-xl;
+    .seconds{
+      @apply inline-block w-20 text-left;
+    }
   }
   .q{
     @apply z-10 relative  bg-green p-8 my-6 text-center text-lg  figure-border;

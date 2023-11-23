@@ -38,7 +38,6 @@ export const gameSlice = createSlice({
             })
             .addCase(requestQuestion.fulfilled, (state, {payload}) => {
                 state.isLoading = false
-                // state.quest_id = payload.question.id
                 state.question = payload.question
                 state.timer = payload.question.time
             })
@@ -58,6 +57,8 @@ export const gameSlice = createSlice({
                 state.end_game = payload.end_game
                 state.elka = payload.elka
                 state.bonus = payload.bonus
+                if (payload.end_game)
+                    state.game_id = null
             })
             .addCase(postAnswer.rejected, (state) => {
                 state.isLose = true
