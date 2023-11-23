@@ -20,7 +20,12 @@ export const gameSlice = createSlice({
                 state.isLoading = true
             })
             .addCase(startGame.fulfilled, (state, {payload}) => {
+                state.quest_id=0
+                state.answer_id=0
                 state.isLoading = false
+                state.isWin=false
+                state.end_game=false
+                state.elka=false
                 state.game_id = payload.game_id
             })
             .addCase(startGame.rejected, (state) => {

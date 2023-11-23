@@ -13,9 +13,7 @@ export const registerService = {
     },
 }
 
-interface IType{
-    type: 1 | 3
-}
+
 export const gameService = {
     async startGame({type = 3}: IType ): Promise<any> {
         const response = await instance.get<any, any>(GAME.START_BY_TYPE, {
@@ -35,21 +33,17 @@ export const gameService = {
         return response.data.data
     },
 
-
     async requestQuestion(data:{game_id:number}): Promise<any> {
         const response = await instance.post<any, any>(GAME.QUESTION,data)
         const question = response.data.data
         return {question}
     },
 
-
     async answer(data: IAnswer): Promise<any> {
         const response = await instance.post<any, any>(GAME.ANSWER, data)
         const result = response.data.data
         return result
     },
-
-
 
     async buyTime(): Promise<any>  {
         const response = await instance.get(GAME.TIME, {})
@@ -69,4 +63,8 @@ export interface IResult {
     elka: boolean;
     bonus: boolean;
 
+}
+
+interface IType{
+    type: 1 | 3
 }
