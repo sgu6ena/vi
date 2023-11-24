@@ -5,9 +5,10 @@ import {useActions} from "@/app/store/hooks";
 import {useGame} from "@/app/hooks/useGame";
 import Loading from "@/app/loading";
 import {useRouter} from "next/navigation";
+import {LINKS} from "@/app/config/links";
 
 const Page = () => {
-    const {requestQuestion, postAnswer} = useActions()
+    const {requestQuestion, postAnswer, buyTime} = useActions()
     const {isLoading, currentQuestion, game_id, quest_id, winStatus:{end_game}} = useGame()
     const {push} = useRouter()
     useEffect(() => {
@@ -18,11 +19,16 @@ const Page = () => {
 
     useEffect(() => {
         if(end_game){
-            push('/game/win')
+            push(LINKS.WIN)
         }
     }, [end_game]);
 
 
+    useEffect(() => {
+        if (!game_id) {
+            push(LINKS.START)
+        }
+    }, [game_id])
 
     return (<>
             {isLoading ?
@@ -30,7 +36,7 @@ const Page = () => {
                 :
                 currentQuestion && !end_game
                     ?
-                    <Question question={currentQuestion} postAnswer={postAnswer}/>
+                    <Question question={currentQuestion} postAnswer={postAnswer} buyTime={()=>buyTime({})}/>
                     :
                 <Loading/>}
         </>

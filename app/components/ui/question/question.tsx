@@ -9,9 +9,12 @@ import {IAnswer} from "@/app/api/api.service";
 interface IQ {
     question: IQuestion,
     postAnswer: (answer: IAnswer) => void
+    buyTime: () => void
 }
 const Question: FC<IQ> = ({
-                              question, postAnswer
+                              question,
+                              postAnswer,
+                              buyTime
                                            }) => {
 
     const [answerId, setAnswerId] = useState<1|2|3|4|null>(null)
@@ -39,7 +42,9 @@ const Question: FC<IQ> = ({
 
 
    const isBonusQuest =  Boolean(question.id)
-  return (
+
+
+    return (
       <div className={styles.question}>
           { isBonusQuest ? <h2>Вопрос {question.id}</h2> : <h2>Бонусный вопрос</h2>}
           <p className={styles.time}>Осталоcь: <b className={styles.seconds}>{time} сек.</b></p>
@@ -65,7 +70,10 @@ const Question: FC<IQ> = ({
               <button className={answerId ? styles.enter : styles.disabled} disabled={!Boolean(answerId)}
                       onClick={answer}>Ответить
               </button>
-              <button className={styles.time}>
+              <button className={styles.time} onClick={()=>{
+                  buyTime()
+                  setTime(time+30)
+              }}>
                   <strong>Докупить 30 секунд времени</strong>
                   <span>Стоимость услуги 2 рубля ПМР</span>
               </button>

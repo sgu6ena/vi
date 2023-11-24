@@ -60,3 +60,17 @@ export const postAnswer = createAsyncThunk<IResult  , IAnswer>(
 
         }
     })
+
+export const buyTime = createAsyncThunk<any  , any>(
+    'buyTime',
+    async (_, thinkApi) => {
+        try {
+            const response = await gameService.buyTime()
+            return response
+        } catch (error:any) {
+
+            return thinkApi.rejectWithValue(error.response.data.error.message);
+
+        }
+    })
+

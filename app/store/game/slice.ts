@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {initialState} from "@/app/store/game/interface";
-import {needAuth, postAnswer, requestQuestion, startGame, statusGame} from "@/app/store/game/actions";
+import {buyTime, needAuth, postAnswer, requestQuestion, startGame, statusGame} from "@/app/store/game/actions";
 
 
 export const gameSlice = createSlice({
@@ -25,15 +25,16 @@ export const gameSlice = createSlice({
             .addCase(startGame.pending, (state) => {
                 state.isLoading = true
                 state.isError = false
+                state.game_id = 0
+                state.isWin=false
+                state.end_game=false
+                state.elka=false
                 state.message = ""
             })
             .addCase(startGame.fulfilled, (state, {payload}) => {
                 state.quest_id=0
                 state.answer_id=0
                 state.isLoading = false
-                state.isWin=false
-                state.end_game=false
-                state.elka=false
                 state.game_id = payload.game_id
             })
             .addCase(startGame.rejected, (state , {payload}) => {
@@ -57,10 +58,8 @@ export const gameSlice = createSlice({
             .addCase(requestQuestion.rejected, (state , {payload}) => {
                 state.isLoading = false
                 state.isError = true
-                state.isError = false
-
-
-                state.message = ""
+                // state.isError = false
+                // state.message = ""
                 state.game_id = 0
                 // @ts-ignore
                 state.message = payload
@@ -83,6 +82,7 @@ export const gameSlice = createSlice({
                     state.game_id = null
             })
             .addCase(postAnswer.rejected, (state, {payload}) => {
+                console.log(payload)
                 state.isLose = true
                 state.isLoading = false
                 state.isError = true
@@ -121,6 +121,26 @@ export const gameSlice = createSlice({
                 // state.timer = payload.question.time
             })
             .addCase(needAuth.rejected, (state, {payload}) => {
+                state.isLoading = false
+                state.isError = true
+                state.game_id = 0
+                // @ts-ignore
+                state.message =payload
+            })
+
+
+
+            .addCase(buyTime.pending, (state) => {
+                // state.isLoading = true
+                // state.isError = false
+                // state.message = ""
+            })
+            .addCase(buyTime.fulfilled, (state, {payload}) => {
+                state.isLoading = false
+                state.timer = Number(state.timer)+30
+                // state.timer = payload.question.time
+            })
+            .addCase(buyTime.rejected, (state, {payload}) => {
                 state.isLoading = false
                 state.isError = true
                 state.game_id = 0
