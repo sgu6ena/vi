@@ -1,0 +1,75 @@
+.elka {
+  @apply text-center z-40 relative;
+  .text {
+    @apply text-center text-lg figure-border text-white bg-green md:p-8 p-6;
+  }
+
+  .prizeGrid {
+    @apply grid my-2 grid-cols-2 md:grid-cols-3 ;
+
+
+    @for $i from 1 through 9 {
+      $randomDuration: random() * 5 + 5;
+
+      .ani#{$i} {
+        img {
+          animation: #{$randomDuration}s bounce infinite;
+        }
+      }
+    }
+
+    .prize {
+      @apply py-4 px-10 bg-transparent transition-all relative;
+      &:hover {
+        background: center radial-gradient(circle, rgba(255, 0, 0, .8) 0%, rgba(255, 0, 0, .1) 50%, rgba(255, 0, 0, 0) 70%);
+
+        img {
+          @apply shadow-red ;
+          animation-play-state: paused;
+        }
+      }
+
+      &.active {
+        background: center radial-gradient(circle, rgba(255, 0, 0, .8) 0%, rgba(255, 0, 0, .1) 50%, rgba(255, 0, 0, 0) 70%);
+
+        .prizeName {
+          @apply bg-gold font-bold text-black ;
+        }
+      }
+
+      &.inactive {
+        @apply text-white ;
+      }
+
+      .prizeName {
+        @apply absolute leading-4 text-sm flex justify-center items-center py-1 px-6 top-[50%] left-0 w-full h-20  bg-green figure-border;
+      }
+
+      img {
+        @apply m-auto w-full h-full;
+      }
+    }
+
+
+  }
+}
+
+
+@keyframes bounce {
+  0% {
+    transform: rotate(0deg);
+
+  }
+  //25% {
+  //  transform: rotate(90deg) translate(-8px, -10px);
+  //}
+  //50% {
+  //  transform: rotate(180deg) translate(10px, -10px);
+  //}
+  //75% {
+  //  transform: rotate(270deg) translate(10px, 10px);
+  //}
+  100% {
+    transform: rotate(360deg);
+  }
+}
