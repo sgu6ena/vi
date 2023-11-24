@@ -11,8 +11,10 @@ export const gameSlice = createSlice({
             state.isLoading=true
         },
         setTimer: (state, {payload}) => {
-            state.timer = payload.time
+
             if(payload.time<=0){
+                state.game_id = 0
+                state.question=null
                 state.isError = true
                 state.message = "Время вышло"
             }
@@ -22,6 +24,8 @@ export const gameSlice = createSlice({
         builder
             .addCase(startGame.pending, (state) => {
                 state.isLoading = true
+                state.isError = false
+                state.message = ""
             })
             .addCase(startGame.fulfilled, (state, {payload}) => {
                 state.quest_id=0
@@ -35,12 +39,15 @@ export const gameSlice = createSlice({
             .addCase(startGame.rejected, (state , {payload}) => {
                 state.isLoading = false
                 state.isError = true
+                state.game_id = 0
                 // @ts-ignore
                 state.message = payload
             })
 
             .addCase(requestQuestion.pending, (state) => {
                 state.isLoading = true
+                state.isError = false
+                state.message = ""
             })
             .addCase(requestQuestion.fulfilled, (state, {payload}) => {
                 state.isLoading = false
@@ -50,6 +57,11 @@ export const gameSlice = createSlice({
             .addCase(requestQuestion.rejected, (state , {payload}) => {
                 state.isLoading = false
                 state.isError = true
+                state.isError = false
+
+
+                state.message = ""
+                state.game_id = 0
                 // @ts-ignore
                 state.message = payload
             })
@@ -57,6 +69,8 @@ export const gameSlice = createSlice({
 
             .addCase(postAnswer.pending, (state) => {
                 state.isLoading = true
+                state.isError = false
+                state.message = ""
             })
             .addCase(postAnswer.fulfilled, (state, {payload}) => {
                 state.isLoading = false
@@ -72,6 +86,8 @@ export const gameSlice = createSlice({
                 state.isLose = true
                 state.isLoading = false
                 state.isError = true
+                state.question = null
+                state.game_id = 0
                 // @ts-ignore
                 state.message = payload
             })
@@ -79,6 +95,8 @@ export const gameSlice = createSlice({
 
             .addCase(statusGame.pending, (state) => {
                 state.isLoading = true
+                state.isError = false
+                state.message = ""
             })
             .addCase(statusGame.fulfilled, (state, {payload}) => {
                 state.isLoading = false
@@ -86,6 +104,7 @@ export const gameSlice = createSlice({
             .addCase(statusGame.rejected, (state, {payload}) => {
                 state.isLoading = false
                 state.isError = true
+                state.game_id = 0
                 // @ts-ignore
                 state.message = payload
             })
@@ -93,6 +112,8 @@ export const gameSlice = createSlice({
 
             .addCase(needAuth.pending, (state) => {
                 // state.isLoading = true
+                state.isError = false
+                state.message = ""
             })
             .addCase(needAuth.fulfilled, (state, {payload}) => {
                 state.isLoading = false
@@ -102,6 +123,7 @@ export const gameSlice = createSlice({
             .addCase(needAuth.rejected, (state, {payload}) => {
                 state.isLoading = false
                 state.isError = true
+                state.game_id = 0
                 // @ts-ignore
                 state.message =payload
             })
