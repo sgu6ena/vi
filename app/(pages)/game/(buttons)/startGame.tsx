@@ -20,8 +20,8 @@ const StartGame:FC<{text:string, bonus:boolean}> = ({text, bonus}) => {
 
     return (<>
             {isGameStarted ? <Loading/> :
-                    <button className={`text-center w-full  m-auto figure-border p-4 ${bonus?'bg-[#1487A2]':'bg-gold'}`}
-                            onClick={startGame}>{text}
+                    <button className={`text-center text-lg w-full   figure-border p-4 ${bonus?'bg-[#1487A2] text-white':'bg-gold'}`}
+                            onClick={()=>startGame({type:bonus? 1 : 3})}>{text}
                     </button>
             }</>
     );

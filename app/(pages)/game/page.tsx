@@ -1,11 +1,9 @@
 'use client';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useActions} from "@/app/store/hooks";
 import {useGame} from "@/app/hooks/useGame";
 import Loading from "@/app/loading";
-import {useRouter} from "next/navigation";
-import {LINKS} from "@/app/config/links";
-import StartGame from "@/app/(pages)/game/startGame";
+import StartGame from "@/app/(pages)/game/(buttons)/startGame";
 
 
 
@@ -20,7 +18,7 @@ const Page = () => {
     }, []);
 
 
-    return <>  {  isLoading ? <Loading/>  : <StartGame text={'Начать игру'}/> } </>
+    return <>  {  isLoading ? <Loading/>  : <StartGame bonus={false} text={'Начать игру'}/> } </>
 
 };
 

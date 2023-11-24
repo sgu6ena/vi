@@ -65,6 +65,6 @@ export interface IResult {
 
 }
 
-interface IType{
+export interface IType{
     type: 1 | 3
 }

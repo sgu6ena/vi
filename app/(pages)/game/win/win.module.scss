@@ -33,16 +33,18 @@
         background: center radial-gradient(circle, rgba(255, 0, 0, .8) 0%, rgba(255, 0, 0, .1) 50%, rgba(255, 0, 0, 0) 70%);
 
         .prizeName {
-          @apply bg-gold font-bold text-black ;
+          @apply visible bg-gold font-bold text-black ;
         }
       }
 
       &.inactive {
-        @apply text-white ;
+        .prizeName {
+          @apply visible  text-white ;
+        }
       }
 
       .prizeName {
-        @apply absolute leading-4 text-sm flex justify-center items-center py-1 px-6 top-[50%] left-0 w-full h-20  bg-green figure-border;
+        @apply absolute invisible leading-4 text-sm flex justify-center items-center py-1 px-6 top-[50%] left-0 w-full h-20  bg-green figure-border;
       }
 
       img {

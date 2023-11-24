@@ -38,10 +38,10 @@ const Question: FC<IQ> = ({
     }, [time])
 
 
-
+   const isBonusQuest =  Boolean(question.id)
   return (
       <div className={styles.question}>
-          <h2>Вопрос {question.id}</h2>
+          { isBonusQuest ? <h2>Вопрос {question.id}</h2> : <h2>Бонусный вопрос</h2>}
           <p className={styles.time}>Осталоcь: <b className={styles.seconds}>{time} сек.</b></p>
           <div className={styles.q}>
               {question.body}

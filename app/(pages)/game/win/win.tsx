@@ -1,8 +1,5 @@
 import React, {FC} from 'react';
-import {useActions} from "@/app/store/hooks";
-import {useRouter} from "next/navigation";
-import {LINKS} from "@/app/config/links";
-import StartGame from "@/app/(pages)/game/startGame";
+import StartGame from "@/app/(pages)/game/(buttons)/startGame";
 
 const Win: FC<{ bonus: boolean }> = ({bonus}) => {
     return (
