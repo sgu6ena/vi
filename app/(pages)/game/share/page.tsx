@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-// @ts-ignore
+
 // import {ShareSocial}  from 'react-share-social'
 
 const TITLE = "Новогодний переполох с IDC"
