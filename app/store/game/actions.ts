@@ -6,12 +6,12 @@ import {IQuestion} from "@/app/store/game/interface";
 
 export const statusGame = createAsyncThunk(
     'statusGame',
-    async () => {
+    async (_, thinkApi) => {
         try {
             const response = await gameService.statusGame()
             return response
-        } catch (error) {
-
+        } catch (error:any) {
+            return thinkApi.rejectWithValue(error.response.data.error.message);
         }
     })
 export const startGame = createAsyncThunk<{ game_id:number }, IType>(
@@ -20,8 +20,8 @@ export const startGame = createAsyncThunk<{ game_id:number }, IType>(
         try {
             const response = await gameService.startGame(data)
             return response
-        } catch (error) {
-
+        } catch (error:any) {
+            return thinkApi.rejectWithValue(error.response.data.error.message);
         }
     })
 
@@ -31,8 +31,8 @@ export const needAuth = createAsyncThunk<any, void>(
         try {
             const response = await gameService.needAuth()
             return response
-        } catch (error) {
-
+        } catch (error:any) {
+            return thinkApi.rejectWithValue(error.response.data.error.message);
         }
     })
 
@@ -43,8 +43,8 @@ export const requestQuestion = createAsyncThunk<{ question: IQuestion }, { game_
         try {
             const response = await gameService.requestQuestion(data)
             return response
-        } catch (error) {
-
+        } catch (error:any) {
+            return thinkApi.rejectWithValue(error.response.data.error.message);
         }
     })
 
@@ -54,7 +54,9 @@ export const postAnswer = createAsyncThunk<IResult  , IAnswer>(
         try {
             const response = await gameService.answer(data)
             return response
-        } catch (error) {
+        } catch (error:any) {
+
+            return thinkApi.rejectWithValue(error.response.data.error.message);
 
         }
     })

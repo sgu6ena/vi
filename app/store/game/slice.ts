@@ -12,6 +12,10 @@ export const gameSlice = createSlice({
         },
         setTimer: (state, {payload}) => {
             state.timer = payload.time
+            if(payload.time<=0){
+                state.isError = true
+                state.message = "Время вышло"
+            }
         },
     },
     extraReducers: (builder) => {
@@ -28,9 +32,11 @@ export const gameSlice = createSlice({
                 state.elka=false
                 state.game_id = payload.game_id
             })
-            .addCase(startGame.rejected, (state) => {
+            .addCase(startGame.rejected, (state , {payload}) => {
                 state.isLoading = false
                 state.isError = true
+                // @ts-ignore
+                state.message = payload
             })
 
             .addCase(requestQuestion.pending, (state) => {
@@ -41,9 +47,11 @@ export const gameSlice = createSlice({
                 state.question = payload.question
                 state.timer = payload.question.time
             })
-            .addCase(requestQuestion.rejected, (state) => {
+            .addCase(requestQuestion.rejected, (state , {payload}) => {
                 state.isLoading = false
                 state.isError = true
+                // @ts-ignore
+                state.message = payload
             })
 
 
@@ -60,10 +68,12 @@ export const gameSlice = createSlice({
                 if (payload.end_game)
                     state.game_id = null
             })
-            .addCase(postAnswer.rejected, (state) => {
+            .addCase(postAnswer.rejected, (state, {payload}) => {
                 state.isLose = true
                 state.isLoading = false
                 state.isError = true
+                // @ts-ignore
+                state.message = payload
             })
 
 
@@ -73,9 +83,11 @@ export const gameSlice = createSlice({
             .addCase(statusGame.fulfilled, (state, {payload}) => {
                 state.isLoading = false
             })
-            .addCase(statusGame.rejected, (state) => {
+            .addCase(statusGame.rejected, (state, {payload}) => {
                 state.isLoading = false
                 state.isError = true
+                // @ts-ignore
+                state.message = payload
             })
 
 
@@ -87,9 +99,11 @@ export const gameSlice = createSlice({
                 state.game_id = payload.game_id
                 // state.timer = payload.question.time
             })
-            .addCase(needAuth.rejected, (state) => {
+            .addCase(needAuth.rejected, (state, {payload}) => {
                 state.isLoading = false
                 state.isError = true
+                // @ts-ignore
+                state.message =payload
             })
     }
 

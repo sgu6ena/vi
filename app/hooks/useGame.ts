@@ -6,7 +6,8 @@ export const useGame=()=>{
     const game_id = GAME.game_id;
     const quest_id =  GAME.quest_id;
     const currentQuestion = GAME.question
-
+    const isError = GAME.isError
+    const message = GAME.message
 
 
     const winStatus = {
@@ -18,6 +19,5 @@ export const useGame=()=>{
     const isWin = GAME.isWin
 
 
-
-    return{isLoading, game_id, currentQuestion, timer, quest_id, isWin, winStatus}
+    return {isLoading, game_id, currentQuestion, timer, quest_id, isWin, winStatus, isError, message}
 }
