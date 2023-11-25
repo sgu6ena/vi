@@ -36,7 +36,10 @@ const Page = () => {
         :
         currentQuestion && !end_game
           ?
-          <Question question={currentQuestion} postAnswer={postAnswer} buyTime={() => buyTime({})}/>
+          <Question
+            question={currentQuestion}
+            postAnswer={postAnswer}
+            buyTime={() => buyTime({})}/>
           :
           <Loading/>}
     </>

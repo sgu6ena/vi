@@ -4,8 +4,8 @@ import {iSendCode} from "@/app/store/user/interface";
 
 export const registerService = {
     async postMobile({phone}:{phone:string}):Promise<{token:string}> {
-        const data = await instance.post<any, any>(AUTH.BY_MOBILE,{phone})
-        return data.data.data
+        const response = await instance.post<any, any>(AUTH.BY_MOBILE,{phone})
+        return response.data.data
     },
     async postCode(data:iSendCode):Promise<any> {
         const response = await instance.post<any, any>(AUTH.SMS_CODE,data)
@@ -41,12 +41,16 @@ export const gameService = {
 
     async answer(data: IAnswer): Promise<any> {
         const response = await instance.post<any, any>(GAME.ANSWER, data)
-        const result = response.data.data
-        return result
+        return response.data.data
     },
 
     async buyTime(): Promise<any>  {
         const response = await instance.get(GAME.TIME, {})
+        return response.data.data
+    },
+
+    async bonus(data:IBonus): Promise<any> {
+        const response = await instance.post<any, any>(GAME.BONUS, data)
         return response.data.data
     },
 }
@@ -67,4 +71,9 @@ export interface IResult {
 
 export interface IType{
     type: 1 | 3
+}
+
+export interface IBonus{
+    game_id:string
+    click_id:string
 }

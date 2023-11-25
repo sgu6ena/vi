@@ -1,3 +1,4 @@
+'use client';
 import React, {FC, useEffect, useState} from 'react';
 import styles from './question.module.scss'
 import {IQuestion} from "@/app/store/game/interface";

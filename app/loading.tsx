@@ -6,13 +6,11 @@ const Loading = () => {
     return (
         <div className={styles.loader}>
             <div className={styles.wrapper}>
-                <p className={styles.text}>IDC
-                    викторина</p>
+                <p className={styles.text}>IDC викторина</p>
                 <div className={classNames(styles.inner, styles.one)}></div>
                 <div className={classNames(styles.inner, styles.two)}></div>
                 <div className={classNames(styles.inner, styles.three)}></div>
             </div>
-
         </div>
 
     );

@@ -10,4 +10,5 @@ export const GAME={
     QUESTION:'/quest',
     ANSWER:'/answer',
     TIME:'/buyTime',
+    BONUS:"/bonus"
 }

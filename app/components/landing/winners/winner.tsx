@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from './winners.module.scss'
 const Winner = () => {

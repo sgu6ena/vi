@@ -1,3 +1,4 @@
+'use client';
 import React, {ReactNode, useState} from 'react';
 import styles from './faq.module.scss'
 import classNames from "classnames";
@@ -16,7 +17,7 @@ const Faq = ({question, answer}: IFaq) => {
                     <span className={classNames(styles.button, open && styles.active )}></span>
                 </div>
                 <div className={classNames(open ? styles.active : styles.inactive, styles.answer)}>
-                    <p>{answer}</p>
+                    <div>{answer}</div>
                 </div>
             </div>
     );

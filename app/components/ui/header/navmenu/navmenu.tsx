@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from "@/app/components/ui/header/header.module.scss";
 import {useBoolean, useScreen} from "usehooks-ts";
@@ -17,14 +18,13 @@ const menuData: { link: string, title: string }[] = [{
     },
 ]
 const Navmenu = () => {
-    // const {width:width} = useScreen()
     const {value, toggle} = useBoolean()
     return (
         <>
             <nav className={''}>
                 <ul>
-                    {menuData.map(item => (
-                        <li><a href={item.link}>{item.title}</a></li>
+                    {menuData.map((item, index) => (
+                        <li key={item.title + index}><a href={item.link}>{item.title}</a></li>
                     ))}
                 </ul>
                 <Tel/>
@@ -44,8 +44,8 @@ const Navmenu = () => {
             <ul className={classNames("flex fixed z-50  p-4 text-3xl text-white top-0 right-0 bottom-0 left-0 bg-black flex-col", value ? 'visible' : 'invisible')}>
                 <div onClick={toggle} className={'absolute right-10 top-0 text-3xl'}>×</div>
 
-                {menuData.map(item => (
-                    <li className={'w-100  border-b-2 py-6'} onClick={toggle}><a href={item.link}>{item.title}</a></li>
+                {menuData.map((item, index) => (
+                    <li key={item.link+index} className={'w-100  border-b-2 py-6'} onClick={toggle}><a href={item.link}>{item.title}</a></li>
                 ))}
                 <Tel/>
 

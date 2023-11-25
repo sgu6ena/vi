@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useMemo, useState } from "react";
 
 const SECOND = 1000;
@@ -43,11 +44,14 @@ export const Timer = ({ deadline = new Date().toString() }) => {
                 { label: "hour", value: hours },
                 { label: "minute", value: minutes },
                 { label: "second", value: seconds },
-            ].map(({ label, value }) => (
-                <div key={label} className="col-4">
+            ].map(({ label, value }, index) => (
+                <div key={index+label} className="col-4">
                     <div className=" text-center figure-border bg-green p-4  lg:w-36 w-16">
                         {`${Math.floor(value)}`.padStart(2, "0")}
-                    </div>   <div className={'lg:pl-8 lg:text-3xl text-sm text-center lg:font-bold '}>{formatTimeUnit(value, label)}</div>
+                    </div>
+                    <div className={'lg:pl-8 lg:text-3xl text-sm text-center lg:font-bold '}>
+                        {formatTimeUnit(value, label)}
+                    </div>
                 </div>
             ))}
         </div>

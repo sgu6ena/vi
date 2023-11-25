@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 
-import {gameService, IAnswer, IResult, IType} from "@/app/api/api.service";
+import {gameService, IAnswer, IBonus, IResult, IType} from "@/app/api/api.service";
 import {IQuestion} from "@/app/store/game/interface";
 
 
@@ -74,3 +74,13 @@ export const buyTime = createAsyncThunk<any  , any>(
         }
     })
 
+export const bonus = createAsyncThunk<{ game_id:number }, IBonus>(
+  'bonus',
+  async (data, thinkApi) => {
+    try {
+      const response = await gameService.bonus(data)
+      return response
+    } catch (error:any) {
+      return thinkApi.rejectWithValue(error.response.data.error.message);
+    }
+  })

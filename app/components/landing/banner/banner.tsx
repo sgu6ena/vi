@@ -1,9 +1,13 @@
+'use client';
 import React, {useState} from 'react';
 import styles from './banner.module.scss'
 import {Timer} from "@/app/components/widjets/timer";
 import Modal from "@/app/components/modals/modal";
 import Register from "@/app/components/modals/register";
-
+import dynamic from "next/dynamic";
+const DynamicTimer = dynamic(() => import('../../widjets/timer').then(m=>m.Timer), {
+  ssr: false,
+})
 const Banner = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   return (
@@ -13,7 +17,7 @@ const Banner = () => {
         <div className={styles.left}>
           <div className={'text-white lg:text-3xl text-lg sm:block hidden'}>
             <div className={'pb-4 '}>До ежедневного розыгрыша осталось</div>
-            <Timer deadline={'12/04/2023'}/></div>
+            <DynamicTimer deadline={'12/04/2023'}/></div>
           <h1>Новогодний<br/> переполох</h1>
           <a onClick={()=>setIsOpen(true)} className={styles.start}>
             <div>

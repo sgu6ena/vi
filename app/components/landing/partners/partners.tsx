@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from './partners.module.scss'
 import {sponsors} from "@/app/components/landing/partners/partners.data";
