@@ -9,9 +9,9 @@ import Loading from "@/app/loading";
 const StartGame:FC<{text:string, bonus:boolean}> = ({text, bonus}) => {
     const {startGame} = useActions()
     const {push} = useRouter()
-    const {game_id, isLoading} = useGame()
+    const {game_id, isLoading, winStatus:{end_game}} = useGame()
 
-    const isGameStarted = Boolean(game_id) && !isLoading
+    const isGameStarted = Boolean(game_id) && !isLoading && !end_game
     useEffect(() => {
         if (isGameStarted) {
             push(LINKS.GAME)

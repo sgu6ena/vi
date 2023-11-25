@@ -24,11 +24,11 @@ const Page = () => {
   }, [end_game]);
 
 
-  // useEffect(() => {
-  //   if (!end_game && !game_id) {
-  //     push(LINKS.START)
-  //   }
-  // }, [game_id])
+  useEffect(() => {
+    if (!end_game && !game_id) {
+      push(LINKS.START)
+    }
+  }, [game_id])
 
   return (<>
       {isLoading ?

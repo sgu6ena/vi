@@ -1,3 +1,4 @@
+'use client';
 import React, {FC, useState} from 'react';
 import styles from './win.module.scss'
 import classNames from "classnames";
