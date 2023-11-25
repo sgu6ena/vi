@@ -78,8 +78,7 @@ export const gameSlice = createSlice({
                 state.end_game = payload.end_game
                 state.elka = payload.elka
                 state.bonus = payload.bonus
-                if (payload.end_game)
-                    state.game_id = null
+
             })
             .addCase(postAnswer.rejected, (state, {payload}) => {
                 console.log(payload)
@@ -136,16 +135,16 @@ export const gameSlice = createSlice({
                 // state.message = ""
             })
             .addCase(buyTime.fulfilled, (state, {payload}) => {
-                state.isLoading = false
+                // state.isLoading = false
                 state.timer = Number(state.timer)+30
                 // state.timer = payload.question.time
             })
             .addCase(buyTime.rejected, (state, {payload}) => {
-                state.isLoading = false
-                state.isError = true
-                state.game_id = 0
+                // state.isLoading = false
+                // state.isError = true
+                // state.game_id = 0
                 // @ts-ignore
-                state.message =payload
+                // state.message =payload
             })
     }
 

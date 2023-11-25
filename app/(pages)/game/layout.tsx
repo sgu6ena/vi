@@ -16,13 +16,13 @@ const Layout = ({
 
     const {isError, message} = useGame()
     const {push}= useRouter()
-    useEffect(() => {
-        if(isError){
-            push(LINKS.START)
-        }
-    }, [isError]);
+    // useEffect(() => {
+    //     if(isError){
+    //         push(LINKS.START)
+    //     }
+    // }, [isError]);
     return (
-        <div className={' w-full pt-20 min-h-screen'}>
+        <div className={' w-full md:pt-12 pt-10 min-h-screen'}>
             <Snowfall color={'#ffffff50'} snowflakeCount={500} radius={[0.5, 5.0]} wind={[-1, 3.0]}/>
             <div className="grid  min-h-screen overflow-hidden md:grid-cols-7 gap-4">
                 <div className="col hidden relative   col-span-2 md:block">

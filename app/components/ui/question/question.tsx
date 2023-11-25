@@ -47,7 +47,7 @@ const Question: FC<IQ> = ({
     return (
       <div className={styles.question}>
           { isBonusQuest ? <h2>Вопрос {question.id}</h2> : <h2>Бонусный вопрос</h2>}
-          <p className={styles.time}>Осталоcь: <b className={styles.seconds}>{time} сек.</b></p>
+          <p className={styles.timer}>Осталоcь: <b className={styles.seconds}>{time}&nbsp;сек.</b></p>
           <div className={styles.q}>
               {question.body}
           </div>
