@@ -4,8 +4,8 @@ import styles from './banner.module.scss'
 import Modal from "@/app/components/modals/modal";
 import Register from "@/app/components/modals/register";
 import dynamic from "next/dynamic";
+import {useMain} from "@/app/hooks/useMain";
 
-import {useMain} from "@/app/hooks/useSponsors";
 const DynamicTimer = dynamic(() => import('../../widjets/timer').then(m=>m.Timer), {
   ssr: false,
 })
