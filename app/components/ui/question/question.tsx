@@ -1,11 +1,12 @@
 'use client';
 import React, {FC, useEffect, useState} from 'react';
 import styles from './question.module.scss'
-import {IQuestion} from "@/app/store/game/interface";
+
 import classNames from "classnames";
 import {useGame} from "@/app/hooks/useGame";
 import {useActions} from "@/app/store/hooks";
-import {IAnswer} from "@/app/api/api.service";
+
+import {IAnswer, IQuestion} from "@/app/api/types";
 
 interface IQ {
     question: IQuestion,
