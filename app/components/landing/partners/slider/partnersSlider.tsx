@@ -22,22 +22,22 @@ const BREAKPOINTS = {
     },
 
     640: {
-        slidesPerView: 4,
+        slidesPerView: 3,
         spaceBetween: 10,
         speed: 2000
     },
     900: {
-        slidesPerView: 5,
+        slidesPerView: 4,
         spaceBetween: 10,
         speed: 2000
     },
     1024: {
-        slidesPerView: 6,
+        slidesPerView: 5,
         spaceBetween: 10,
         speed: 2000
     },
     1280: {
-        slidesPerView: 7,
+        slidesPerView: 6,
         spaceBetween: 10,
         speed: 2000
     }

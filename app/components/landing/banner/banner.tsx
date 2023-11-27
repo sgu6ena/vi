@@ -17,8 +17,8 @@ const Banner = () => {
       <Modal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}><Register/></Modal>
       <div className={styles.main}>
         <div className={styles.left}>
-          <div className={'text-white lg:text-3xl text-lg sm:block hidden'}>
-            <div className={'pb-4 '}>До ежедневного розыгрыша осталось</div>
+          <div className={'text-white lg:text-2xl text-lg sm:block hidden'}>
+            <div className={'pb-2 '}>До ежедневного розыгрыша осталось</div>
             <DynamicTimer deadline={'12/04/2023'}/></div>
           <h1>Новогодний<br/> переполох</h1>
           <a onClick={()=>setIsOpen(true)} className={styles.start}>

@@ -46,10 +46,10 @@ export const Timer = ({ deadline = new Date().toString() }) => {
                 { label: "second", value: seconds },
             ].map(({ label, value }, index) => (
                 <div key={index+label} className="col-4">
-                    <div className=" text-center figure-border bg-green p-4  lg:w-36 w-16">
+                    <div className=" text-center figure-border bg-green p-4  lg:w-28 w-16">
                         {`${Math.floor(value)}`.padStart(2, "0")}
                     </div>
-                    <div className={'lg:pl-8 lg:text-3xl text-sm text-center lg:font-bold '}>
+                    <div className={'lg:pl-8 lg:text-xl text-sm text-center lg:font-bold '}>
                         {formatTimeUnit(value, label)}
                     </div>
                 </div>
