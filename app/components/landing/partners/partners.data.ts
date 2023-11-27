@@ -177,7 +177,7 @@ export const partners:ISponsor[] = [
   },
   {
     id: 3,
-    src: '/sponsors/stokman.png',
+    src: '/sponsors/stockman.png',
     title: "Stokman",
     link: ""
   },
