@@ -5,13 +5,15 @@ import Modal from "@/app/components/modals/modal";
 import Register from "@/app/components/modals/register";
 import dynamic from "next/dynamic";
 import {useMain} from "@/app/hooks/useMain";
+import Baraban from "@/app/components/landing/baraban/baraban";
 
-const DynamicTimer = dynamic(() => import('../../widjets/timer').then(m=>m.Timer), {
+const DynamicTimer = dynamic(() => import('../../widjets/timer').then(m => m.Timer), {
   ssr: false,
 })
 const Banner = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
-  const { isLoading } = useMain()
+  const [barabanIsOpen, setBarabanIsOpen] = useState<boolean>(false)
+  const {isLoading, time} = useMain()
   return (
     <section id={'main'} className={styles.banner}>
       <Modal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}><Register/></Modal>
@@ -19,9 +21,9 @@ const Banner = () => {
         <div className={styles.left}>
           <div className={'text-white lg:text-2xl text-lg sm:block hidden'}>
             <div className={'pb-2 '}>До ежедневного розыгрыша осталось</div>
-            <DynamicTimer deadline={'12/04/2023'}/></div>
+            <DynamicTimer onTimeEnd={() => setBarabanIsOpen(true)} deadline={'12/04/2023'} time={time}/></div>
           <h1>Новогодний<br/> переполох</h1>
-          <a onClick={()=>setIsOpen(true)} className={styles.start}>
+          <a onClick={() => setIsOpen(true)} className={styles.start}>
             <div>
               Выиграть деньги
             </div>
@@ -58,8 +60,9 @@ const Banner = () => {
         </div>
       </div>
 
-
-
+      <Modal modalIsOpen={barabanIsOpen} setIsOpen={setBarabanIsOpen}>
+        <Baraban/>
+      </Modal>
     </section>
   );
 };

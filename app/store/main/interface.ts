@@ -3,7 +3,7 @@ import {ISponsor} from "@/app/api/types";
 export interface IMainState {
   isLoading: boolean;
   isError: boolean;
-
+  accounts: { account:number }[]
   sponsors:ISponsor[]
 
   drawing:{
@@ -20,6 +20,7 @@ export const initialState: IMainState = {
   isError: false,
   isLoading: false,
   sponsors:[],
+  accounts:[],
   drawing:{
     time:0,
     title:'',

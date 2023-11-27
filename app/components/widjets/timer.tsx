@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useMemo, useState } from "react";
+import React, {FC, useEffect, useMemo, useState} from "react";
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
@@ -23,19 +23,38 @@ const formatTimeUnit = (value: number, unit: string) => {
     return words[unit][form];
 };
 
-export const Timer = ({ deadline = new Date().toString() }) => {
-    const parsedDeadline = useMemo(() => Date.parse(deadline), [deadline]);
-    const [time, setTime] = useState(parsedDeadline - Date.now());
+interface ITimer{
+    time: number;
+    deadline:string
+    onTimeEnd:()=>void
+}
+
+export const Timer:FC<ITimer> = ({ deadline = new Date().toString(),  onTimeEnd , time}) => {
+
+    // const parsedDeadline = useMemo(() => Date.parse(deadline), [deadline]);
+    const [currentTime, setTime] = useState(time);
 
     useEffect(() => {
-        const interval = setInterval(() => setTime(parsedDeadline - Date.now()), 1000);
-        return () => clearInterval(interval);
-    }, [parsedDeadline]);
 
-    const days = Math.floor(time / DAY);
-    const hours = Math.floor((time % DAY) / HOUR);
-    const minutes = Math.floor((time % HOUR) / MINUTE);
-    const seconds = Math.floor((time % MINUTE) / SECOND);
+        const interval = setInterval(() => {
+            if (currentTime>0) {
+                setTime(currentTime - 1000)
+            }
+        }, 1000);
+        return () => clearInterval(interval);
+
+    }, [currentTime]);
+
+    useEffect(() =>{
+        if (currentTime<=0){
+            onTimeEnd()
+        }
+    },[currentTime]);
+
+    const days = Math.floor(currentTime / DAY);
+    const hours = Math.floor((currentTime % DAY) / HOUR);
+    const minutes = Math.floor((currentTime % HOUR) / MINUTE);
+    const seconds = Math.floor((currentTime % MINUTE) / SECOND);
 
     return (
         <div className="flex gap-4">

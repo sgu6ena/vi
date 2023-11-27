@@ -16,6 +16,7 @@ export const mainSlice = createSlice({
       .addCase(getStatus.fulfilled, (state, {payload}) => {
         state.isLoading = false
         state.isError = false
+        state.drawing = payload
 
       })
       .addCase(getStatus.rejected, (state, {payload}) => {
@@ -32,7 +33,7 @@ export const mainSlice = createSlice({
       .addCase(getWinner.fulfilled, (state, {payload}) => {
         state.isLoading = false
         state.isError = false
-
+        state.accounts = payload
       })
       .addCase(getWinner.rejected, (state, {payload}) => {
         state.isLoading = false
