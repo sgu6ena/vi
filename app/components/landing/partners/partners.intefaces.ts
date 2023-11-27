@@ -1,3 +1,4 @@
+import {ISponsor} from "@/app/api/types";
 
 
 export interface IAutoplay {
@@ -14,8 +15,3 @@ export interface ISponsorSlider {
 
 
 
-export interface ISponsor{
-    link:string
-    title:string
-    img:string
-}

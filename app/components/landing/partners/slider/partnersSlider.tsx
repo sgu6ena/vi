@@ -55,11 +55,11 @@ const PartnersSlider = ({items, autoplay}: ISponsorSlider) => {
             modules={[Autoplay]}
 
         >
-            {items.map(item => (
-                <SwiperSlide key={item.link}>
+            {items.map((item, index) => (
+                <SwiperSlide key={item.link+index}>
                     <div className={styles.item}>
                         <a href={item.link}>
-                            <img width="150" height="80" src={'//1415.idc.md' + item.img} alt={item.title}/>
+                            <img height="120" src={ item.src} alt={item.title}/>
                         </a>
                     </div>
 

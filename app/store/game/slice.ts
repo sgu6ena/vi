@@ -88,8 +88,6 @@ export const gameSlice = createSlice({
         }
       })
       .addCase(postAnswer.rejected, (state, {payload}) => {
-        console.log(payload)
-        state.isLose = true
         state.isLoading = false
         state.isError = true
         state.question = null

@@ -1,8 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {getBonusTree} from "@/app/store/bonusTree/actions";
 import {initialState} from "@/app/store/bonusTree/interface";
-import {gameSlice} from "@/app/store/game/slice";
-
 export const bonusTreeSlice = createSlice({
   name: 'bonusTree',
   initialState,

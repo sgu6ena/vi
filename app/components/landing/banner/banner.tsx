@@ -1,15 +1,17 @@
 'use client';
 import React, {useState} from 'react';
 import styles from './banner.module.scss'
-import {Timer} from "@/app/components/widjets/timer";
 import Modal from "@/app/components/modals/modal";
 import Register from "@/app/components/modals/register";
 import dynamic from "next/dynamic";
+
+import {useMain} from "@/app/hooks/useSponsors";
 const DynamicTimer = dynamic(() => import('../../widjets/timer').then(m=>m.Timer), {
   ssr: false,
 })
 const Banner = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const { isLoading } = useMain()
   return (
     <section id={'main'} className={styles.banner}>
       <Modal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}><Register/></Modal>

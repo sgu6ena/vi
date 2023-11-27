@@ -1,7 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-
-import {gameService, IAnswer, IBonus, IResult, IType} from "@/app/api/api.service";
-import {IQuestion} from "@/app/store/game/interface";
+import {gameService} from "@/app/api/api.service";
+import {IAnswer, IQuestion, IResult, IType} from "@/app/api/types";
 
 
 export const statusGame = createAsyncThunk(

@@ -3,8 +3,10 @@
   .item{
     @apply p-2;
     a{
-      @apply bg-white overflow-hidden flex justify-center border-[#FF1E00] border-2 figure-border px-8 py-4 transition-all;
+      @apply bg-white overflow-hidden flex justify-center border-[#FF1E00] border-2 p-4 figure-border transition-all;
       img{
+        height: 80px;
+        width:auto;
         @apply transition-all;
       }
        &:hover{

@@ -14,7 +14,7 @@ const menuData: { link: string, title: string }[] = [{
         link: "/#winners", title: 'Победители'
     },
     {
-        link: "/#faq", title: 'Вопросы и ответы'
+        link: "/#faqs", title: 'Вопросы и ответы'
     },
 ]
 const Navmenu = () => {
