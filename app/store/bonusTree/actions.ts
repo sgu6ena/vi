@@ -1,5 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {gameService, IBonus} from "@/app/api/api.service";
+import {gameService} from "@/app/api/api.service";
+import {IBonus} from "@/app/api/types";
 
 export const getBonusTree = createAsyncThunk<any, IBonus>(
   'getBonusTree',
