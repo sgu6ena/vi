@@ -141,6 +141,7 @@ export const gameSlice = createSlice({
         state.timer = Number(state.timer) + 30
       })
       .addCase(buyTime.rejected, (state, {payload}) => {
+        state.timer = Number(state.timer)
       })
 
   }

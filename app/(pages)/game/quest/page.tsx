@@ -31,7 +31,6 @@ const Page = () => {
   }, [game_id])
 
   return (<>
-      <p className={'text-white'}>quest_id:{quest_id}</p>
       {isLoading ?
         <Loading/>
         :
