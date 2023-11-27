@@ -49,8 +49,8 @@ export const gameService = {
         return response.data.data
     },
 
-    async bonus(data:IBonus): Promise<any> {
-        const response = await instance.post<any, any>(GAME.BONUS, data)
+    async bonusTree(data:IBonus): Promise<any> {
+        const response = await instance.post<any, any>(GAME.BONUS_PRIZE, data)
         return response.data.data
     },
 }

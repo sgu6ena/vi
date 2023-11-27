@@ -12,7 +12,7 @@ const Page = () => {
   const {isLoading, currentQuestion, game_id, quest_id, winStatus: {end_game}} = useGame()
   const {push} = useRouter()
   useEffect(() => {
-    if (quest_id < 3 && quest_id >= 0 && game_id) {
+    if ((quest_id===null ||( quest_id <= 3 && quest_id >0)) && game_id) {
       requestQuestion({game_id})
     }
   }, [quest_id])
@@ -31,6 +31,7 @@ const Page = () => {
   }, [game_id])
 
   return (<>
+      <p className={'text-white'}>quest_id:{quest_id}</p>
       {isLoading ?
         <Loading/>
         :

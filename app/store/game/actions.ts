@@ -19,7 +19,7 @@ export const startGame = createAsyncThunk<{ game_id:number }, IType>(
     async (data, thinkApi) => {
         try {
             const response = await gameService.startGame(data)
-            return response
+            return {game_id:response.game_id, type:data.type}
         } catch (error:any) {
             return thinkApi.rejectWithValue(error.response.data.error.message);
         }
@@ -74,13 +74,3 @@ export const buyTime = createAsyncThunk<any  , any>(
         }
     })
 
-export const bonus = createAsyncThunk<{ game_id:number }, IBonus>(
-  'bonus',
-  async (data, thinkApi) => {
-    try {
-      const response = await gameService.bonus(data)
-      return response
-    } catch (error:any) {
-      return thinkApi.rejectWithValue(error.response.data.error.message);
-    }
-  })

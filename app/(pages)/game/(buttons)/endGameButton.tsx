@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-
+import styles from './buttons.module.scss'
 const EndGameButton = () => {
     //TODO: навесить действие конца игры
     return (
-        <div className={'bg-red text-white text-center text-lg w-full   figure-border p-4'}>
+        <div className={styles.endGameButton}>
             Завершить игру
         </div>
     );
