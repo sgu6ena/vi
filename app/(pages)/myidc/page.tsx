@@ -17,11 +17,7 @@ const Page = () => {
         push(LINKS.START)
     }, [token]);
 
-    return (
-        <div className={'text-white text-center my-20'}>
-
-        </div>
-    );
+    return null;
 };
 
 export default Page;
