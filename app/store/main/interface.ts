@@ -3,7 +3,7 @@ import {ISponsor} from "@/app/api/types";
 export interface IMainState {
   isLoading: boolean;
   isError: boolean;
-  accounts: { account:number }[]
+  accounts: { account:string }[]
   sponsors:ISponsor[]
 
   drawing:{

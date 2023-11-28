@@ -1,48 +1,31 @@
+'use client';
 import React, {useEffect, useState} from 'react';
-import Modal from "@/app/components/modals/modal";
 import {useMain} from "@/app/hooks/useMain";
 import Loading from "@/app/loading";
 import BarabanItem from "@/app/components/landing/baraban/barabanItem";
 
 const Baraban = () => {
 
-  const {isLoading, accounts} = useMain()
-  const [winners1, setWinners1] = useState([])
-  const [winners2, setWinners2] = useState([])
-  const [winners3, setWinners3] = useState([])
-  const [winners4, setWinners4] = useState([])
-  const [winners5, setWinners5] = useState([])
-  const [counts, setCounts] = useState(0)
+  const {isWinnersLoading, winners, body, winners1, winners3, title, winners4, winners5, winners2} = useMain()
 
-
-  const isWinnerLoading = isLoading && !(accounts.length > 0)
-
-
-  useEffect(() => {
-    const counts = Math.floor((accounts.length - 6) / 6)
-    setWinners1(()=>accounts.slice(6, counts))
-    setWinners2(()=>accounts.slice(counts * 1, counts * 2))
-    setWinners3(()=>accounts.slice(counts * 2, counts * 3))
-    setWinners4(()=>accounts.slice(counts * 3, counts * 4))
-    setWinners5(()=>accounts.slice(counts * 4, counts * 5))
-  }, [accounts])
 
   return (<>
-      {isWinnerLoading ? <Loading/> :
+        {isWinnersLoading ? <Loading/> :
         <div className={'grid grid-cols-1 gap-4'}>
-          <div className={'bg-green w-full figure-border px-10 py-4'}>
-            <div className={'text-2xl font-bold text-center leading-6 text-white'}>
-              Победители денежного
-              <br/>
-              приза 1 000 рублей
+          <div className={'bg-green w-full figure-border md:px-16 px-8 py-4'}>
+            <div className={'text-2xl w-80 font-bold text-center leading-7 text-white'}>
+              {title}
             </div>
-            <div className={'text-sm text-center text-white'}>от 12.12.2023</div>
+            <div className={'text-sm text-center mt-0.5 text-gray-500'}>{body}</div>
           </div>
-          <BarabanItem winner={accounts[0]?.account.toString() || ''} accounts={winners1}/>
-          <BarabanItem winner={accounts[1]?.account.toString() || ''} accounts={winners2}/>
-          <BarabanItem winner={accounts[2]?.account.toString() || ''} accounts={winners3}/>
-          <BarabanItem winner={accounts[3]?.account.toString() || ''} accounts={winners4}/>
-          <BarabanItem winner={accounts[4]?.account.toString() || ''} accounts={winners5}/>
+          {winners?.money ? <>
+            <BarabanItem winner={winners.money[0]} accounts={winners1}/>
+            <BarabanItem winner={winners.money[1]} accounts={winners2}/>
+            <BarabanItem winner={winners.money[2]} accounts={winners3}/>
+            <BarabanItem winner={winners.money[3]} accounts={winners4}/>
+            <BarabanItem winner={winners.money[4]} accounts={winners5}/>
+          </> : null
+          }
 
         </div>
       }

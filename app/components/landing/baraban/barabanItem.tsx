@@ -1,30 +1,24 @@
 import React, { FC, useEffect, useState } from 'react';
 
 const BarabanItem: FC<{ winner: string, accounts: { account: string }[] }> = ({ winner, accounts }) => {
+    const l = accounts.length;
+    const [index, setIndex] = useState(0);
+    const currentAccounts = [...accounts, {account: winner}]
 
-  const [index, setIndex] = useState(0);
+    const delay = Math.floor(Math.random() * 10)
 
-  useEffect(() => {
-    if (accounts.length > 0) {
-      const l = accounts.length;
-      setIndex(l);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (index < l)
+                setIndex(prevIndex => (prevIndex + 1));
+        }, 15 + delay);
+        return () => clearInterval(timer);
+    }, [currentAccounts, index]);
 
-      const timer = setInterval(() => {
-        if(index>0)
-          setIndex(prevIndex => (prevIndex - 1));
-      }, 50);
-
-      return () => clearInterval(timer);
-    }
-
-  }, [accounts]);
-useEffect(()=>{
-  if(index>0){
-
-}},[index])
   return (
-    <div className={'bg-gold w-full figure-border p-4 text-center text-xl'}>
-      {accounts.length > 0 && accounts[index]?.account}
+      <div
+          className={`${currentAccounts[index]?.account === winner ? 'text-red' : ''} bg-gold font-bold text-2xl w-full figure-border p-4 text-center font-mono`}>
+          {l > 0 && currentAccounts[index]?.account}
     </div>
   );
 };
