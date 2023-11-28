@@ -65,10 +65,10 @@ export const Timer:FC<ITimer> = ({ deadline = new Date().toString(),  onTimeEnd 
                 { label: "second", value: seconds },
             ].map(({ label, value }, index) => (
                 <div key={index+label} className="col-4">
-                    <div className=" text-center figure-border bg-green p-4  lg:w-28 w-16">
+                    <div className="transition-all text-center figure-border bg-green p-4  lg:w-28 w-16">
                         {`${Math.floor(value)}`.padStart(2, "0")}
                     </div>
-                    <div className={'lg:pl-8 lg:text-xl text-sm text-center lg:font-bold '}>
+                    <div className={'transition-all lg:pl-8 lg:text-xl text-sm text-center lg:font-bold '}>
                         {formatTimeUnit(value, label)}
                     </div>
                 </div>

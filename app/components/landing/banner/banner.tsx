@@ -13,15 +13,21 @@ const DynamicTimer = dynamic(() => import('../../widjets/timer').then(m => m.Tim
 const Banner = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [barabanIsOpen, setBarabanIsOpen] = useState<boolean>(false)
-  const {isLoading, time} = useMain()
+  const {isLoading, time, title} = useMain()
   return (
     <section id={'main'} className={styles.banner}>
       <Modal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}><Register/></Modal>
       <div className={styles.main}>
         <div className={styles.left}>
-          <div className={'text-white lg:text-2xl text-lg sm:block hidden'}>
-            <div className={'pb-2 '}>До ежедневного розыгрыша осталось</div>
-            <DynamicTimer onTimeEnd={() => setBarabanIsOpen(true)} deadline={'12/04/2023'} time={time}/></div>
+
+          {!isLoading && title &&
+          <div className={'text-white lg:text-2xl transition-all text-lg sm:block '}>
+            <div className={'pb-2 transition-all'}>До ежедневного розыгрыша осталось</div>
+            <DynamicTimer onTimeEnd={() => setBarabanIsOpen(true)} deadline={'12/04/2023'} time={time * 1000}/>
+          </div>
+          }
+
+
           <h1>Новогодний<br/> переполох</h1>
           <a onClick={() => setIsOpen(true)} className={styles.start}>
             <div>
@@ -55,8 +61,6 @@ const Banner = () => {
         </div>
         <div className={styles.right}>
           <img src="/images/img_1.png" alt="" className={styles.img}/>
-          {/*<img src="/images/2.png" alt=""  className={styles.img2}/>*/}
-          {/*<img src="/images/3.png" alt=""  className={styles.img3}/>*/}
         </div>
       </div>
 

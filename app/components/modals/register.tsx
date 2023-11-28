@@ -85,6 +85,7 @@ const Register = () => {
             <div className={'w-full'}>
                 <button type={'submit'} className={styles.btnGold}>Играть</button>
                 <sup> {TEXT_MODALS.TEXT_PRICE}</sup>
+                <div></div>
             </div>
         </form>)
     }

@@ -4,18 +4,23 @@ import {postCode, postPhone} from "@/app/store/user/actions";
 
 interface UserState{
     isLoading: boolean
-    phone:string
-    token:string
     isSendSms:boolean
     isTrueCode:boolean
+    isError:boolean
+    phone:string
+    token:string
+
+    message:string
 }
 
 const initialState:UserState = {
+    isError:false,
     isLoading: false,
+    isSendSms:false,
+    isTrueCode:false,
     phone:'',
     token:'',
-    isSendSms:false,
-    isTrueCode:false
+    message:''
 }
 
 export const slice = createSlice({
@@ -31,6 +36,7 @@ export const slice = createSlice({
         resetRegister: (state) => {
             state.isSendSms = false
             state.phone = ''
+            state.isTrueCode = false
         }
     },
     extraReducers: (builder) => {
@@ -49,13 +55,18 @@ export const slice = createSlice({
             })
             .addCase(postCode.pending, (state) => {
                 state.isLoading = true
+                state.isTrueCode = false
             })
             .addCase(postCode.fulfilled, (state,{ payload }) => {
                 state.isLoading = false
                 state.isTrueCode = true
             })
-            .addCase(postCode.rejected, (state) => {
+            .addCase(postCode.rejected, (state, {payload}) => {
                 state.isLoading = false
+                state.isError = true
+                //@ts-ignore
+                state.message = payload
+                state.isTrueCode = false
             })
     }
 

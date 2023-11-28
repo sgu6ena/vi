@@ -1,7 +1,7 @@
 'use client';
 
 import Snowfall from "react-snowfall";
-import React, {useEffect} from "react";
+import React, {useEffect, useLayoutEffect} from "react";
 import Banner from "@/app/components/landing/banner/banner";
 import Partners from "@/app/components/landing/partners/partners";
 import Winner from "@/app/components/landing/winners/winner";
@@ -13,9 +13,7 @@ export default function Home() {
   const {getStatus, getWinner, getSponsors} = useActions()
   useEffect(()=>{
     getStatus()
-    getWinner()
-    // getSponsors()
-
+    // getWinner()
   },[])
   return (
     <>

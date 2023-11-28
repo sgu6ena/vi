@@ -23,7 +23,7 @@ export const postCode = createAsyncThunk<any, iSendCode>(
         try {
             const response = await registerService.postCode(data)
             return response
-        } catch (error) {
-
+        }  catch (error:any) {
+            return thinkApi.rejectWithValue(error.response.data.error.message);
         }
     })
