@@ -19,7 +19,6 @@ const Register = () => {
     const {push} = useRouter()
     const {postPhone, postCode, } = useActions()
 
-
     const sendPhone: SubmitHandler<iSendSms> = (data) => {
         postPhone(data)
     }
@@ -28,12 +27,10 @@ const Register = () => {
         postCode({phone:phoneNumber, sms:data.sms})
     }
 
-
     useEffect(()=>{
         if(isTrueCode)
             push(LINKS.START)
     },[isTrueCode])
-
 
 
     const PhoneForm = () => {
@@ -93,7 +90,7 @@ const Register = () => {
     }
 
 
-    return isLoading ? <Loading/> : isSmsSend ? <SmsForm/> : <PhoneForm/>;
+    return isLoading ? <Loading/> : isSmsSend ? isTrueCode ? <Loading/> : <SmsForm/> : <PhoneForm/>;
 };
 
 export default Register;
