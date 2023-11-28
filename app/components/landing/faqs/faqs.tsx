@@ -170,6 +170,8 @@ const Faqs = () => {
   return (
     <div id='faq' className={styles.faqs}>
       <Snowfall color={'#ffffff50'} snowflakeCount={500} radius={[0.5, 5.0]} wind={[-1, 3.0]}/>
+      <img src={'/images/img_4.png'} alt="" className={styles.img1}/>
+      <img src={'/images/img_5.png'} alt="" className={styles.img2}/>
       <h2 className={'text-center'}>
         Вопросы и ответы
       </h2>

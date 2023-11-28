@@ -1,6 +1,53 @@
 .faqs{
-  @apply bg-gray-900 pt-20  pb-20 w-full;
+  @apply bg-gray-900 pt-20 relative  pb-80 w-full;
   h2{
     @apply lobster lg:text-7xl md:text-5xl text-3xl my-10 text-center text-gold;
+  }
+  background:  no-repeat bottom left  url("/images/prizes.png"), no-repeat bottom right url("/images/elka_gold.png");
+  background-size: 25% auto;
+  .img1{
+    @apply absolute top-80 left-[-30px] md:left-[-100px] md:z-30 md:w-80 w-20;
+    animation: 12s shake infinite;
+  }
+  .img2{
+    @apply absolute top-10  right-[-10px] md:right-[-100px] md:z-30 md:w-80  w-20;
+    animation: 14s shake infinite;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+    transform-origin:top;
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-5deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(3deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(8deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-3deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-8deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(3deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
   }
 }
