@@ -35,6 +35,9 @@ export const slice = createSlice({
         // },
         resetRegister: (state) => {
             state.isSendSms = false
+            state.isError=false
+            state.isLoading = false
+            state.message=''
             state.phone = ''
             state.isTrueCode = false
         }

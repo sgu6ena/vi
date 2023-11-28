@@ -15,9 +15,9 @@ import {iSendCode, iSendSms} from "@/app/store/user/interface";
 const Register = () => {
 
 
-    const {phoneNumber, isSmsSend, isLoading, isTrueCode} = useUser()
+    const {phoneNumber, isSmsSend, isLoading, isTrueCode, isError, error} = useUser()
     const {push} = useRouter()
-    const {postPhone, postCode, } = useActions()
+    const {postPhone, postCode, resetRegister, } = useActions()
 
     const sendPhone: SubmitHandler<iSendSms> = (data) => {
         postPhone(data)
@@ -80,12 +80,13 @@ const Register = () => {
                     })}
                     type="text"
                     placeholder={'XXXX'}
-                />
+                />{isError && <div className={'text-[#ff0000] mt-1 text-center text-sm'}>{error}</div>}
             </label>
+
             <div className={'w-full'}>
                 <button type={'submit'} className={styles.btnGold}>Играть</button>
                 <sup> {TEXT_MODALS.TEXT_PRICE}</sup>
-                <div></div>
+                <div className={'text-white underline  text-center cursor-pointer'} onClick={()=>resetRegister()}>Отправить пароль в SMS еще раз</div>
             </div>
         </form>)
     }
