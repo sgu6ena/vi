@@ -3,11 +3,19 @@
   nav {
     @apply lg:flex w-full justify-between invisible hidden  lg:visible;
     ul {
-      @apply flex text-white  gap-4;
+      @apply flex  gap-4;
+      li {
+        @apply transition-all text-gray-500
+      }
 
+      li:hover {
+        @apply text-white
+      }
     }
 
   }
-}    .tel{
-       @apply flex gap-2 items-center text-white;
-     }
+}
+
+.tel {
+     @apply flex gap-2 items-center text-white;
+}
