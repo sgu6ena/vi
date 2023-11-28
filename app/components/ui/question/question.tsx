@@ -12,16 +12,18 @@ interface IQ {
     question: IQuestion,
     postAnswer: (answer: IAnswer) => void
     buyTime: () => void
+    buyHelp: () => void
 }
 const Question: FC<IQ> = ({
                               question,
                               postAnswer,
-                              buyTime
+                              buyTime,
+                              buyHelp
                                            }) => {
 
     const [answerId, setAnswerId] = useState<1|2|3|4|null>(null)
 
-    const {timer, game_id} = useGame()
+    const { game_id} = useGame()
     const {setTimer} = useActions()
     const [time, setTime] = useState<number>(question.time)
 
@@ -45,6 +47,13 @@ const Question: FC<IQ> = ({
 
    const isBonusQuest =  Boolean(question.id)
 
+    const help = question.help
+
+    const isFalse1 = help?.includes(1)
+    const isFalse2 = help?.includes(2)
+    const isFalse3 = help?.includes(3)
+    const isFalse4 = help?.includes(4)
+
 
     return (
       <div className={styles.question}>
@@ -54,16 +63,25 @@ const Question: FC<IQ> = ({
               {question.body}
           </div>
           <div className={styles.answers}>
-              <label className={classNames( styles.a,answerId===1?styles.active:"")} onClick={()=>setAnswerId(1)}>
+
+              <label
+                  className={classNames(styles.a, answerId === 1 ? styles.active :  isFalse1 ? styles.inactive:'')}
+                  onClick={() => setAnswerId(1)}>
                   {question.answer1}
               </label>
-              <label className={classNames( styles.a,answerId===2?styles.active:"")} onClick={()=>setAnswerId(2)}>
+              <label
+                  className={classNames(styles.a, answerId === 2 ? styles.active :  isFalse2 ? styles.inactive:'')}
+                  onClick={() => setAnswerId(2)}>
                   {question.answer2}
               </label>
-              <label className={classNames( styles.a,answerId===3?styles.active:"")} onClick={()=>setAnswerId(3)}>
+              <label
+                  className={classNames(styles.a, answerId === 3 ? styles.active :  isFalse3? styles.inactive:'')}
+                  onClick={() => setAnswerId(3)}>
                   {question.answer3}
               </label>
-              <label className={classNames( styles.a,answerId===4?styles.active:"")} onClick={()=>setAnswerId(4)}>
+              <label
+                  className={classNames(styles.a, answerId === 4 ? styles.active : isFalse4 ? styles.inactive:'')}
+                  onClick={() => setAnswerId(4)}>
                   {question.answer4}
               </label>
 
@@ -79,7 +97,7 @@ const Question: FC<IQ> = ({
                   <strong>Докупить 30 секунд времени</strong>
                   <span>Стоимость услуги 2 рубля ПМР</span>
               </button>
-              <button className={styles.fifty}>
+              <button className={styles.fifty} onClick={buyHelp}>
                   <strong>50/50 убрать два неверных ответа</strong>
                   <span>Стоимость услуги 1 рубль ПМР</span>
               </button>

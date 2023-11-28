@@ -8,14 +8,23 @@ import {useRouter} from "next/navigation";
 import {LINKS} from "@/app/config/links";
 
 const Page = () => {
-  const {requestQuestion, postAnswer, buyTime} = useActions()
-  const {isLoading, currentQuestion, game_id, quest_id, winStatus: {end_game}} = useGame()
+  const {requestQuestion, postAnswer, buyTime, buyHelp} = useActions()
+  const {isLoading, currentQuestion, game_id, quest_id, winStatus: {end_game}, isHelp} = useGame()
   const {push} = useRouter()
+
   useEffect(() => {
     if ((quest_id===null ||( quest_id <= 3 && quest_id >0)) && game_id) {
       requestQuestion({game_id})
     }
   }, [quest_id])
+
+
+  useEffect(() => {
+    if(isHelp){
+      requestQuestion({game_id: game_id as number})
+    }
+  }, [isHelp]);
+
 
   useEffect(() => {
     if (end_game) {
@@ -23,12 +32,13 @@ const Page = () => {
     }
   }, [end_game]);
 
-
   useEffect(() => {
     if (!end_game && !game_id) {
       push(LINKS.START)
     }
   }, [game_id])
+
+
 
   return (<>
       {isLoading ?
@@ -39,7 +49,9 @@ const Page = () => {
           <Question
             question={currentQuestion}
             postAnswer={postAnswer}
-            buyTime={() => buyTime({})}/>
+            buyTime={buyTime}
+            buyHelp={buyHelp}
+          />
           :
           <Loading/>}
     </>

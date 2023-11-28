@@ -51,6 +51,11 @@ export const gameService = {
     const response = await instance.get(GAME.TIME, {})
     return response.data.data
   },
+  // 50*50
+  async buyHelp(): Promise<null> {
+    const response = await instance.get(GAME.HELP)
+    return response.data.data
+  },
   //отправить номер выбранного подарка и получить название подарка
   async bonusTree(data: IBonus): Promise<IBonusPrize[]> {
     const response = await instance.post<any, any>(GAME.BONUS_PRIZE, data)

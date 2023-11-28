@@ -1,6 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {initialState} from "@/app/store/game/interface";
 import {
+  buyHelp,
   buyTime,
   needAuth,
   postAnswer,
@@ -76,6 +77,7 @@ export const gameSlice = createSlice({
         state.isLoading = true
         state.isError = false
         state.message = ""
+        state.isHelp=false
       })
       .addCase(postAnswer.fulfilled, (state, {payload}) => {
         state.isLoading = false
@@ -91,6 +93,7 @@ export const gameSlice = createSlice({
         state.isLoading = false
         state.isError = true
         state.question = null
+
         state.game_id = 0
         // @ts-ignore
         state.message = payload
@@ -141,6 +144,20 @@ export const gameSlice = createSlice({
       .addCase(buyTime.rejected, (state, {payload}) => {
         state.timer = Number(state.timer)
       })
+
+      .addCase(buyHelp.pending, (state) => {
+
+        })
+      .addCase(buyHelp.fulfilled, (state, {payload}) => {
+          state.isHelp = true
+        })
+      .addCase(buyHelp.rejected, (state, {payload}) => {
+
+        })
+
+
+
+
 
   }
 

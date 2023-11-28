@@ -54,22 +54,28 @@ export const postAnswer = createAsyncThunk<IResult  , IAnswer>(
             const response = await gameService.answer(data)
             return response
         } catch (error:any) {
-
             return thinkApi.rejectWithValue(error.response.data.error.message);
-
         }
     })
 
-export const buyTime = createAsyncThunk<any  , any>(
+export const buyTime = createAsyncThunk<any, void>(
     'buyTime',
     async (_, thinkApi) => {
         try {
             const response = await gameService.buyTime()
             return response
         } catch (error:any) {
-
             return thinkApi.rejectWithValue(error.response.data.error.message);
-
         }
     })
 
+export const buyHelp = createAsyncThunk<any, void>(
+    'buyHelp',
+    async (_, thinkApi) => {
+        try {
+            const response = await gameService.buyHelp()
+            return response
+        } catch (error: any) {
+            return thinkApi.rejectWithValue(error.response.data.error.message);
+        }
+    })

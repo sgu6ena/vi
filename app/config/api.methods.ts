@@ -7,10 +7,11 @@ export const GAME = {
   NEED_AUTH: '/needAuth',
   START_BY_TYPE: '/question',
   STATUS: '/question',
-  QUESTION: '/quest',
-  ANSWER: '/answer',
-  TIME: '/buyTime',
-  BONUS_PRIZE: "/tree"
+  QUESTION: '/quest', /* запросить вопрос */
+  ANSWER: '/answer', /* отправить ответ */
+  TIME: '/buyTime', /* докупить 30 секунд */
+  HELP: '/buyHelp', /* 50*50 */
+  BONUS_PRIZE: "/tree" /* призы на елочке */
 }
 
 export const MAIN = {

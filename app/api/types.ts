@@ -36,6 +36,7 @@ export type IQuestion = {
   answer4: string
   time: number
   type: any | null
+  help:number[]
 
 }
 
