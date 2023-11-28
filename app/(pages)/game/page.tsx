@@ -4,6 +4,7 @@ import {useActions} from "@/app/store/hooks";
 import {useGame} from "@/app/hooks/useGame";
 import Loading from "@/app/loading";
 import StartGame from "@/app/(pages)/game/(buttons)/startGame";
+import {TEXT_MODALS} from "@/app/config/texts";
 
 
 
@@ -18,7 +19,14 @@ const Page = () => {
     }, []);
 
 
-    return <>  {  isLoading ? <Loading/>  : <StartGame bonus={false} text={'Начать игру'}/> } </>
+    return <>  {isLoading ? <Loading/> :
+        <div className={'flex justify-center items-center flex-col gap-8 h-full'}>
+            <div className={'bg-green text-white text-center w-full figure-border px-10 py-6 relative'}>
+                {TEXT_MODALS.TEXT_PRICE}
+            </div>
+            <StartGame bonus={false} text={'Начать игру'}/>
+        </div>}
+    </>
 
 };
 
