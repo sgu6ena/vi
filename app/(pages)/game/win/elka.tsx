@@ -28,7 +28,8 @@ const Elka: FC = () => {
             <p> Выберите подарок!</p>
           </> :
           <>
-            <p> Спасибо за игру! Ваш подарок <span className={'text-gold text-bold text-2xl'}>{prize ? prizes[prize - 1]?.title : null} </span></p>
+              <p> Спасибо за игру! Ваш подарок <span
+                  className={'text-gold text-bold '}>{prize ? prizes[prize - 1]?.title : null} </span></p>
             <p> О том, как получить приз Вам сообщит оператор. Ожидайте звонка.</p>
           </>}
       </div>
