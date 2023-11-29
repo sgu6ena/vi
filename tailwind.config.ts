@@ -34,6 +34,7 @@ const config: Config = {
       'gray-900':'#1F1F1F',
       'gray-500':'#B0AFAF',
       'gray-400':'#C4C4C4',
+      'gray-300':'#D4D4D4',
       'blue-900':'#23263F'
     },
     transitionTimingFunction: {

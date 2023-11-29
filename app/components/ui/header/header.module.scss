@@ -5,7 +5,7 @@
     ul {
       @apply flex  gap-4;
       li {
-        @apply transition-all text-gray-500
+        @apply transition-all text-gray-300 text-xl;
       }
 
       li:hover {
