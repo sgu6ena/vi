@@ -18,11 +18,11 @@ const Winner = () => {
 
     const day = dates.length
 
-    const [dayN, setDayN] = useState(day)
+    const [dayN, setDayN] = useState(day-1)
     return (
     <section id={'winners'} className={styles.winners}>
       <h2>
-        Победители {today}
+        Победители
       </h2>
         <div className={styles.wrapper}>
             <div className={styles.block} style={{borderRadius:' 0px 200px'}}>
@@ -60,7 +60,51 @@ const Winner = () => {
                             <td>-</td>
                             <td>-</td>
                         </tr>
-
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
                         <tr>
                             <td>-</td>
                             <td>-</td>
