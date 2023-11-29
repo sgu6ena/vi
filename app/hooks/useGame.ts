@@ -9,6 +9,8 @@ export const useGame=()=>{
     const isError = useAppSelector(state => (state.gameReducer.isError));
     const message = useAppSelector(state => (state.gameReducer.message));
     const isHelp = useAppSelector(state => (state.gameReducer.isHelp));
+    const isNeedAuth =  useAppSelector(state => (state.gameReducer.isNeedAuth));
+
 
     const winStatus = {
         end_game:useAppSelector(state => (state.gameReducer.end_game)),
@@ -19,5 +21,5 @@ export const useGame=()=>{
     const isWin = useAppSelector(state => (state.gameReducer.isWin));
 
 
-    return {isLoading, game_id, currentQuestion, timer, quest_id, isWin, winStatus, isError, message, isHelp}
+    return {isLoading, game_id, currentQuestion, timer, quest_id, isWin, winStatus, isError, message, isHelp, isNeedAuth}
 }

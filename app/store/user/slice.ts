@@ -27,18 +27,13 @@ export const slice = createSlice({
     name:'user',
     initialState,
     reducers:{
-        // sendSms:(state)=> {
-        //     state.isSendSms = true
-        // },
-        // setNumber:(state, action)=> {
-        //     state.phone = action.payload
-        // },
         resetRegister: (state) => {
             state.isSendSms = false
             state.isError=false
             state.isLoading = false
             state.message=''
             state.phone = ''
+            state.token = ''
             state.isTrueCode = false
         }
     },

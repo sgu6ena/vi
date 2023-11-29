@@ -19,7 +19,6 @@ export const gameSlice = createSlice({
       state.isLoading = true
     },
     setTimer: (state, {payload}) => {
-
       if (payload.time <= 0) {
         state.game_id = 0
         state.question = null
@@ -121,9 +120,11 @@ export const gameSlice = createSlice({
         // state.isLoading = true
         state.isError = false
         state.message = ""
+        state.isNeedAuth = false
       })
       .addCase(needAuth.fulfilled, (state, {payload}) => {
         state.isLoading = false
+        state.isNeedAuth = false
         state.game_id = payload.game_id
         // state.timer = payload.question.time
       })
@@ -131,13 +132,16 @@ export const gameSlice = createSlice({
         state.isLoading = false
         state.isError = true
         state.game_id = 0
+        state.isNeedAuth = true
         // @ts-ignore
-        state.message = payload
+        // state.message = payload
+
+
+
       })
 
 
-      .addCase(buyTime.pending, (state) => {
-      })
+
       .addCase(buyTime.fulfilled, (state, {payload}) => {
         state.timer = Number(state.timer) + 30
       })
@@ -145,18 +149,10 @@ export const gameSlice = createSlice({
         state.timer = Number(state.timer)
       })
 
-      .addCase(buyHelp.pending, (state) => {
 
-        })
       .addCase(buyHelp.fulfilled, (state, {payload}) => {
           state.isHelp = true
         })
-      .addCase(buyHelp.rejected, (state, {payload}) => {
-
-        })
-
-
-
 
 
   }

@@ -1,6 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {gameService} from "@/app/api/api.service";
 import {IAnswer, IQuestion, IResult, IType} from "@/app/api/types";
+import {useRouter} from "next/navigation";
 
 
 export const statusGame = createAsyncThunk(
@@ -24,6 +25,7 @@ export const startGame = createAsyncThunk<{ game_id:number }, IType>(
         }
     })
 
+
 export const needAuth = createAsyncThunk<any, void>(
     'needAuth',
     async (_, thinkApi) => {
@@ -31,6 +33,7 @@ export const needAuth = createAsyncThunk<any, void>(
             const response = await gameService.needAuth()
             return response
         } catch (error:any) {
+
             return thinkApi.rejectWithValue(error.response.data.error.message);
         }
     })

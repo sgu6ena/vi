@@ -168,7 +168,7 @@ const FAQS: IFaq[] = [
 
 const Faqs = () => {
   return (
-    <div id='faq' className={styles.faqs}>
+    <div id='faqs' className={styles.faqs}>
       <Snowfall color={'#ffffff50'} snowflakeCount={500} radius={[0.5, 5.0]} wind={[-1, 3.0]}/>
       <img src={'/images/img_4.png'} alt="" className={styles.img1}/>
       <img src={'/images/img_5.png'} alt="" className={styles.img2}/>

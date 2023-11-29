@@ -8,6 +8,7 @@ export interface GameState {
   elka: boolean
   bonus: boolean
   isHelp: boolean
+  isNeedAuth:boolean
   quest_id: number | null
   game_id: number | null
   answer_id: number
@@ -21,6 +22,7 @@ export const initialState: GameState = {
   elka: false,
   bonus: false,
   isHelp: false,
+  isNeedAuth:false,
   isLoading: false,
   isError: false,
   message: '',

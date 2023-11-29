@@ -6,7 +6,7 @@ export const mainAPI = createApi({
     reducerPath: 'mainAPI',
     baseQuery: fetchBaseQuery({baseUrl: BASE_URL}),
     endpoints: (build) => ({
-        getSponsors:build.query({
+        getW:build.query({
             query:()=>({
                 url:MAIN.SPONSORS
             })
