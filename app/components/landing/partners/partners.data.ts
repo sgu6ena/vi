@@ -1,167 +1,5 @@
 import {ISponsor} from "@/app/api/types";
 
-
-export const sponsors2023: ISponsor[] = [
-  {
-    id: 0,
-    link: '',
-    title: 'Фирменный магазин «Косметика Беларуси»',
-    src: '/images/sponsors/belkosmetika.png'
-  },
-  {
-    id: 1,
-    link: 'https://shop.belar.md/',
-    title: 'Магазин «Cosmetic Shop»',
-    src: '/images/sponsors/cosmetics_shop3.png'
-  },
-  {
-    id: 2,
-    link: 'https://instagram.com/danilova.beauty.family?igshid=MDM4ZDc5MmU=',
-    title: 'Салон красоты «Danilova beauty family»',
-    src: '/images/sponsors/danilova.png'
-  },
-  {
-    id: 3,
-    link: 'https://www.instagram.com/mushinskaia_salon/?igshid=YmMyMTA2M2Y%3D',
-    title: 'Салон красоты Инны Мушинской',
-    src: '/images/sponsors/inna_mushinskaya.png'
-  },
-  {
-    id: 4,
-    link: 'https://instagram.com/viva.optica?igshid=MDM4ZDc5MmU=',
-    title: 'ВиваОптика',
-    src: '/images/sponsors/VivaOptica.png'
-  },
-  {
-    id: 5,
-    link: 'https://instagram.com/sultan.pmr?igshid=MWI4MTIyMDE',
-    title: 'Магазин восточных сладостей «Sultan»',
-    src: '/images/sponsors/sultan.png'
-  },
-  {
-    id: 6,
-    link: 'https://www.instagram.com/in_kharchenko/',
-    title: 'Мастерская сыра Игоря Харченко',
-    src: '/images/sponsors/masterskaya_sira.png'
-  },
-  {
-    id: 7,
-    link: 'https://instagram.com/coffee.turka?igshid=YmMyMTA2M2Y=',
-    title: 'Кофейня «Turka»',
-    src: '/images/sponsors/Turka.png'
-  },
-  {
-    id: 8,
-    link: 'https://instagram.com/lovesushi_pmr?igshid=MDM4ZDc5MmU=',
-    title: 'Online-ресторан «LOVE SUSHI»',
-    src: '/images/sponsors/Love_sushi.png'
-  },
-  {
-    id: 9,
-    link: 'https://instagram.com/585zolotoy.pmr?igshid=MDM4ZDc5MmU=',
-    title: 'Магазин ювелирных изделий «585*Золотой»',
-    src: '/images/sponsors/585_zolotoy.png'
-  },
-  {
-    id: 10,
-    link: 'https://www.instagram.com/aureolaonline/',
-    title: 'Магазин ювелирных изделий «Ауреола»',
-    src: '/images/sponsors/Aureola.png'
-  },
-  {
-    id: 11,
-    link: 'http://adrenalin-fitness.ru/',
-    title: 'Тренажерный зал «Adrenalin»',
-    src: '/images/sponsors/adrenalin.png'
-  },
-  {
-    id: 12,
-    link: 'https://instagram.com/hammer_pmr?igshid=YmMyMTA2M2Y=',
-    title: 'Тренажерный зал «Hammer»',
-    src: '/images/sponsors/hummer.png'
-  },
-  {
-    id: 13,
-    link: 'https://instagram.com/borntofly_ropejump?igshid=YmMyMTA2M2Y=',
-    title: 'Роуп-джампинг «BORNTOFLY»',
-    src: '/images/sponsors/Born_to_fly.png'
-  },
-  {
-    id: 14,
-    link: 'https://www.instagram.com/fitness_mafia_pmr/',
-    title: 'Тренажерный зал «Reforma»',
-    src: '/images/sponsors/Reforma.png'
-  },
-  {
-    id: 0,
-    link: 'http://lionsarena.md/',
-    title: 'Спорткомплекс «Lions Arena»',
-    src: '/images/sponsors/Lions-Arena.png'
-  },
-  {
-    id: 0,
-    link: 'https://www.instagram.com/kvint1897/',
-    title: 'Тираспольский винно-коньячный завод «KVINT»',
-    src: '/images/sponsors/Kvint.png'
-  },
-  {
-    id: 0,
-    link: 'https://www.facebook.com/profile.php?id=100056541733911',
-    title: 'Завод «Букет Молдавии»',
-    src: '/images/sponsors/buket_moldavii.png'
-  },
-  {
-    id: 0,
-    link: 'https://www.instagram.com/kislov_wine/',
-    title: 'Винное хозяйство «Кисловъ»',
-    src: '/images/sponsors/kislov.png'
-  },
-  {
-    id: 0,
-    link: 'https://www.levin.md/',
-    title: 'Ресторан – Винотека «Levin»',
-    src: '/images/sponsors/levin.png'
-  },
-  {
-    id: 0,
-    link: 'https://tiraet.com/company/index.php',
-    title: 'Центр электроники «ТирАЭТ»',
-    src: '/images/sponsors/tiraet.png'
-  },
-
-  {
-    id: 0,
-    link: 'https://instagram.com/lovecrosss',
-    title: 'Магазин спортивной обуви «Lovecross»',
-    src: '/images/sponsors/Lovecross.png'
-  },
-  {
-    id: 0,
-    link: 'https://instagram.com/brend_pmr?igshid=MDM4ZDc5MmU=',
-    title: 'Магазин одежды «Brend_pmr',
-    src: '/images/sponsors/brand_pmr.png'
-  },
-  {
-    id: 0,
-    link: 'https://www.instagram.com/tveerdo/',
-    title: 'Кожаные изделия ручной работы «Tveerdo»',
-    src: '/images/sponsors/tveerdo.png'
-  },
-  {
-    id: 0,
-    link: 'http://instagram.com/friends.family.market',
-    title: 'Магазин спортивной одежды и обуви «Friends & family»',
-    src: '/images/sponsors/FF.png'
-  },
-  {
-    id: 0,
-    link: 'https://www.instagram.com/stock_holm_pmr/?igshid=MDM4ZDc5MmU%3D',
-    title: 'Магазин «Stockholm»: товары из Европы и Америки',
-    src: '/images/sponsors/stockholm.png'
-  },
-]
-
-
 export const partners:ISponsor[] = [
   {
     id: 1,
@@ -173,19 +11,19 @@ export const partners:ISponsor[] = [
     id: 2,
     src: '/sponsors/kst.png',
     title: "KST",
-    link: ""
+    link: "https://www.instagram.com/kasta_pmr/"
   },
   {
     id: 3,
     src: '/sponsors/stockman.png',
     title: "Stokman",
-    link: ""
+    link: "https://www.instagram.com/stockman.pmr/"
   },
   {
     id: 4,
     src: '/sponsors/piazza.png',
     title: "Piazza Italia",
-    link: ""
+    link: "https://www.instagram.com/piazzaitalia.md/"
   },
   {
     id: 5,
