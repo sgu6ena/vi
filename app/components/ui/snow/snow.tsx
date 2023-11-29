@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import {useScreen} from "usehooks-ts";
 import Snowfall from "react-snowfall";

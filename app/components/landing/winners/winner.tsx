@@ -1,43 +1,45 @@
 'use client';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './winners.module.scss'
 const Winner = () => {
-  return (
-    <section id={'winners'} className={styles.winners}>
 
+    const today =( new Date()).toLocaleDateString().slice(0,5)
+
+    const [activeTabIndex, setActiveTabIndex] = useState<0 | 1 | 2>(2)
+    const startDate = new Date('2023-11-25'); // начальная дата
+    const endDate = new Date();     // конечная дата
+
+    const dates = []
+    for (let currentDate = startDate; currentDate <= endDate; currentDate.setDate(currentDate.getDate() + 1)) {
+        const formattedDate = currentDate.toLocaleDateString().slice(0, 5);
+        dates.push(formattedDate)
+    }
+
+
+    const day = dates.length
+
+    const [dayN, setDayN] = useState(day)
+    return (
+    <section id={'winners'} className={styles.winners}>
       <h2>
-        Победители
+        Победители {today}
       </h2>
         <div className={styles.wrapper}>
             <div className={styles.block} style={{borderRadius:' 0px 200px'}}>
                 <div>
                     <div className={styles.tabs}>
-                        <button className={styles.active}>Мои подарки</button>
-                        <button>Победители от партнеров</button>
-                        <button>Денежные победители</button>
+                        <button className={activeTabIndex === 0 ? styles.active : styles.inactive}
+                                onClick={() => setActiveTabIndex(0)}>Мои подарки
+                        </button>
+                        <button className={activeTabIndex === 1 ? styles.active : styles.inactive}
+                                onClick={() => setActiveTabIndex(1)}>Победители от партнеров
+                        </button>
+                        <button className={activeTabIndex === 2 ? styles.active : styles.inactive}
+                                onClick={() => setActiveTabIndex(2)}>Денежные победители
+                        </button>
                     </div>
                     <div className={styles.dates}>
-                        <button  className={styles.active}>06.12</button>
-                        <button>07.12</button>
-                        <button>08.12</button>
-                        <button>09.12</button>
-                        <button>10.12</button>
-                        <button>11.12</button>
-                        <button>12.12</button>
-                        <button>13.12</button>
-                        <button>14.12</button>
-                        <button>15.12</button>
-                        <button>16.12</button>
-                        <button>17.12</button>
-                        <button>18.12</button>
-                        <button>19.12</button>
-                        <button>20.12</button>
-                        <button>21.12</button>
-                        <button>22.12</button>
-                        <button>23.12</button>
-                        <button>24.12</button>
-                        <button>25.12</button>
-                        <button>26.12</button>
+                        {dates.map((date, index)=>  <button key={date} className={index===dayN?styles.active:''}   onClick={() => setDayN(index)}>{date}</button>)}
                     </div>
                     <table>
                         <thead>
@@ -58,51 +60,7 @@ const Winner = () => {
                             <td>-</td>
                             <td>-</td>
                         </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
+
                         <tr>
                             <td>-</td>
                             <td>-</td>

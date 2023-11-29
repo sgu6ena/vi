@@ -1,5 +1,5 @@
 .winners{
-  @apply  pt-20 relative -z-10 w-full;
+  @apply  pt-20 relative z-10 w-full;
   background:  no-repeat top right url("/images/balls.png"), no-repeat bottom left url("/images/elka.png");
   background-color: #A42222;
   h2{
@@ -20,7 +20,7 @@
         }
       }
       .dates{
-        @apply flex flex-wrap  justify-between pr-8  my-4 gap-4;
+        @apply flex flex-wrap  justify-start pr-8  my-4 gap-4;
         button{
           @apply  text-white transition-all;
           &.active{

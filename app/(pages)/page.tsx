@@ -13,7 +13,7 @@ export default function Home() {
   const {getStatus, getWinner, getSponsors} = useActions()
   useEffect(()=>{
       getStatus();
-      getWinner();
+      // getWinner();
   },[])
 
 

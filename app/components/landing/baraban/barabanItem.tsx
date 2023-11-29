@@ -1,3 +1,4 @@
+'use client';
 import React, { FC, useEffect, useState } from 'react';
 
 const BarabanItem: FC<{ winner: string, accounts: { account: string }[] }> = ({ winner, accounts }) => {
