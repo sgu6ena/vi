@@ -115,7 +115,7 @@ const config: Config = {
       })
           addUtilities({
             '.lobster':{
-              fontFamily: ['var(--font-lobster)'],
+              fontFamily: 'Lobster'
             },
             '.text-shadow': {
               textShadow: '1px 1px rgba(0, 0, 0, 0.4)',
