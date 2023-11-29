@@ -28,7 +28,10 @@ export const metadata: Metadata = {
     title: 'Новогодний переполох',
     description: 'Новогодняя викторина 2024 от IDC',
     locale:'ru',
-    images:'img.png'
+    images:        {
+      url: '/img.png',
+      alt: 'Новогодний переполох',
+    }
   }
 }
 
