@@ -1,27 +1,29 @@
-'use client';
-
-import Snowfall from "react-snowfall";
-import React, {useEffect, useLayoutEffect} from "react";
+'use client';;
+import React, {useEffect} from "react";
 import Banner from "@/app/components/landing/banner/banner";
 import Partners from "@/app/components/landing/partners/partners";
 import Winner from "@/app/components/landing/winners/winner";
 import Faqs from "@/app/components/landing/faqs/faqs";
 import {useActions} from "@/app/store/hooks";
 
+import Snow from "@/app/components/ui/snow/snow";
+
 export default function Home() {
 
   const {getStatus, getWinner, getSponsors} = useActions()
   useEffect(()=>{
-    getStatus()
-    // getWinner()
+      getStatus();
+      getWinner();
   },[])
-  return (
+
+
+    return (
     <>
-      <Snowfall color={'#ffffff50'} snowflakeCount={500} radius={[0.5, 5.0]} wind={[-1, 3.0]}/>
-      <Banner/>
-      <Partners/>
-      <Winner/>
-      <Faqs/>
+        <Snow/>
+        <Banner/>
+        <Partners/>
+        <Winner/>
+        <Faqs/>
     </>
   )
 }

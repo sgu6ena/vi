@@ -2,8 +2,8 @@
 import React from 'react';
 import styles from './partners.module.scss'
 import PartnersSlider from "@/app/components/landing/partners/slider/partnersSlider";
-import Snowfall from "react-snowfall";
 import {useSponsors} from "@/app/hooks/useSponsors";
+import Snow from "@/app/components/ui/snow/snow";
 
 
 const Partners = () => {
@@ -32,7 +32,7 @@ const Partners = () => {
 
   return (
     <section id={'partners'} className={styles.partners}>
-      <Snowfall color={'#ffffff50'} snowflakeCount={500} radius={[0.5, 5.0]} wind={[-1, 3.0]}/>
+        <Snow/>
       <img src={'/images/img_4.png'} alt="" className={styles.img1}/>
       <img src={'/images/img_5.png'} alt="" className={styles.img2}/>
       <img src={'/images/img_6.png'} alt="" className={styles.img3}/>

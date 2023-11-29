@@ -1,5 +1,5 @@
 .winners{
-  @apply  pt-20  w-full;
+  @apply  pt-20 relative -z-10 w-full;
   background:  no-repeat top right url("/images/balls.png"), no-repeat bottom left url("/images/elka.png");
   background-color: #A42222;
   h2{

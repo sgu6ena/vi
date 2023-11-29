@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import styles from "@/app/components/ui/header/header.module.scss";
-import {useBoolean, useScreen} from "usehooks-ts";
+
+import {useBoolean} from "usehooks-ts";
 import Tel from "@/app/components/ui/header/tel/tel";
 import classNames from "classnames";
 

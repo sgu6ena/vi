@@ -31,8 +31,11 @@ export const metadata: Metadata = {
     images:        {
       url: '/img.png',
       alt: 'Новогодний переполох',
-    }
-  }
+    },
+
+  },
+  icons:'/favicon.png',
+
 }
 
 export default function RootLayout({
