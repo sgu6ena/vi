@@ -1,11 +1,11 @@
 .elka {
-  @apply text-center z-40 relative;
+  @apply text-center mt-5 z-40 relative;
   .text {
-    @apply text-center text-lg figure-border text-white bg-green md:p-8 p-6;
+    @apply text-center lg:text-lg text-sm figure-border text-white bg-green lg:p-8 md:p-6 px-6 py-4;
   }
 
   .prizeGrid {
-    @apply grid my-2 grid-cols-2 md:grid-cols-3 ;
+    @apply grid my-2 grid-cols-2 gap-1 md:grid-cols-3 ;
 
 
     @for $i from 1 through 9 {
@@ -19,7 +19,13 @@
     }
 
     .prize {
-      @apply py-4 px-10 bg-transparent transition-all relative;
+      @apply py-4 px-10 m-auto bg-transparent transition-all relative;
+      &:last-child{
+        @apply col-span-2 md:col-span-1 md:w-full h-auto w-1/2;
+        img{
+          @apply m-auto md:w-full md:h-full ;
+        }
+      }
       &:hover {
         background: center radial-gradient(circle, rgba(255, 0, 0, .8) 0%, rgba(255, 0, 0, .1) 50%, rgba(255, 0, 0, 0) 70%);
 
@@ -44,7 +50,9 @@
       }
 
       .prizeName {
-        @apply absolute invisible leading-4 text-sm flex justify-center items-center py-1 px-6 top-[50%] left-0 w-full h-20  bg-green figure-border;
+        @apply absolute invisible md:leading-4 leading-4 md:text-sm text-xs flex justify-center items-center py-1 md:px-6 px-2 top-[50%] left-0 w-full h-20  bg-green ;
+        border-radius: 0 50px;
+
       }
 
       img {

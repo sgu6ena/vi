@@ -33,10 +33,10 @@ const Elka: FC = () => {
             <p> О том, как получить приз Вам сообщит оператор. Ожидайте звонка.</p>
           </>}
       </div>
-      {isPrizes ? <div className={'grid grid-cols-2 items-center my-4 gap-6'}>
+      {isPrizes ? <div className={'grid md:grid-cols-2 grid-cols-1 items-center md:my-4 my-2 md:gap-6 gap-2'}>
         <StartGame text={'Играть еще'} bonus={false}/>
         {winStatus.bonus ? <StartGame text={'Бонусный вопрос'} bonus={true}/> : null}
-        <div className={`col-span-2 w-1/2 m-auto`}>
+        <div className={`md:col-span-2 md:w-1/2 md:m-auto`}>
           <ShareButton/>
         </div>
 
@@ -46,7 +46,9 @@ const Elka: FC = () => {
       <div className={styles.prizeGrid}>
         {array.map((item, index) => (
           <div onClick={() => !isPrizes ? getPrize(item) : null}
-               className={classNames(styles.prize, isPrizes ? prize === index + 1 ? styles.active : styles.inactive : styles[`ani${index + 1}`])}
+               className={classNames(styles.prize,
+                   // index===8&&'col-span-2 md:col-span-1 md:w-full h-auto w-1/2 ' ,
+                   isPrizes ? prize === index + 1 ? styles.active : styles.inactive : styles[`ani${index + 1}`])}
                key={index}>
             <img src="/images/prize.png" alt="приз"/>
             {isPrizes ? <div className={styles.prizeName}>{prizes[index]?.title}</div> : null}

@@ -67,7 +67,7 @@ const Question: FC<IQ> = ({
               <label
                   className={classNames(styles.a, answerId === 1 ? styles.active :  isFalse1 ? styles.inactive:'')}
                   onClick={() => setAnswerId(1)}>
-                  {question.answer1}
+                  {isFalse1?'':question.answer1}
               </label>
               <label
                   className={classNames(styles.a, answerId === 2 ? styles.active :  isFalse2 ? styles.inactive:'')}
