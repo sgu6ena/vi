@@ -7,6 +7,9 @@ import dynamic from "next/dynamic";
 import {useMain} from "@/app/hooks/useMain";
 import Baraban from "@/app/components/landing/baraban/baraban";
 
+
+
+
 const DynamicTimer = dynamic(() => import('../../widjets/timer').then(m => m.Timer), {
   ssr: false,
 })

@@ -6,8 +6,11 @@ import StartGame from "@/app/(pages)/game/(buttons)/startGame";
 import EndGameButton from "@/app/(pages)/game/(buttons)/endGameButton";
 import {useRouter} from "next/navigation";
 import {LINKS} from "@/app/config/links";
-import Snow from "@/app/components/ui/snow/snow";
-
+// import Snow from "@/app/components/ui/snow/snow";
+import dynamic from "next/dynamic";
+const DynamicSnow = dynamic(() => import('../../components/ui/snow/snow').then(m => m.default), {
+    ssr: false,
+})
 const Layout = ({
                     children,
                 }: {
@@ -32,7 +35,7 @@ const Layout = ({
 
     return (
         <div className={' w-full md:pt-12 pt-10 min-h-screen'}>
-            <Snow/>
+            <DynamicSnow/>
             <div className="grid  min-h-screen overflow-hidden md:grid-cols-7 gap-4">
                 <div className="col hidden relative   col-span-2 md:block">
                     <img src={'/images/img_6.png'} alt="" className={styles.img3}/>

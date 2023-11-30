@@ -1,17 +1,29 @@
 .winners{
-  @apply  pt-20 relative z-10 w-full;
-  background:  no-repeat top right url("/images/balls.png"), no-repeat bottom left url("/images/elka.png");
+  @apply  pt-20 relative  z-0 w-full;
   background-color: #A42222;
+  @media (min-width: 768px) {
+    background: no-repeat top right url("/images/balls.png"), no-repeat bottom left url("/images/elka.png"),   #A42222;
+
+  }
+
+
   h2{
     @apply lobster lg:text-7xl md:text-5xl text-3xl my-10 text-center text-gold;
   }
   .wrapper{
-    @apply container m-auto my-5;
+    @apply container md:min-h-screen m-auto my-5;
     .block{
-      @apply w-full  bg-green px-20 py-10;
+      //borderRadius:' 0px 200px;
+      @apply w-full  bg-green md:px-20 px-5 py-10 figure-border;
 
+      .mobileInputs{
+        @apply flex flex-col gap-4 my-4 md:hidden;
+        select{
+          @apply w-full text-lg p-2 rounded-lg
+        }
+      }
       .tabs{
-        @apply flex flex-wrap gap-8;
+        @apply  md:flex hidden flex-wrap gap-8;
         button{
           @apply text-xl text-white  transition-all;
           &.active{
@@ -20,7 +32,7 @@
         }
       }
       .dates{
-        @apply flex flex-wrap  justify-start pr-8  my-4 gap-4;
+        @apply   md:flex hidden flex-wrap  justify-start pr-8  my-4 gap-4;
         button{
           @apply  text-white transition-all;
           &.active{

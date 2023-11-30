@@ -4,6 +4,7 @@ import Faq, {IFaq} from "@/app/components/ui/faq/faq";
 import styles from './faqs.module.scss'
 import Snowfall from "react-snowfall";
 import Snow from "@/app/components/ui/snow/snow";
+import dynamic from "next/dynamic";
 
 
 const FAQS: IFaq[] = [
@@ -166,11 +167,13 @@ const FAQS: IFaq[] = [
 
 ]
 
-
+const DynamicSnow = dynamic(() => import('../../ui/snow/snow').then(m => m.default), {
+  ssr: false,
+})
 const Faqs = () => {
   return (
     <div id='faqs' className={styles.faqs}>
-      <Snow/>
+      <DynamicSnow/>
       <img src={'/images/img_4.png'} alt="" className={styles.img1}/>
       <img src={'/images/img_5.png'} alt="" className={styles.img2}/>
       <h2 className={'text-center'}>

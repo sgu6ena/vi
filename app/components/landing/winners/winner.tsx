@@ -1,6 +1,8 @@
 'use client';
 import React, {useEffect, useState} from 'react';
 import styles from './winners.module.scss'
+
+import {mainAPI} from "@/app/store/services/mainAPI";
 const Winner = () => {
 
     const today =( new Date()).toLocaleDateString().slice(0,5)
@@ -19,14 +21,50 @@ const Winner = () => {
     const day = dates.length
 
     const [dayN, setDayN] = useState(day-1)
+
+    const [getWinners, {data: winners, isLoading,}] = mainAPI.usePostWinnersMutation();
+    useEffect(() => {
+        getWinners({date: activeTabIndex ? dayN : 0, type: activeTabIndex === 2 ? 'money' : "winner"})
+    }, [getWinners, dayN, activeTabIndex]);
+
+
+    const isWinners = winners?.data && winners.data.length && !isLoading
+
     return (
     <section id={'winners'} className={styles.winners}>
       <h2>
         Победители
+
       </h2>
         <div className={styles.wrapper}>
-            <div className={styles.block} style={{borderRadius:' 0px 200px'}}>
+            <div className={styles.block} style={{}}>
                 <div>
+                    <div className={styles.mobileInputs}>
+
+                        <select
+                            id="mobileDay"
+                            value={dayN}
+                            onChange={(e) => setDayN(Number(e.target.value))}
+                        >
+                            {dates.map((date, index) => (
+                                <option key={date} value={index}>
+                                    {date}
+                                </option>
+                            ))}
+                        </select>
+
+                        <select
+                            id="mobileTab"
+                            value={activeTabIndex}
+                            onChange={(e) => setActiveTabIndex(Number(e.target.value) as 0 | 1 | 2)}
+                        >
+                            <option value={0}>Мои подарки</option>
+                            <option value={1}>Победители от партнеров</option>
+                            <option value={2}>Денежные победители</option>
+                        </select>
+                    </div>
+
+
                     <div className={styles.tabs}>
                         <button className={activeTabIndex === 0 ? styles.active : styles.inactive}
                                 onClick={() => setActiveTabIndex(0)}>Мои подарки
@@ -45,71 +83,20 @@ const Winner = () => {
                         <thead>
                         <tr>
                             <th>лицевой счет</th>
-                            <th>партнер</th>
+                            <th className={'md:block hidden'}>партнер</th>
                             <th>подарок</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
+                        {isWinners ? winners.data.map((win, index) => <tr key={index}>
+                            <td className={'text-center'}>{win.account}</td>
+                            <td  className={'md:block hidden text-center'}>{win.sponsor}</td>
+                            <td className={'text-center'}>{win.prize}</td>
+                        </tr>) : <tr>
+                            <td className={'text-center'}>-</td>
+                            <td className={'md:block hidden  text-center'}>-</td>
+                            <td className={'text-center'}>-</td>
+                        </tr>}
                         </tbody>
                     </table>
                 </div>

@@ -12,13 +12,12 @@ export const metadata: Metadata = {
     description: 'Новогодняя викторина 2024 от IDC',
     locale:'ru',
     images:        {
-      url: '/img.png',
+      url: 'https://idc.md/storage/app/media/images/victory.png',
       alt: 'Новогодний переполох',
     },
 
   },
   icons:'/favicon.png',
-
 }
 
 export default function RootLayout({

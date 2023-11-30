@@ -3,9 +3,12 @@ import React from 'react';
 import styles from './partners.module.scss'
 import PartnersSlider from "@/app/components/landing/partners/slider/partnersSlider";
 import {useSponsors} from "@/app/hooks/useSponsors";
-import Snow from "@/app/components/ui/snow/snow";
 
+import dynamic from "next/dynamic";
 
+const DynamicSnow = dynamic(() => import('../../ui/snow/snow').then(m => m.default), {
+    ssr: false,
+})
 const Partners = () => {
 
   const {sponsors1, sponsors2, sponsors3} = useSponsors()
@@ -32,7 +35,7 @@ const Partners = () => {
 
   return (
     <section id={'partners'} className={styles.partners}>
-        <Snow/>
+        <DynamicSnow/>
       <img src={'/images/img_4.png'} alt="" className={styles.img1}/>
       <img src={'/images/img_5.png'} alt="" className={styles.img2}/>
       <img src={'/images/img_6.png'} alt="" className={styles.img3}/>
