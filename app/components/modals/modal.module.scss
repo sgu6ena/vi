@@ -3,7 +3,7 @@
   bg-opacity-80 z-60;
   overflow-y: hidden;
   .modal {
-    @apply md:figure-border  top-0 right-0 left-0 bottom-0  text-white bg-green md:w-[480px]  md:p-8 p-4 text-sm  flex-center-between flex-col gap-6;
+    @apply figure-border  top-0 right-0 left-0 bottom-0  text-white bg-green md:w-[480px]  md:p-8 px-4 py-8 text-sm  flex-center-between flex-col gap-6;
     label {
       @apply w-full text-lg;
       input {

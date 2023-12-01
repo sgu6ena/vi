@@ -6,7 +6,7 @@
 }
 
 .playButton{
-  @apply cursor-pointer transition-all text-xl  relative text-center text-lg w-full   figure-border p-4 bg-gold;
+  @apply cursor-pointer transition-all text-xl  text-black relative text-center text-lg w-full   figure-border p-4 bg-gold;
   &:hover{
     @apply shadow-lg shadow-red;
   }
