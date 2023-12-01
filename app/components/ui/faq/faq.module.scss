@@ -1,16 +1,16 @@
   .faq {
-    @apply  block  px-7 py-5  w-full  ;
+    @apply  block  md:px-7 md:py-5 px-4 py-2  w-full  ;
     border-radius: 0 30px;
     border: 2px solid #A42222;
 
     .question {
-      @apply flex items-center  cursor-pointer gap-2 justify-between;
+      @apply flex items-center  cursor-pointer md:gap-2 gap-1 justify-between;
       h5 {
         @apply text-gold font-bold  ;
       }
 
       .button {
-        @apply relative  h-7 mt-0 w-7 p-4;
+        @apply relative  md:h-7 mt-0 md:w-7 h-4 w-4 p-4;
 
         &:before,
         &:after {

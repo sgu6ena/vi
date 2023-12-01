@@ -14,7 +14,7 @@
   }
 
   .prize {
-    @apply text-white text-center md:text-5xl text-3xl font-bold md:px-10 md:py-8 px-5 py-4;
+    @apply text-white text-center md:text-5xl sm:text-3xl text-xl font-bold md:px-10 md:py-8 px-5 py-4;
     border-radius: 0 100px;
     border: 4px solid #F5D858;
   }

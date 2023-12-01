@@ -1,5 +1,5 @@
 .winners{
-  @apply  pt-20 relative  z-0 w-full;
+  @apply  md:pt-20 relative  z-0 w-full;
   background-color: #A42222;
   @media (min-width: 768px) {
     background: no-repeat top right url("/images/balls.png"), no-repeat bottom left url("/images/elka.png"),   #A42222;

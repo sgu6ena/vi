@@ -1,13 +1,16 @@
 .wrapper {
-  @apply my-6;
+  @apply md:my-6 my-3;
   .item{
-    @apply p-2;
+    @apply md:p-2 p-0.5;
     a{
       @apply bg-white overflow-hidden flex justify-center border-[#FF1E00] border-2 p-4 figure-border transition-all;
       img{
         height: 80px;
         width:auto;
         @apply transition-all;
+        @media (max-width: 350px) {
+          height: 50px;
+        }
       }
        &:hover{
          border-radius: 70px 0;

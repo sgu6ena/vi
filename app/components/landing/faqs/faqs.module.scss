@@ -1,16 +1,19 @@
 .faqs{
-  @apply bg-gray-900 pt-20 relative overflow-hidden pb-80 w-full;
+  @apply bg-gray-900 md:pt-20 relative overflow-hidden md:pb-80 pb-20 w-full;
   h2{
     @apply lobster lg:text-7xl md:text-5xl text-3xl my-10 text-center text-gold;
   }
-  background:  no-repeat bottom left  url("/images/prizes.png"), no-repeat bottom right url("/images/elka_gold.png");
-  background-size: 25% auto;
+  @media (min-width: 760px) {
+    background:  no-repeat bottom left  url("/images/prizes.png"), no-repeat bottom right url("/images/elka_gold.png");
+    background-size: 25% auto;
+  }
+
   .img1{
-    @apply absolute top-80 left-[-30px] md:left-[-100px] md:z-30 md:w-80 w-20;
+    @apply md:block hidden absolute top-80 left-[-30px] md:left-[-100px] md:z-30 md:w-80 w-20;
     animation: 12s shake infinite;
   }
   .img2{
-    @apply absolute top-10  right-[-10px] md:right-[-100px] md:z-30 md:w-80  w-20;
+    @apply md:block hidden absolute top-10  right-[-10px] md:right-[-100px] md:z-30 md:w-80  w-20;
     animation: 14s shake infinite;
   }
 }

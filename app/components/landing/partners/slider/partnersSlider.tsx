@@ -10,7 +10,7 @@ import styles from './slider.module.scss'
 const BREAKPOINTS = {
 
     320: {
-        slidesPerView: 1,
+        slidesPerView: 2,
         spaceBetween: 10,
         speed: 2000
     },

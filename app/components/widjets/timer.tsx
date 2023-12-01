@@ -57,7 +57,7 @@ export const Timer:FC<ITimer> = ({ deadline = new Date().toString(),  onTimeEnd 
     const seconds = Math.floor((currentTime % MINUTE) / SECOND);
 
     return (
-        <div className="flex gap-4">
+        <div className="flex md:justify-start justify-between md:gap-4 gap-2 w-full">
             {[
                 { label: "day", value: days },
                 { label: "hour", value: hours },
@@ -65,7 +65,7 @@ export const Timer:FC<ITimer> = ({ deadline = new Date().toString(),  onTimeEnd 
                 { label: "second", value: seconds },
             ].map(({ label, value }, index) => (
                 <div key={index+label} className="col-4">
-                    <div className="transition-all text-center figure-border bg-green p-4  lg:w-28 w-16">
+                    <div className="transition-all text-center figure-border bg-green p-4  lg:w-28 sm:w-20 w-16">
                         {`${Math.floor(value)}`.padStart(2, "0")}
                     </div>
                     <div className={'transition-all lg:pl-8 lg:text-xl text-sm text-center lg:font-bold '}>

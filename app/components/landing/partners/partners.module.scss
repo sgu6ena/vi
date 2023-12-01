@@ -4,19 +4,19 @@
     @apply lobster z-40 lg:text-7xl md:text-5xl text-3xl my-10 text-center text-gold;
   }
   .img1{
-    @apply absolute top-10 left-[-30px] md:left-[-100px] md:z-30 md:w-80 w-20;
+    @apply md:block hidden absolute top-10 left-[-30px] md:left-[-100px] md:z-30 md:w-80 w-20;
     animation: 12s shake infinite;
   }
   .img2{
-    @apply absolute top-10  right-[-10px] md:right-[-100px] md:z-30 md:w-80  w-20;
+    @apply absolute top-10 md:block hidden right-[-10px] md:right-[-100px] md:z-30 md:w-80  w-20;
     animation: 14s shake infinite;
   }
   .img3{
-    @apply absolute rotate-3 bottom-0 md:right-[-80px] md:z-30 md:w-96  w-12;
+    @apply absolute rotate-3 md:block hidden bottom-0 md:right-[-80px] md:z-30 md:w-96  w-12;
     animation: 20s shake2 infinite;
   }
   .img4{
-    @apply absolute  bottom-0 md:left-[-100px] md:z-30 md:w-96  w-12;
+    @apply absolute md:block hidden bottom-0 md:left-[-100px] md:z-30 md:w-96  w-12;
     animation: 25s shake2 infinite;
   }
 }
