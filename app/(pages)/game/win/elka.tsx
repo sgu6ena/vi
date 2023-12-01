@@ -33,7 +33,7 @@ const Elka: FC = () => {
             <p> О том, как получить приз Вам сообщит оператор. Ожидайте звонка.</p>
           </>}
       </div>
-      {isPrizes ? <div className={'grid md:grid-cols-2 grid-cols-1 items-center md:my-4 my-2 md:gap-6 gap-2'}>
+        {isPrizes ? <div className={styles.buttons}>
         <StartGame text={'Играть еще'} bonus={false}/>
         {winStatus.bonus ? <StartGame text={'Бонусный вопрос'} bonus={true}/> : null}
         <div className={`md:col-span-2 md:w-1/2 md:m-auto`}>
