@@ -21,7 +21,6 @@ const Page = () => {
 
 
     return <>
-        <Elka/>
         {isLoading ? <Loading/> :
         <div className={'flex justify-center items-center flex-col gap-8 h-full'}>
             <div className={'bg-green text-white text-center w-full figure-border px-10 py-6 relative'}>
