@@ -36,6 +36,9 @@ const Banner = () => {
 
   }, [time])
 
+  useEffect(() => {
+    getStatus();
+  }, []);
 
   return (
     <section id={'main'} className={styles.banner}>

@@ -51,10 +51,18 @@ export const Timer:FC<ITimer> = ({ deadline = new Date().toString(),  onTimeEnd 
         }
     },[currentTime]);
 
+    useEffect(() => {
+        setTime(time)
+    }, [time]);
+
+
     const days = Math.floor(currentTime / DAY);
     const hours = Math.floor((currentTime % DAY) / HOUR);
     const minutes = Math.floor((currentTime % HOUR) / MINUTE);
     const seconds = Math.floor((currentTime % MINUTE) / SECOND);
+
+
+
 
     return (
         <div className="flex md:justify-start justify-between md:gap-4 gap-2 w-full">
