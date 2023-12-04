@@ -6,7 +6,7 @@ import {useActions} from "@/app/store/hooks";
 import {useRouter} from "next/navigation";
 const EndGameButton = () => {
 
-    const {resetRegister} = useActions()
+    const {resetRegister, resetGame} = useActions()
     const {push} = useRouter()
     const [isOpen, setIsOpen] = useState(false)
     const modalToggle = () => setIsOpen(!isOpen)
@@ -14,6 +14,7 @@ const EndGameButton = () => {
     const sayYes = () => {
         modalToggle();
         resetRegister()
+        resetGame()
         push('/')
     }
 

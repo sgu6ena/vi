@@ -11,7 +11,7 @@ export const mainSlice = createSlice({
       .addCase(getStatus.pending, (state) => {
         state.isLoading = true
         state.isError = false
-
+        // state.drawing.time = state.drawing.time
       })
       .addCase(getStatus.fulfilled, (state, {payload}) => {
         state.isLoading = false

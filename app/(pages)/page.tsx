@@ -8,18 +8,13 @@ import Partners from "@/app/components/landing/partners/partners";
 import Winner from "@/app/components/landing/winners/winner";
 import Faqs from "@/app/components/landing/faqs/faqs";
 import {useActions} from "@/app/store/hooks";
+import {useMain} from "@/app/hooks/useMain";
 
 
 const DynamicSnow = dynamic(() => import('../components/ui/snow/snow').then(m => m.default), {
     ssr: false,
 })
 export default function Home() {
-
-  const {getStatus, getWinner, getSponsors} = useActions()
-  useEffect(()=>{
-      getStatus();
-      // getWinner();
-  },[])
 
 
     return (

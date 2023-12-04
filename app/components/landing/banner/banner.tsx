@@ -1,11 +1,12 @@
 'use client';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './banner.module.scss'
 import Modal from "@/app/components/modals/modal";
 import Register from "@/app/components/modals/register";
 import dynamic from "next/dynamic";
 import {useMain} from "@/app/hooks/useMain";
 import Baraban from "@/app/components/landing/baraban/baraban";
+import {useActions} from "@/app/store/hooks";
 
 
 
@@ -17,13 +18,32 @@ const Banner = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [barabanIsOpen, setBarabanIsOpen] = useState<boolean>(false)
   const {isLoading, time, title} = useMain()
+  const isLoad = Boolean(title)
+
+
+  const {getStatus, getWinner, getSponsors} = useActions()
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      getStatus();
+    }, 30000)
+
+    if (time <= 0) {
+      getWinner();
+    }
+    return () => clearTimeout(timer)
+
+  }, [time])
+
+
   return (
     <section id={'main'} className={styles.banner}>
       <Modal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}><Register/></Modal>
       <div className={styles.main}>
         <div className={styles.left}>
 
-          {!isLoading && title &&
+          {isLoad &&
           <div className={'text-white lg:text-2xl flex flex-col items-center md: items-start transition-all   text-lg sm:block '}>
             <div className={'pb-2 md:text-left  text-center transition-all'}>До ежедневного розыгрыша осталось</div>
             <DynamicTimer onTimeEnd={() => setBarabanIsOpen(true)} deadline={'12/04/2023'} time={time * 1000}/>
