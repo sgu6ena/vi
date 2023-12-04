@@ -3,26 +3,26 @@ import React, {useEffect, useState} from 'react';
 import styles from './winners.module.scss'
 
 import {mainAPI} from "@/app/store/services/mainAPI";
+import {useUser} from "@/app/hooks/user";
 const Winner = () => {
 
-    const today =( new Date()).toLocaleDateString().slice(0,5)
-
-    const [activeTabIndex, setActiveTabIndex] = useState<0 | 1 | 2>(2)
     const startDate = new Date('2023-11-25'); // начальная дата
     const endDate = new Date();     // конечная дата
-
     const dates = []
+
+    const {token} = useUser()
+
+
     for (let currentDate = startDate; currentDate <= endDate; currentDate.setDate(currentDate.getDate() + 1)) {
         const formattedDate = currentDate.toLocaleDateString().slice(0, 5);
         dates.push(formattedDate)
     }
 
-
     const day = dates.length
-
     const [dayN, setDayN] = useState(day-1)
-
     const [getWinners, {data: winners, isLoading,}] = mainAPI.usePostWinnersMutation();
+
+    const [activeTabIndex, setActiveTabIndex] = useState<0 | 1 | 2>(1)
     useEffect(() => {
         getWinners({date: activeTabIndex ? dayN : 0, type: activeTabIndex === 2 ? 'money' : "winner"})
     }, [getWinners, dayN, activeTabIndex]);
@@ -58,7 +58,7 @@ const Winner = () => {
                             value={activeTabIndex}
                             onChange={(e) => setActiveTabIndex(Number(e.target.value) as 0 | 1 | 2)}
                         >
-                            <option value={0}>Мои подарки</option>
+                            {Boolean(token) ? <option value={0}>Мои подарки</option> : null}
                             <option value={1}>Победители от партнеров</option>
                             <option value={2}>Денежные победители</option>
                         </select>

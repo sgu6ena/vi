@@ -7,6 +7,6 @@ export const useUser = () => {
     const isTrueCode = useAppSelector(state => state.userReducer.isTrueCode);
     const isError = useAppSelector(state => state.userReducer.isError);
     const error = useAppSelector(state => state.userReducer.message)
-
-    return {isSmsSend, phoneNumber, isLoading, isTrueCode, isError, error}
+    const token = useAppSelector(state => state.userReducer.token)
+    return {isSmsSend, phoneNumber, isLoading, isTrueCode, isError, error, token}
 }

@@ -28,17 +28,18 @@ const Banner = () => {
     const timer = setTimeout(() => {
       getStatus();
     }, 30000)
-
-    if (time <= 0) {
-      getWinner();
-    }
     return () => clearTimeout(timer)
-
   }, [time])
 
   useEffect(() => {
     getStatus();
   }, []);
+
+  const getBaraban = () => {
+    getWinner();
+    setBarabanIsOpen(true)
+  }
+
 
   return (
     <section id={'main'} className={styles.banner}>
@@ -49,7 +50,7 @@ const Banner = () => {
           {isLoad &&
           <div className={'text-white lg:text-2xl flex flex-col items-center md: items-start transition-all   text-lg sm:block '}>
             <div className={'pb-2 md:text-left  text-center transition-all'}>До ежедневного розыгрыша осталось</div>
-            <DynamicTimer onTimeEnd={() => setBarabanIsOpen(true)} deadline={'12/04/2023'} time={time * 1000}/>
+            <DynamicTimer onTimeEnd={getBaraban} deadline={'12/04/2023'} time={time*1000}/>
           </div>
           }
 

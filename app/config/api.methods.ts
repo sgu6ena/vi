@@ -16,7 +16,7 @@ export const GAME = {
 
 export const MAIN = {
   DRAWING: '/drawing', /* Статус розыгрыша викторины */
-  WINNERS: '/bonus', /* Список победителей */
+  WINNERS: '/winner', /* Список победителей */
   SPONSORS: '/sponsorList', /* Список спонсоров, для главной */
   BONUS: '/bonus',/* На главной, Бонусы / Призы */
   WINNER_ACC: '/winnerAcc' /* Список ежедневных победителей с фотками, в 2023NY отсутствует в дизайне */
