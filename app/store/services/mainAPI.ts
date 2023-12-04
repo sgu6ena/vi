@@ -20,7 +20,7 @@ export const mainAPI = createApi({
     endpoints: (build) => ({
         postWinners: build.mutation<{data: IBonus[] }, IPostBonus>({
             query: ({date, type}) => ({
-                url: MAIN.WINNERS,
+                url: MAIN.BONUS,
                 method: "POST",
                 body: {
                     date, type

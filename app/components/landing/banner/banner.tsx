@@ -35,6 +35,8 @@ const Banner = () => {
     getStatus();
   }, []);
 
+  const {accounts} = useMain()
+
   const getBaraban = () => {
     getWinner();
     setBarabanIsOpen(true)

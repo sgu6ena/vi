@@ -15,8 +15,19 @@ export const getWinner = createAsyncThunk<any  , void>(
   'getWinner',
   async (_, thinkApi) => {
     try {
-      const response = await mainService.getWinner()
-      return response
+        const response = await mainService.getWinner();
+        if (response.length === 0) {
+            const res2 = await new Promise<any>((resolve) => {
+                setTimeout(async () => {
+                    const result = await mainService.getWinner();
+                    resolve(result);
+                }, 3000);
+            });
+
+            return res2;
+        } else {
+            return response;
+        }
     } catch (error:any) {
       return thinkApi.rejectWithValue(error.response.data.error.message);
     }
