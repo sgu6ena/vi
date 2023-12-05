@@ -16,7 +16,7 @@ export const useMain = () => {
   const winners3 = [...accounts].slice(counts * 2 + 6, counts * 3 + 6).sort(() => Math.random() - 0.5);
   const winners4 = [...accounts].slice(counts * 3 + 6, counts * 4 + 6).sort(() => Math.random() - 0.5);
   const winners5 = [...accounts].slice(counts * 4 + 6, counts * 5 + 6).sort(() => Math.random() - 0.5);
-
+  const winners6 = [...accounts].slice( counts * 5 + 6).sort(() => Math.random() - 0.5);
 
   return {
     isLoading,
@@ -30,6 +30,7 @@ export const useMain = () => {
     winners3,
     winners4,
     winners5,
+    winners6,
     winners,
     isWinnersLoading
   }

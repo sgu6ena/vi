@@ -17,7 +17,7 @@ const DynamicTimer = dynamic(() => import('../../widjets/timer').then(m => m.Tim
 const Banner = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [barabanIsOpen, setBarabanIsOpen] = useState<boolean>(false)
-  const {isLoading, time, title} = useMain()
+  const {time, title} = useMain()
   const isLoad = Boolean(title)
 
 
@@ -38,8 +38,11 @@ const Banner = () => {
   const {accounts} = useMain()
 
   const getBaraban = () => {
-    getWinner();
     setBarabanIsOpen(true)
+    const timer = setTimeout(() => {
+      getWinner();
+    }, 3500)
+    return () => clearTimeout(timer)
   }
 
 
@@ -50,7 +53,7 @@ const Banner = () => {
         <div className={styles.left}>
 
           {isLoad &&
-          <div className={'text-white lg:text-2xl flex flex-col items-center md: items-start transition-all   text-lg sm:block '}>
+          <div className={'text-white lg:text-2xl flex flex-col items-center md:items-start transition-all   text-lg sm:block '}>
             <div className={'pb-2 md:text-left  text-center transition-all'}>До ежедневного розыгрыша осталось</div>
             <DynamicTimer onTimeEnd={getBaraban} deadline={'12/04/2023'} time={time*1000}/>
           </div>

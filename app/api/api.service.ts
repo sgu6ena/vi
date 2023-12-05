@@ -61,4 +61,9 @@ export const gameService = {
     const response = await instance.post<any, any>(GAME.BONUS_PRIZE, data)
     return response.data.data
   },
+  async repost(): Promise<void> {
+    const response = await instance.get<any, any>(GAME.REPOST)
+    return response.data.data
+  },
+
 }

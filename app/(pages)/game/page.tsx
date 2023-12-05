@@ -6,6 +6,7 @@ import Loading from "@/app/loading";
 import StartGame from "@/app/(pages)/game/(buttons)/startGame";
 import {TEXT_MODALS} from "@/app/config/texts";
 import Elka from "@/app/(pages)/game/win/elka";
+import ShareButton from "@/app/(pages)/game/(buttons)/shareButton";
 
 
 

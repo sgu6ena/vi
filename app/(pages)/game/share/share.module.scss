@@ -1,0 +1,82 @@
+.button {
+  @apply relative text-white transition-all text-xl rounded-full p-2 border-white border ;
+  svg {
+    @apply h-8 w-8 transition-all
+  }
+
+  &:hover {
+    @apply text-center  ;
+    svg {
+      @apply scale-125
+    }
+  }
+
+}
+
+.ok {
+  @apply bg-[#f16300];
+}
+
+.vk {
+  @apply bg-[#2787f5];
+}
+
+.facebook {
+  @apply bg-[#1773ea];
+}
+
+.viber {
+  @apply bg-[#5e3683];
+}
+
+.telegram {
+  @apply bg-[#29a9eb];
+}
+
+
+/* Стиль для верхней части елочных украшений */
+
+.button:before {
+  content: "";
+  background: #fff; /* Цвет фона, если градиент не поддерживается */
+  background: -moz-linear-gradient(left, #fff, #9c9c9c, #fff, #9c9c9c);
+  background: -webkit-gradient(linear, left center, right center, from(#fff), color-stop(25%, #9c9c9c), color-stop(50%, #fff), color-stop(75%, #9c9c9c));
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 -1px 0 rgba(255, 255, 255, 0.3) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 -1px 0 rgba(255, 255, 255, 0.3) inset;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 -1px 0 rgba(255, 255, 255, 0.3) inset;
+  border: 1px solid #dadada;
+  height: 10px;
+  width: 15px;
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  margin-left: -7px;
+}
+
+.button:before:before {
+  content: "";
+  top: -40px;
+  background: #fff;
+  height: 20px;
+  width: 2px;
+}
+
+/* Добавляем отражение света */
+
+.button:after {
+  content: "";
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  background: #fff; /* Цвет фона, если градиент не поддерживается */
+  background: -moz-linear-gradient(bottom, #ffffff80, rgba(255, 255, 255, 0.1));
+  background: -webkit-gradient(linear, left bottom, right top, from(#ffffff80), color-stop(100%, rgba(255, 255, 255, 0.1)));
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  margin-left: -20px;
+  opacity: 0.8;
+  height: 40px;
+  width: 40px;
+}

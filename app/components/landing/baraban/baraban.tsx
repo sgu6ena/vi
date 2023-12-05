@@ -13,7 +13,7 @@ const Baraban = () => {
         {isWinnersLoading ? <Loading/> :
         <div className={'grid grid-cols-1 gap-4'}>
           <div className={'bg-green w-full figure-border md:px-16 px-8 py-4'}>
-            <div className={'text-2xl w-80 font-bold text-center leading-7 text-white'}>
+            <div className={'md:text-2xl text-xl md:w-80 font-bold text-center leading-7 text-white'}>
               {title}
             </div>
             <div className={'text-sm text-center mt-0.5 text-gray-500'}>{body}</div>
@@ -26,7 +26,6 @@ const Baraban = () => {
             <BarabanItem winner={winners.money[4]} accounts={winners5}/>
           </> : null
           }
-
         </div>
       }
     </>

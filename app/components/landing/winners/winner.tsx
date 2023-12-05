@@ -81,7 +81,8 @@ const Winner = () => {
                     <div className={styles.dates}>
                         {dates.map((date, index)=>  <button key={date} className={index===dayN?styles.active:''}   onClick={() => setDayN(index)}>{date}</button>)}
                     </div>
-                    <table>
+                    <div className={styles.tableWrapper}>
+                        <table>
                         <thead>
                         <tr>
                             <th>лицевой счет</th>
@@ -101,6 +102,8 @@ const Winner = () => {
                         </tr>}
                         </tbody>
                     </table>
+                    </div>
+
                 </div>
             </div>
         </div>

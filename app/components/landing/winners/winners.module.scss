@@ -40,18 +40,24 @@
           }
         }
       }
-      table{
-        @apply border border-white w-full my-5 text-white;
-        thead{
-          th{
-            @apply py-2 uppercase border-white border-b text-gold;
+      .tableWrapper {
+        @apply max-h-96 overflow-auto;
+        table {
+          @apply border  border-white w-full my-5 text-white;
+
+          thead {
+            th {
+              @apply py-2 uppercase border-white border-b text-gold;
+            }
           }
-        }
-        tbody{
-          tr{
-            @apply border-white border-b;
-            td{
-              @apply px-4 py-2;
+
+          tbody {
+
+            tr {
+              @apply border-white  border-b;
+              td {
+                @apply md:px-4 md:py-2  px-2 py-1 leading-5 md:leading-6 ;
+              }
             }
           }
         }

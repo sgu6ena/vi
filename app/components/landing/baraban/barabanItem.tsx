@@ -18,7 +18,7 @@ const BarabanItem: FC<{ winner: string, accounts: { account: string }[] }> = ({ 
 
   return (
       <div
-          className={`${currentAccounts[index]?.account === winner ? 'text-red' : ''} bg-gold font-bold text-2xl w-full figure-border p-4 text-center font-mono`}>
+          className={`${currentAccounts[index]?.account === winner ? 'text-red' : ''} bg-gold font-bold md:text-2xl text-xl w-full figure-border md:p-4 p-2 text-center font-mono`}>
           {l > 0 && currentAccounts[index]?.account}
     </div>
   );

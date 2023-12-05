@@ -12,3 +12,15 @@ export const getBonusTree = createAsyncThunk<any, IBonus>(
       return thinkApi.rejectWithValue(error.response.data.error.message);
     }
   })
+
+
+export const shared = createAsyncThunk<any, void>(
+    'shared',
+    async (_, thinkApi) => {
+        try {
+            const response = await gameService.repost()
+            return response
+        } catch (error:any) {
+
+        }
+    })

@@ -11,7 +11,8 @@ export const GAME = {
   ANSWER: '/answer', /* отправить ответ */
   TIME: '/buyTime', /* докупить 30 секунд */
   HELP: '/buyHelp', /* 50*50 */
-  BONUS_PRIZE: "/tree" /* призы на елочке */
+  BONUS_PRIZE: "/tree" ,/* призы на елочке */
+  REPOST:'/repost'
 }
 
 export const MAIN = {

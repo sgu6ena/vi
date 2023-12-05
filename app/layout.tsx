@@ -3,7 +3,6 @@ import type {Metadata} from 'next'
 import '@/app/assets/globals.css'
 import Header from "@/app/components/ui/header/header";
 import ReduxProvider from "@/app/store/provider";
-
 export const metadata: Metadata = {
   title: 'Новогодний переполох',
   description: 'Новогодняя викторина 2024 от IDC',
@@ -12,10 +11,9 @@ export const metadata: Metadata = {
     description: 'Новогодняя викторина 2024 от IDC',
     locale:'ru',
     images:        {
-      url: 'https://idc.md/storage/app/media/images/victory.png',
+      url: 'https://idc.md/storage/app/media/images/1415/victory.jpg',
       alt: 'Новогодний переполох',
     },
-
   },
   icons:'/favicon.png',
 }
