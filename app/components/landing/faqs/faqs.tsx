@@ -2,8 +2,6 @@
 import React from 'react';
 import Faq, {IFaq} from "@/app/components/ui/faq/faq";
 import styles from './faqs.module.scss'
-import Snowfall from "react-snowfall";
-import Snow from "@/app/components/ui/snow/snow";
 import dynamic from "next/dynamic";
 
 

@@ -10,7 +10,7 @@ import {useActions} from "@/app/store/hooks";
 
 
 const TITLE = "Новогодний переполох от IDC"
-const URL = 'https://1415-dev.idc.md'
+const URL = 'https://1415.idc.md'
 
 const Share = () => {
     const {shared}= useActions()

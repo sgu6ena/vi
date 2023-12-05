@@ -16,7 +16,9 @@ const Baraban = () => {
     winners4,
     winners5,
     winners2,
-    type
+    allRandomAccs,
+    isOneWinner,
+    isFiveWinner
   } = useMain()
 
 
@@ -29,12 +31,16 @@ const Baraban = () => {
             </div>
             <div className={'text-sm text-center mt-0.5 text-gray-500'}>{body}</div>
           </div>
-          {winners?.money ? <>
-            <BarabanItem winner={winners.money[0]} accounts={winners1}/>
-            <BarabanItem winner={winners.money[1]} accounts={winners2}/>
-            <BarabanItem winner={winners.money[2]} accounts={winners3}/>
-            <BarabanItem winner={winners.money[3]} accounts={winners4}/>
-            <BarabanItem winner={winners.money[4]} accounts={winners5}/>
+          {isFiveWinner && winners ? <>
+            <BarabanItem winner={winners[0]} accounts={winners1}/>
+            <BarabanItem winner={winners[1]} accounts={winners2}/>
+            <BarabanItem winner={winners[2]} accounts={winners3}/>
+            <BarabanItem winner={winners[3]} accounts={winners4}/>
+            <BarabanItem winner={winners[4]} accounts={winners5}/>
+          </> : null
+          }
+          {isOneWinner && winners ? <>
+            <BarabanItem winner={winners[0]} accounts={allRandomAccs}/>
           </> : null
           }
         </div>
