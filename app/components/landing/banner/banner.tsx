@@ -86,7 +86,7 @@ const Banner = () => {
               <span>Vivo Y16</span>
             </div>
             <div>
-              <b>Подарки <br/> от парнеров</b>
+              <b>Подарки <br/> от парнёров</b>
             </div>
           </div>
 

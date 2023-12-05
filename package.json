@@ -8,8 +8,8 @@
     "routes": "next-nginx-routes",
     "prestaging": "rm -rf ./_static && rm -rf ../out && npm run build  ",
     "staging": "scp -r ./out/* nissar@217.19.214.33:/var/www/1415-dev.idc.md",
-    "predeploy": "rm -rf ./out &&  npm run build && next export -o _static ",
-    "deploy": "scp -r ./_static/* nissar@217.19.214.__:/var/www/",
+    "predeploy": "rm -rf ./_static && rm -rf ../out && npm run build  ",
+    "deploy": "scp -r ./out/* nissar@217.19.214.33:/var/www/1415.idc.md",
     "start": "next start",
     "lint": "next lint"
   },

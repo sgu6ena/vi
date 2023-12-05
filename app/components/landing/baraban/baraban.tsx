@@ -6,7 +6,18 @@ import BarabanItem from "@/app/components/landing/baraban/barabanItem";
 
 const Baraban = () => {
 
-  const {isWinnersLoading, winners, body, winners1, winners3, title, winners4, winners5, winners2} = useMain()
+  const {
+    isWinnersLoading,
+    winners,
+    body,
+    title,
+    winners1,
+    winners3,
+    winners4,
+    winners5,
+    winners2,
+    type
+  } = useMain()
 
 
   return (<>

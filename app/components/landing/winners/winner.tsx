@@ -60,7 +60,7 @@ const Winner = () => {
                             onChange={(e) => setActiveTabIndex(Number(e.target.value) as 0 | 1 | 2)}
                         >
                             {Boolean(token) ? <option value={0}>Мои подарки</option> : null}
-                            <option value={1}>Победители от партнеров</option>
+                            <option value={1}>Победители от партнёров</option>
                             <option value={2}>Денежные победители</option>
                         </select>
                     </div>
@@ -72,7 +72,7 @@ const Winner = () => {
                         </button> : null}
 
                         <button className={activeTabIndex === 1 ? styles.active : styles.inactive}
-                                onClick={() => setActiveTabIndex(1)}>Победители от партнеров
+                                onClick={() => setActiveTabIndex(1)}>Победители от партнёров
                         </button>
                         <button className={activeTabIndex === 2 ? styles.active : styles.inactive}
                                 onClick={() => setActiveTabIndex(2)}>Денежные победители
@@ -86,7 +86,7 @@ const Winner = () => {
                         <thead>
                         <tr>
                             <th>лицевой счет</th>
-                            <th className={'md:block hidden'}>партнер</th>
+                            <th className={'md:block hidden'}>партнёр</th>
                             <th>подарок</th>
                         </tr>
                         </thead>

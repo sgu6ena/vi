@@ -41,7 +41,7 @@ const Partners = () => {
       <img src={'/images/img_6.png'} alt="" className={styles.img3}/>
       <img src={'/images/img_7.png'} alt="" className={styles.img4}/>
       <h2>
-        Партнеры
+        Партнёры
       </h2>
 
       <PartnersSlider items={sponsors1} autoplay={autoplay1}/>

@@ -8,7 +8,7 @@ import classNames from "classnames";
 const menuData: { link: string, title: string }[] = [{
     link: "/#main", title: 'Главная'
 }, {
-    link: "/#partners", title: 'Партнеры'
+    link: "/#partners", title: 'Партнёры'
 },
     {
         link: "/#winners", title: 'Победители'
