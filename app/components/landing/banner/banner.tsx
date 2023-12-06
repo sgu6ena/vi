@@ -9,14 +9,12 @@ import Baraban from "@/app/components/landing/baraban/baraban";
 import {useActions} from "@/app/store/hooks";
 
 
-
-
 const DynamicTimer = dynamic(() => import('../../widjets/timer').then(m => m.Timer), {
   ssr: false,
 })
 const Banner = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
-  const [barabanIsOpen, setBarabanIsOpen] = useState<boolean>(false)
+
   const {time, title, type} = useMain()
   const isLoad = Boolean(title)
 
@@ -37,13 +35,6 @@ const Banner = () => {
 
   const {accounts} = useMain()
 
-  const getBaraban = () => {
-    setBarabanIsOpen(true)
-    const timer = setTimeout(() => {
-      getWinner();
-    }, 3500)
-    return () => clearTimeout(timer)
-  }
 
 
   return (
@@ -52,7 +43,7 @@ const Banner = () => {
       <div className={styles.main}>
         <div className={styles.left}>
 
-          {isLoad && <DynamicTimer onTimeEnd={getBaraban} type={type.toString()} time={time*1000}/>}
+          {isLoad && <DynamicTimer  type={type.toString()} time={time*1000}/>}
 
 
           <h1>Новогодний<br/> переполох</h1>
@@ -91,9 +82,7 @@ const Banner = () => {
         </div>
       </div>
 
-      <Modal modalIsOpen={barabanIsOpen} setIsOpen={setBarabanIsOpen}>
-        <Baraban/>
-      </Modal>
+
     </section>
   );
 };

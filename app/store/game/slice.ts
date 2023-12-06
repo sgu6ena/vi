@@ -137,11 +137,10 @@ export const gameSlice = createSlice({
         // state.isLoading = true
         state.isError = false
         state.message = ""
-        state.isNeedAuth = false
+
       })
       .addCase(needAuth.fulfilled, (state, {payload}) => {
         state.isLoading = false
-        state.isNeedAuth = false
         state.isError = false
         state.message = ""
         state.game_id = payload.game_id

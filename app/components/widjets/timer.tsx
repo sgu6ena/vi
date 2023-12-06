@@ -1,6 +1,9 @@
 'use client';
 import React, {FC, useEffect, useState} from "react";
 import styles from './timer.module.scss'
+import Modal from "@/app/components/modals/modal";
+import {useActions} from "@/app/store/hooks";
+import dynamic from "next/dynamic";
 
 
 const SECOND = 1000;
@@ -28,10 +31,14 @@ const formatTimeUnit = (value: number, unit: string) => {
 interface ITimer{
     time: number;
     type: string
-    onTimeEnd:()=>void
+    // onTimeEnd:()=>void
 }
 
-export const Timer: FC<ITimer> = ({type, onTimeEnd, time}) => {
+
+const DynamicBaraban = dynamic(() => import('../../components/landing/baraban/baraban').then(m => m.default), {
+    ssr: false,
+})
+export const Timer: FC<ITimer> = ({type, time}) => {
 
     const [currentTime, setTime] = useState(time);
 
@@ -50,7 +57,6 @@ export const Timer: FC<ITimer> = ({type, onTimeEnd, time}) => {
     }
 
     useEffect(() => {
-
         const interval = setInterval(() => {
             if (currentTime>0) {
                 setTime(currentTime - 1000)
@@ -62,7 +68,7 @@ export const Timer: FC<ITimer> = ({type, onTimeEnd, time}) => {
 
     useEffect(() =>{
         if (currentTime<=0){
-            onTimeEnd()
+            getBaraban()
         }
     },[currentTime]);
 
@@ -71,17 +77,33 @@ export const Timer: FC<ITimer> = ({type, onTimeEnd, time}) => {
     }, [time]);
 
 
+
+
+    const [barabanIsOpen, setBarabanIsOpen] = useState<boolean>(false)
+
     const days = Math.floor(currentTime / DAY);
     const hours = Math.floor((currentTime % DAY) / HOUR);
     const minutes = Math.floor((currentTime % HOUR) / MINUTE);
     const seconds = Math.floor((currentTime % MINUTE) / SECOND);
 
+    const getBaraban = () => {
+        setBarabanIsOpen(true)
+        const timer = setTimeout(() => {
+            getWinner();
+        }, 3500)
+        return () => clearTimeout(timer)
+    }
 
+    const {getWinner} = useActions()
 
-
-    return (
+    return (<>
+            <Modal modalIsOpen={barabanIsOpen} setIsOpen={setBarabanIsOpen}>
+                <DynamicBaraban setClose={() => setBarabanIsOpen(false)} time={currentTime}/>
+            </Modal>
         <div className={styles.timerWrapper}>
-            <div  className={'text-white lg:text-2xl flex flex-col items-center md:items-start transition-all   text-lg sm:block '}>
+
+            <div
+                className={'text-white lg:text-2xl flex flex-col items-center md:items-start transition-all   text-lg sm:block '}>
                 <div className={'pb-2 md:text-left  text-center transition-all'}>{text}</div>
 
                 <div className="flex md:justify-start justify-between md:gap-4 gap-2 w-full">
@@ -104,5 +126,6 @@ export const Timer: FC<ITimer> = ({type, onTimeEnd, time}) => {
                 </div>
             </div>
         </div>
+        </>
     );
 };

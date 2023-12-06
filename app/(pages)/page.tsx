@@ -1,7 +1,7 @@
 'use client';
 import dynamic from "next/dynamic";
 
-;
+
 import React, {useEffect} from "react";
 import Banner from "@/app/components/landing/banner/banner";
 import Partners from "@/app/components/landing/partners/partners";

@@ -42,7 +42,7 @@ const Layout = ({
                     <img src={'/images/img_4.png'} alt="" className={styles.img1}/>
 
                 </div>
-                <div className="col  col-span-3 ">  {isError ?
+                <div className="col  col-span-3 ">  {isError && message.length>0 ?
                     <div className={'flex flex-col gap-10 justify-center items-center min-h-[80vh]'}>
                         <p className={'bg-red  relative w-full p-6 text-white text-center figure-border'}>{message}</p>
                         <StartGame text={'Играть'} bonus={false}/>

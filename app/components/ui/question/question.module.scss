@@ -17,7 +17,7 @@
     .a{
       @apply z-40 border-2 leading-5 md:leading-6 flex justify-center items-center border-gold p-4 md:text-xl text-xl font-medium text-center transition-all figure-border;
       &:hover{
-        @apply bg-gold cursor-pointer shadow shadow-white text-red
+        @apply md:bg-gold cursor-pointer md:shadow md:shadow-white md:text-red
       }
 
       &.active{

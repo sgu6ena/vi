@@ -1,10 +1,10 @@
 'use client';
-import React, {useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useMain} from "@/app/hooks/useMain";
 import Loading from "@/app/loading";
 import BarabanItem from "@/app/components/landing/baraban/barabanItem";
 
-const Baraban = () => {
+const Baraban:FC<{setClose:()=>void, time:number}> = ({setClose, time}) => {
 
   const {
     isWinnersLoading,
@@ -18,8 +18,15 @@ const Baraban = () => {
     winners2,
     allRandomAccs,
     isOneWinner,
-    isFiveWinner
+    isFiveWinner,
   } = useMain()
+
+
+  useEffect(() => {
+    if(time>0){
+      setClose()
+    }
+  }, [time]);
 
 
   return (<>
@@ -31,7 +38,7 @@ const Baraban = () => {
             </div>
             <div className={'text-sm text-center mt-0.5 text-gray-500'}>{body}</div>
           </div>
-          {isFiveWinner && winners ? <>
+          {isFiveWinner && winners  ? <>
             <BarabanItem winner={winners[0]} accounts={winners1}/>
             <BarabanItem winner={winners[1]} accounts={winners2}/>
             <BarabanItem winner={winners[2]} accounts={winners3}/>
@@ -39,7 +46,7 @@ const Baraban = () => {
             <BarabanItem winner={winners[4]} accounts={winners5}/>
           </> : null
           }
-          {isOneWinner && winners ? <>
+          {isOneWinner && winners  ? <>
             <BarabanItem winner={winners[0]} accounts={allRandomAccs}/>
           </> : null
           }

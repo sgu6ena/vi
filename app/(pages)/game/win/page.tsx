@@ -12,10 +12,6 @@ const Page = () => {
   return (
     <>
       {isLoading ? <Loading/> : isElka ? <Elka/> : <Win bonus={winStatus.bonus}/>}
-
-
-
-
     </>
   );
 };
