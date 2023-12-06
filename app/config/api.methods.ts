@@ -4,7 +4,7 @@ export const AUTH = {
 }
 
 export const GAME = {
-  NEED_AUTH: '/needAuth',
+  NEED_AUTH: '/needAuth', /* проверка авторизации */
   START_BY_TYPE: '/question',
   STATUS: '/question',
   QUESTION: '/quest', /* запросить вопрос */
@@ -12,7 +12,7 @@ export const GAME = {
   TIME: '/buyTime', /* докупить 30 секунд */
   HELP: '/buyHelp', /* 50*50 */
   BONUS_PRIZE: "/tree" ,/* призы на елочке */
-  REPOST:'/repost'
+  REPOST:'/repost' /* регистрация репостов */
 }
 
 export const MAIN = {

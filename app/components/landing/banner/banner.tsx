@@ -78,7 +78,7 @@ const Banner = () => {
             </div>
             <div>
               <b>Смартфон</b>
-              <span>Vivo Y16</span>
+              <span>VIVO Y16</span>
             </div>
             <div>
               <b>Подарки <br/> от парнёров</b>

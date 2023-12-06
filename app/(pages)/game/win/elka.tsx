@@ -34,7 +34,7 @@ const Elka: FC = () => {
           </>}
       </div>
         {isPrizes ? <div className={styles.buttons}>
-        <StartGame text={'Играть еще'} bonus={false}/>
+        <StartGame text={'Играть ещё'} bonus={false}/>
         {winStatus.bonus ? <StartGame text={'Бонусный вопрос'} bonus={true}/> : null}
         <div className={`md:col-span-2 md:w-1/2 md:m-auto`}>
           <ShareButton/>

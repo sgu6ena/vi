@@ -193,8 +193,8 @@ export const partners:ISponsor[] = [
   },
   {
     id: 29,
-    title: "Iterra",
-    src: '/sponsors/frends.png',
+    title: "Itera",
+    src: '/sponsors/miatera.png',
     link: "https://www.itera.md/"
   },
   {

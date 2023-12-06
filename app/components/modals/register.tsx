@@ -50,6 +50,7 @@ const Register = () => {
                     placeholder={'77X XXXXX'}
                 />
                 <span>{errors.phone && <>{errors.phone.message}</>}</span>
+                <div className={'text-center text-sm leading-4 pt-1 text-[#FF2626] leading-5'}>{isError && error}</div>
             </label>
             <div className={'w-full'}>
                 <button type={'submit'} className={styles.btnGold}>Получить код по SMS</button>
@@ -86,7 +87,7 @@ const Register = () => {
             <div className={'w-full'}>
                 <button type={'submit'} className={styles.btnGold}>Играть</button>
                 <sup> {TEXT_MODALS.TEXT_PRICE}</sup>
-                <div className={'text-white underline  text-center cursor-pointer'} onClick={()=>resetRegister()}>Отправить пароль в SMS еще раз</div>
+                <div className={'text-white underline  text-center cursor-pointer'} onClick={()=>resetRegister()}>Отправить пароль в SMS ещё раз</div>
             </div>
         </form>)
     }

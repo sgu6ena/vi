@@ -27,7 +27,7 @@ const Layout = ({
         }
     }, [isError]);
 
-    useEffect(() => {
+    useEffect( () => {
         if(isNeedAuth){
             push('/')
         }

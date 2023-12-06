@@ -41,6 +41,7 @@ export const slice = createSlice({
         builder
             .addCase(postPhone.pending, (state) => {
                 state.isLoading = true
+                state.isError = false
             })
             .addCase(postPhone.fulfilled, (state,{ payload }) => {
                 state.isLoading = false
@@ -48,12 +49,17 @@ export const slice = createSlice({
                 state.token = payload.token
                 state.isSendSms = true
             })
-            .addCase(postPhone.rejected, (state) => {
+            .addCase(postPhone.rejected, (state, {payload}) => {
                 state.isLoading = false
+
+                state.isError = true
+                //@ts-ignore
+                state.message = payload
             })
             .addCase(postCode.pending, (state) => {
                 state.isLoading = true
                 state.isTrueCode = false
+                state.isError = false
             })
             .addCase(postCode.fulfilled, (state,{ payload }) => {
                 state.isLoading = false

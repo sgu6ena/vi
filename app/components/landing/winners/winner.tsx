@@ -85,7 +85,7 @@ const Winner = () => {
                         <table>
                         <thead>
                         <tr>
-                            <th>лицевой счет</th>
+                            <th>лицевой счёт</th>
                             <th className={'md:block hidden'}>партнёр</th>
                             <th>подарок</th>
                         </tr>

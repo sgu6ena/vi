@@ -4,16 +4,27 @@ import Cookies from "js-cookie";
 import {iSendCode, iSendSms} from "@/app/store/user/interface";
 
 
+// Функция для проверки интернет-соединения
+const isOnline = () => {
+    return navigator.onLine;
+};
+
 export const postPhone = createAsyncThunk<any, iSendSms>(
     'postPhone',
     async ({phone}, thinkApi) => {
         try {
+            if (!isOnline()) {
+                throw new Error('Нет подключения к интернет. Проверьте ваше подключение к интернет');
+            }
             const response = await registerService.postMobile({phone})
             const token = response.token
+            // const currentDate = new Date();
+            // const expirationTime = new Date(currentDate.getTime() + 30 * 60 * 1000);
+            // Cookies.set('at', token, { expires: expirationTime });
             Cookies.set('at', token)
             return {phone, token}
-        } catch (error) {
-
+        } catch (error:any) {
+            return thinkApi.rejectWithValue(error.response.data.error.message);
         }
     })
 
