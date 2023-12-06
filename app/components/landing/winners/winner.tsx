@@ -31,6 +31,9 @@ const Winner = () => {
 
     const isWinners = winners?.data && winners.data.length && !isLoading
 
+    const isMyPrizes = activeTabIndex === 0
+
+
     return (
     <section id={'winners'} className={styles.winners}>
       <h2>
@@ -42,17 +45,6 @@ const Winner = () => {
                 <div>
                     <div className={styles.mobileInputs}>
 
-                        <select
-                            id="mobileDay"
-                            value={dayN}
-                            onChange={(e) => setDayN(Number(e.target.value))}
-                        >
-                            {dates.map((date, index) => (
-                                <option key={date} value={index}>
-                                    {date}
-                                </option>
-                            ))}
-                        </select>
 
                         <select
                             id="mobileTab"
@@ -63,11 +55,23 @@ const Winner = () => {
                             <option value={1}>Победители от партнёров</option>
                             <option value={2}>Денежные победители</option>
                         </select>
+                        {!isMyPrizes &&
+                        <select
+                            id="mobileDay"
+                            value={dayN}
+                            onChange={(e) => setDayN(Number(e.target.value))}
+                        >
+                            {dates.map((date, index) => (
+                                <option key={date} value={index}>
+                                    {date}
+                                </option>
+                            ))}
+                        </select>}
                     </div>
 
 
                     <div className={styles.tabs}>
-                        {Boolean(token) ? <button className={activeTabIndex === 0 ? styles.active : styles.inactive}
+                        {Boolean(token) ? <button className={isMyPrizes ? styles.active : styles.inactive}
                                                   onClick={() => setActiveTabIndex(0)}>Мои подарки
                         </button> : null}
 
@@ -79,7 +83,7 @@ const Winner = () => {
                         </button>
                     </div>
                     <div className={styles.dates}>
-                        {dates.map((date, index)=>  <button key={date} className={index===dayN?styles.active:''}   onClick={() => setDayN(index)}>{date}</button>)}
+                        {!isMyPrizes && dates.map((date, index)=>  <button key={date} className={index===dayN?styles.active:''}   onClick={() => setDayN(index)}>{date}</button>)}
                     </div>
                     <div className={styles.tableWrapper}>
                         <table>

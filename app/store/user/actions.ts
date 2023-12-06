@@ -4,18 +4,10 @@ import Cookies from "js-cookie";
 import {iSendCode, iSendSms} from "@/app/store/user/interface";
 
 
-// Функция для проверки интернет-соединения
-const isOnline = () => {
-    return navigator.onLine;
-};
-
 export const postPhone = createAsyncThunk<any, iSendSms>(
     'postPhone',
     async ({phone}, thinkApi) => {
         try {
-            if (!isOnline()) {
-                throw new Error('Нет подключения к интернет. Проверьте ваше подключение к интернет');
-            }
             const response = await registerService.postMobile({phone})
             const token = response.token
             // const currentDate = new Date();

@@ -1,6 +1,7 @@
 
 import {createSlice} from "@reduxjs/toolkit";
 import {postCode, postPhone} from "@/app/store/user/actions";
+import Cookies from "js-cookie";
 
 interface UserState{
     isLoading: boolean
@@ -19,7 +20,7 @@ const initialState:UserState = {
     isSendSms:false,
     isTrueCode:false,
     phone:'',
-    token:'',
+    token:Cookies.get('at')||'',
     message:''
 }
 
