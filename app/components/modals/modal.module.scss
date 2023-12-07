@@ -2,6 +2,19 @@
   @apply  fixed overflow-hidden h-[100vh]  w-[100vw] top-0 right-0 left-0 bottom-0 flex justify-center items-center px-2 bg-black
   bg-opacity-80 z-60;
   overflow-y: hidden;
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; // Yeah, yeah everybody write about it
+  }
+
+  input[type='number'],
+  input[type="number"]:hover,
+  input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+  }
+
   .modal {
     @apply figure-border  top-0 right-0 left-0 bottom-0  text-white bg-green md:w-[480px]  md:p-8 px-4 py-8 text-sm  flex-center-between flex-col gap-6;
     label {

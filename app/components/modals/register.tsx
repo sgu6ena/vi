@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useEffect} from 'react';
+import React, {ChangeEvent, useEffect} from 'react';
 import styles from './modal.module.scss'
 import {useActions, } from "@/app/store/hooks";
 import {SubmitHandler, useForm} from 'react-hook-form'
@@ -17,7 +17,7 @@ const Register = () => {
 
     const {phoneNumber, isSmsSend, isLoading, isTrueCode, isError, error} = useUser()
     const {push} = useRouter()
-    const {postPhone, postCode, resetRegister, } = useActions()
+    const {postPhone, postCode, resetRegister,} = useActions()
 
     const sendPhone: SubmitHandler<iSendSms> = (data) => {
         postPhone(data)
@@ -34,23 +34,40 @@ const Register = () => {
 
 
     const PhoneForm = () => {
-        const {formState: {errors}, handleSubmit, register} = useForm<iSendSms>()
+        const {formState: {errors}, handleSubmit, register, setValue} = useForm<iSendSms>()
+        const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+            let inputValue = e.target.value;
+            if (inputValue.length ===1 && inputValue.charAt(0) !== '7') {
+                inputValue = inputValue.slice(1);
+            }
+            if (inputValue.length === 2 && inputValue.charAt(1) !== '7') {
+                inputValue = inputValue.slice(0, 1);
+            }
 
+            if (inputValue.length > 8) {
+                inputValue = inputValue.slice(0,8);
+            }
+            setValue('phone', inputValue);
+        };
         return (<form className={styles.modal} onSubmit={handleSubmit(sendPhone)}>
             <div className={'text-center text-sm'}> {TEXT_MODALS.TEXT_WARNING_PHONE} </div>
             <label> Номер телефона
                 <input
                     {...register('phone', {
                         required: TEXT_MODALS.ERROR_FOR_MOBILE,
+                        max: 77999999, min: 77000000, maxLength: 8,
                         pattern: {
-                            value: /^77\d{6}$/,
+                            value: /^77[4-9]\d{5}$/,
                             message: TEXT_MODALS.ERROR_FOR_MOBILE,
                         },
+
                     })}
+                    onChange={handlePhoneChange}
+                    type={'number'}
                     placeholder={'77X XXXXX'}
                 />
                 <span>{errors.phone && <>{errors.phone.message}</>}</span>
-                <div className={'text-center text-sm leading-4 pt-1 text-[#FF2626] leading-5'}>{isError && error}</div>
+                <span className={'text-center text-sm leading-4 pt-1 text-[#FF2626] leading-5'}>{isError && error}</span>
             </label>
             <div className={'w-full'}>
                 <button type={'submit'} className={styles.btnGold}>Получить код по SMS</button>
@@ -61,8 +78,14 @@ const Register = () => {
 
 
     const SmsForm = () => {
-        const {handleSubmit, register} = useForm<iSendCode>()
-
+        const {handleSubmit, register, setValue} = useForm<iSendCode>()
+        const handleCodeChange = (e: ChangeEvent<HTMLInputElement>) => {
+            let inputValue = e.target.value;
+            if (inputValue.length > 4) {
+                inputValue = inputValue.slice(0,4);
+            }
+            setValue('sms', inputValue);
+        };
         return (<form className={styles.modal} onSubmit={handleSubmit(sendCode)}>
             <div className={'text-center text-sm'}> {TEXT_MODALS.TEXT_WARNING_CODE} </div>
 
@@ -74,13 +97,15 @@ const Register = () => {
                 <input
                     {...register('sms', {
                         required: 'Поле обязательно к заполнению',
+
                         pattern: {
                             value: /^\d{4}$/,
                             message: TEXT_MODALS.ERROR_FOR_CODE,
                         },
                     })}
-                    type="text"
+                    type="number"
                     placeholder={'XXXX'}
+                    onChange={handleCodeChange}
                 />{isError && <div className={'text-[#ff0000] mt-1 text-center text-sm'}>{error}</div>}
             </label>
 

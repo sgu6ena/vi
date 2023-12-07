@@ -6,7 +6,7 @@ import {mainAPI} from "@/app/store/services/mainAPI";
 import {useUser} from "@/app/hooks/user";
 const Winner = () => {
 
-    const startDate = new Date('2023-12-03'); // начальная дата
+    const startDate = new Date('2023-12-07'); // начальная дата
     const endDate = new Date();     // конечная дата
     const dates = []
 
@@ -44,8 +44,6 @@ const Winner = () => {
             <div className={styles.block}>
                 <div>
                     <div className={styles.mobileInputs}>
-
-
                         <select
                             id="mobileTab"
                             value={activeTabIndex}
