@@ -41,7 +41,7 @@
         }
       }
       .tableWrapper {
-        @apply max-h-96 overflow-auto;
+        @apply max-h-[650px] h-full overflow-auto;
         table {
           @apply border  border-white w-full my-5 text-white;
 

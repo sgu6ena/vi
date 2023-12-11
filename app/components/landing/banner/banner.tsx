@@ -5,7 +5,6 @@ import Modal from "@/app/components/modals/modal";
 import Register from "@/app/components/modals/register";
 import dynamic from "next/dynamic";
 import {useMain} from "@/app/hooks/useMain";
-import Baraban from "@/app/components/landing/baraban/baraban";
 import {useActions} from "@/app/store/hooks";
 
 
@@ -43,14 +42,14 @@ const Banner = () => {
       <div className={styles.main}>
         <div className={styles.left}>
 
-          {isLoad && <DynamicTimer  type={type.toString()} time={time*1000}/>}
+          {isLoad && <DynamicTimer type={type.toString()} time={time * 1000}/>}
 
 
           <h1>Новогодний<br/> переполох</h1>
           <a onClick={() => setIsOpen(true)} className={styles.start}>
-            <div>
+            <span>
               Выиграть деньги
-            </div>
+            </span>
             <div>
               <svg width="39" height="40" viewBox="0 0 39 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M23.4492 10.4595L33.313 20.3232L23.4492 30.187" stroke="currentColor" strokeWidth="3"
@@ -60,6 +59,20 @@ const Banner = () => {
               </svg>
             </div>
           </a>
+          {/*{type === 0 ? <div className={styles.start}>Викторина завершена</div>*/}
+          {/*    : <a onClick={() => setIsOpen(true)} className={styles.start}>*/}
+          {/*  <span>*/}
+          {/*    Выиграть деньги*/}
+          {/*  </span>*/}
+          {/*      <div>*/}
+          {/*        <svg width="39" height="40" viewBox="0 0 39 40" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
+          {/*          <path d="M23.4492 10.4595L33.313 20.3232L23.4492 30.187" stroke="currentColor" strokeWidth="3"*/}
+          {/*                strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>*/}
+          {/*          <path d="M5.6875 20.3232H33.0362" stroke="currentColor" strokeWidth="3" strokeMiterlimit="10"*/}
+          {/*                strokeLinecap="round" strokeLinejoin="round"/>*/}
+          {/*        </svg>*/}
+          {/*      </div>*/}
+          {/*    </a>}*/}
           <div className={styles.prize}>Главный приз 50&nbsp;000 рублей</div>
           <p>Ежедневный розыгрыш</p>
           <div className={styles.prizes}>
@@ -72,7 +85,7 @@ const Banner = () => {
               <span>VIVO Y16</span>
             </div>
             <div>
-              <b>Подарки <br/> от парнёров</b>
+              <b>Подарки <br/> от партнёров</b>
             </div>
           </div>
 

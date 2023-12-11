@@ -10,7 +10,8 @@ export interface IResult {
   end_game: boolean;
   elka: boolean;
   bonus: boolean;
-
+  type?: 3 | 1
+  round?: 1 | 2 | 3
 }
 
 export interface IType{

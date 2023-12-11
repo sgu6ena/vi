@@ -97,35 +97,41 @@ export const Timer: FC<ITimer> = ({type, time}) => {
     const {getWinner} = useActions()
 
     return (<>
-            <Modal modalIsOpen={barabanIsOpen} setIsOpen={setBarabanIsOpen}>
-                <DynamicBaraban setClose={() => setBarabanIsOpen(false)} time={currentTime}/>
-            </Modal>
-        <div className={styles.timerWrapper}>
+            {type!=='0' ?
+                <>
+                <Modal modalIsOpen={barabanIsOpen} setIsOpen={setBarabanIsOpen}>
+                    <DynamicBaraban setClose={() => setBarabanIsOpen(false)} time={currentTime}/>
+                </Modal>
+                <div className={styles.timerWrapper}>
 
-            <div
-                className={'text-white lg:text-2xl flex flex-col items-center md:items-start transition-all   text-lg sm:block '}>
-                <div className={'pb-2 md:text-left  text-center transition-all'}>{text}</div>
+                    <div
+                        className={'text-white lg:text-2xl flex flex-col items-center md:items-start transition-all   text-lg sm:block '}>
+                        <div className={'pb-2 md:text-left  text-center transition-all'}>{text}</div>
 
-                <div className="flex md:justify-start justify-between md:gap-4 gap-2 w-full">
-                    {[
-                        {label: "day", value: days},
-                        {label: "hour", value: hours},
-                        {label: "minute", value: minutes},
-                        {label: "second", value: seconds},
-                    ].map(({label, value}, index) => (
-                        <div key={index + label} className="col md:w-fit w-full">
-                            <div
-                                className="transition-all text-center figure-border bg-green p-4  lg:w-28 sm:w-20 w-full">
-                                {`${Math.floor(value)}`.padStart(2, "0")}
-                            </div>
-                            <div className={'transition-all lg:pl-8 lg:text-xl text-sm md:text-center text-right lg:font-bold '}>
-                                {formatTimeUnit(value, label)}
-                            </div>
+                        <div className="flex md:justify-start justify-between md:gap-4 gap-2 w-full">
+                            {[
+                                {label: "day", value: days},
+                                {label: "hour", value: hours},
+                                {label: "minute", value: minutes},
+                                {label: "second", value: seconds},
+                            ].map(({label, value}, index) => (
+                                <div key={index + label} className="col md:w-fit w-full">
+                                    <div
+                                        className="transition-all text-center figure-border bg-green p-4  lg:w-28 sm:w-20 w-full">
+                                        {`${Math.floor(value)}`.padStart(2, "0")}
+                                    </div>
+                                    <div
+                                        className={'transition-all lg:pl-8 lg:text-xl text-sm md:text-center text-right lg:font-bold '}>
+                                        {formatTimeUnit(value, label)}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
-            </div>
-        </div>
+                </>:
+            null
+            }
         </>
     );
 };

@@ -9,6 +9,8 @@ export interface GameState {
   bonus: boolean
   isHelp: boolean
   isNeedAuth:boolean
+  round: 1 | 2 | 3 | null
+  type: 1 | 3 | null
   quest_id: number | null
   game_id: number | null
   answer_id: number
@@ -31,5 +33,7 @@ export const initialState: GameState = {
   quest_id: null,
   game_id: null,
   answer_id: 0,
-  question: null
+  question: null,
+  round: null,
+  type: null
 }

@@ -99,6 +99,8 @@ export const gameSlice = createSlice({
         state.end_game = payload.end_game
         state.elka = payload.elka
         state.bonus = payload.bonus
+        state.round = payload.round || null
+        state.type = payload.type || null
         if (state.quest_id && state.quest_id > 0) {
           state.quest_id = state.quest_id + 1
         }

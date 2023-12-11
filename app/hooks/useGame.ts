@@ -15,7 +15,10 @@ export const useGame=()=>{
     const winStatus = {
         end_game:useAppSelector(state => (state.gameReducer.end_game)),
         elka:useAppSelector(state => (state.gameReducer.elka)),
-        bonus:useAppSelector(state => (state.gameReducer.bonus))
+        bonus: useAppSelector(state => (state.gameReducer.bonus)),
+        round: useAppSelector(state => (state.gameReducer.round)),
+        type: useAppSelector(state => (state.gameReducer.type)),
+
     }
     const timer = useAppSelector(state => (state.gameReducer.timer));
     const isWin = useAppSelector(state => (state.gameReducer.isWin));

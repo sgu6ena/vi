@@ -7,7 +7,7 @@ import {useUser} from "@/app/hooks/user";
 const Winner = () => {
 
     const startDate = new Date('2023-12-07'); // начальная дата
-    const endDate = new Date();     // конечная дата
+    const endDate = new Date('2023-12-27');     // конечная дата
     const dates = []
 
     const {token} = useUser()
@@ -19,7 +19,9 @@ const Winner = () => {
     }
 
     dates.pop()
-    const day = dates.length
+    const today = new Date().toLocaleDateString().slice(0, 5);
+
+    const day = dates.findIndex(date => date === today) || dates.length;
     const [dayN, setDayN] = useState(day-1)
     const [getWinners, {data: winners, isLoading,}] = mainAPI.usePostWinnersMutation();
 

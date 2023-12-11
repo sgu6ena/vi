@@ -9,9 +9,11 @@ import Script from "next/script";
 const Page = () => {
   const {winStatus, isLoading} = useGame()
   const isElka = winStatus.elka
+  const type = winStatus.type
+  const round = winStatus.round
   return (
     <>
-      {isLoading ? <Loading/> : isElka ? <Elka/> : <Win bonus={winStatus.bonus}/>}
+      {isLoading ? <Loading/> : isElka ? <Elka/> : <Win bonus={winStatus.bonus} type={type} round={round}/>}
     </>
   );
 };

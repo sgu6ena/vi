@@ -8,9 +8,9 @@ export const useMain = () => {
   const isWinnersLoading = accounts.length === 0
   const five = accounts.slice(0, 5).map(item => item.account)
   const winners = accounts.length ? five : null
-  const allRandomAccs = [...accounts].sort(() => Math.random() - 0.5);
+  const allRandomAccs = accounts.length <= 1000 ? [...accounts].sort(() => Math.random() - 0.5) : [...accounts].slice(0, 1000).sort(() => Math.random() - 0.5);
 
-  const counts = Math.floor((accounts.length) / 5);
+  const counts = accounts.length <= 5000 ? Math.floor((accounts.length) / 5) : 1000;
   const winners1 = [...accounts].slice(0, counts * 1).sort(() => Math.random() - 0.5);
   const winners2 = [...accounts].slice(counts * 1 , counts * 2 ).sort(() => Math.random() - 0.5);
   const winners3 = [...accounts].slice(counts * 2 , counts * 3 ).sort(() => Math.random() - 0.5);
